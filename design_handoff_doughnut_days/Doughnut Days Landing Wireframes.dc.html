@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Special+Elite&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"><style>
+body{margin:0;background:#f0eee9;font-family:system-ui,sans-serif}
+a{color:#c2185b}a:hover{color:#8c1145}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+.wf{font-family:'Architects Daughter',cursive;color:#111;font-size:15px}
+.b{border:2px solid #111;box-sizing:border-box}
+.hatch{background:repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0 7px,transparent 7px 14px);display:flex;align-items:center;justify-content:center;text-align:center}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.n{font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.45;color:#c2185b}
+.pin{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:#c2185b;color:#fff;font:600 10px 'IBM Plex Mono',monospace;flex:none}
+.lines{background:repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 2px,transparent 2px 13px)}
+.tw{font-family:'Special Elite',monospace}
+.speclist{margin:0;padding:0 0 0 16px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.7;color:#333}
+.speclist li{margin-bottom:3px}
+</style></helmet>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Doughnut Days landing page — three structures, desktop + mobile</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Straight from the sketch — full-bleed hero, centered stack</div>
+<div class="dv-card wf" style="width:820px;padding:0">
+  <div style="display:flex">
+    <div style="width:620px;border-right:1px dashed rgba(0,0,0,.2)">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:2px solid #111">
+        <div class="b" style="padding:5px 9px;font-size:13px">@doughnut_days</div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="b" style="padding:5px 8px;font-size:12px">Donut Maps</div>
+          <div class="b" style="padding:5px 8px;font-size:12px">Blog</div>
+          <div class="b" style="padding:5px 8px;font-size:12px">Contact Us</div>
+          <div class="b" style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:11px">IG</div>
+        </div>
+      </div>
+      <div class="hatch" style="height:300px;border-bottom:2px solid #111;position:relative">
+        <span class="mono" style="font-size:10px;color:#666;position:absolute;top:10px;left:12px">HERO IMAGE — decorative, full bleed (felt sun photo)</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="tw" style="background:#111;color:#fff;padding:10px 22px;font-size:30px;letter-spacing:.02em">DOUGHNUT DAYS</div>
+          <div class="tw" style="background:#111;color:#fff;padding:7px 16px;font-size:17px">(and other things)</div>
+        </div>
+      </div>
+      <div style="padding:26px 60px;border-bottom:2px solid #111">
+        <div class="lines" style="height:66px"></div>
+        <div class="mono" style="font-size:10px;color:#666;margin-top:8px">intro paragraph — 2–3 sentences</div>
+      </div>
+      <div style="padding:30px 60px;border-bottom:2px solid #111">
+        <div class="b" style="display:inline-block;padding:7px 14px;font-size:19px;margin-bottom:14px">Supporting our local bakeries</div>
+        <div class="lines" style="height:66px"></div>
+      </div>
+      <div style="padding:30px 60px;border-bottom:2px solid #111">
+        <div class="b" style="display:inline-block;padding:7px 14px;font-size:19px;margin-bottom:14px">Donut Maps</div>
+        <div class="lines" style="height:44px;margin-bottom:16px"></div>
+        <div class="b" style="display:inline-block;padding:9px 18px;font-size:14px;background:#111;color:#fff">See the maps →</div>
+      </div>
+      <div style="padding:24px 40px;display:flex;justify-content:space-between;background:#111;color:#fff">
+        <div>
+          <div style="font-size:14px;margin-bottom:8px;text-decoration:underline">Page links list</div>
+          <div class="mono" style="font-size:10px;line-height:1.8;opacity:.8">Donut Maps<br>Blog<br>Contact Us</div>
+        </div>
+        <div>
+          <div style="font-size:14px;margin-bottom:8px;text-decoration:underline">Contact us</div>
+          <div class="mono" style="font-size:10px;opacity:.8">email link</div>
+          <div class="b" style="width:24px;height:24px;border-color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:8px">IG</div>
+        </div>
+      </div>
+    </div>
+    <div style="width:200px;padding:14px 14px 20px;display:flex;flex-direction:column;gap:12px;background:#fcfbf9">
+      <div class="mono" style="font-size:9px;letter-spacing:.1em;color:#999">NOTES</div>
+      <div style="display:flex;gap:7px"><span class="pin">1</span><span class="n">Nav is the sketch's short nav. Donut Maps = one page, both cities.</span></div>
+      <div style="display:flex;gap:7px"><span class="pin">2</span><span class="n">H1 + subhead: white typewriter text on opaque black boxes, sitting over the photo. Two separate boxes, offset.</span></div>
+      <div style="display:flex;gap:7px"><span class="pin">3</span><span class="n">Body copy is plain sans — the zine treatment stays on headings only.</span></div>
+      <div style="display:flex;gap:7px"><span class="pin">4</span><span class="n">Maps section is the primary CTA on this page.</span></div>
+      <div style="display:flex;gap:7px"><span class="pin">5</span><span class="n">Footer: two columns, links + contact, IG icon repeats.</span></div>
+    </div>
+  </div>
+</div>
+<div class="dv-olabel" style="margin-top:4px"><span class="dv-oid" style="background:rgba(0,0,0,.04)">1a·m</span>Mobile</div>
+<div class="dv-card wf" style="width:300px;padding:0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:2px solid #111">
+    <div class="b" style="padding:4px 7px;font-size:11px">@doughnut_days</div>
+    <div class="b" style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">≡</div>
+  </div>
+  <div class="hatch" style="height:220px;border-bottom:2px solid #111;flex-direction:column;gap:7px">
+    <div class="tw" style="background:#111;color:#fff;padding:7px 12px;font-size:19px">DOUGHNUT DAYS</div>
+    <div class="tw" style="background:#111;color:#fff;padding:5px 10px;font-size:12px">(and other things)</div>
+  </div>
+  <div style="padding:18px 18px;border-bottom:2px solid #111"><div class="lines" style="height:52px"></div></div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="b" style="display:inline-block;padding:5px 9px;font-size:14px;margin-bottom:10px">Supporting our local bakeries</div>
+    <div class="lines" style="height:52px"></div>
+  </div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="b" style="display:inline-block;padding:5px 9px;font-size:14px;margin-bottom:10px">Donut Maps</div>
+    <div class="lines" style="height:39px;margin-bottom:12px"></div>
+    <div class="b" style="display:block;text-align:center;padding:11px;font-size:13px;background:#111;color:#fff">See the maps →</div>
+  </div>
+  <div style="padding:18px;background:#111;color:#fff">
+    <div class="mono" style="font-size:10px;line-height:2;opacity:.85">Donut Maps<br>Blog<br>Contact Us<br>Instagram</div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Zine collage — taped boxes, off-grid, heavier voice</div>
+<div class="dv-card wf" style="width:620px;padding:0;background:#faf7f0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:2px solid #111">
+    <div class="tw" style="font-size:14px">@doughnut_days</div>
+    <div class="mono" style="display:flex;gap:14px;font-size:11px;text-transform:uppercase;letter-spacing:.06em"><span>Donut Maps</span><span>Blog</span><span>Contact</span><span class="b" style="padding:1px 5px">IG</span></div>
+  </div>
+  <div class="hatch" style="height:330px;border-bottom:2px solid #111;position:relative;justify-content:flex-start;align-items:flex-start">
+    <span class="mono" style="font-size:10px;color:#666;position:absolute;top:10px;left:12px">HERO IMAGE — full bleed</span>
+    <div class="tw" style="position:absolute;top:96px;left:34px;background:#111;color:#fff;padding:12px 20px;font-size:34px;transform:rotate(-1.4deg)">DOUGHNUT DAYS</div>
+    <div class="tw" style="position:absolute;top:160px;left:120px;background:#111;color:#fff;padding:8px 14px;font-size:18px;transform:rotate(1.2deg)">(and other things)</div>
+    <div style="position:absolute;bottom:26px;left:34px;width:330px;background:#fff;border:2px solid #111;padding:12px;transform:rotate(-.6deg)">
+      <div class="lines" style="height:48px"></div>
+    </div>
+  </div>
+  <div style="padding:34px 34px 30px;border-bottom:2px solid #111;display:flex;gap:22px;align-items:flex-start">
+    <div style="flex:1">
+      <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:7px 12px;font-size:18px;margin-bottom:14px;transform:rotate(-1deg)">SUPPORTING OUR LOCAL BAKERIES</div>
+      <div class="lines" style="height:78px"></div>
+    </div>
+    <div class="hatch b" style="width:170px;height:150px;transform:rotate(1.5deg)"><span class="mono" style="font-size:10px;color:#666">photo / cut-out</span></div>
+  </div>
+  <div style="padding:32px 34px;border-bottom:2px solid #111">
+    <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:7px 12px;font-size:18px;margin-bottom:16px;transform:rotate(.8deg)">DONUT MAPS</div>
+    <div style="display:flex;gap:16px">
+      <div class="b hatch" style="flex:1;height:120px;background-color:#fff"><span class="mono" style="font-size:10px;color:#666">Raleigh map preview</span></div>
+      <div class="b hatch" style="flex:1;height:120px;background-color:#fff"><span class="mono" style="font-size:10px;color:#666">D.C. Metro map preview</span></div>
+    </div>
+    <div class="b" style="display:inline-block;margin-top:16px;padding:9px 16px;font-size:14px;background:#fff200">Open the maps →</div>
+  </div>
+  <div style="padding:22px 34px;display:flex;justify-content:space-between;background:#111;color:#fff">
+    <div class="mono" style="font-size:10px;line-height:1.9;opacity:.85">Donut Maps<br>Blog<br>Contact Us</div>
+    <div class="mono" style="font-size:10px;line-height:1.9;text-align:right;opacity:.85">Contact us<br>@doughnut_days</div>
+  </div>
+</div>
+<div class="dv-olabel" style="margin-top:4px"><span class="dv-oid" style="background:rgba(0,0,0,.04)">1b·m</span>Mobile</div>
+<div class="dv-card wf" style="width:300px;padding:0;background:#faf7f0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:2px solid #111">
+    <div class="tw" style="font-size:12px">@doughnut_days</div>
+    <div class="b" style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">≡</div>
+  </div>
+  <div class="hatch" style="height:240px;border-bottom:2px solid #111;position:relative">
+    <div class="tw" style="position:absolute;top:62px;left:16px;background:#111;color:#fff;padding:8px 12px;font-size:20px;transform:rotate(-1.5deg)">DOUGHNUT DAYS</div>
+    <div class="tw" style="position:absolute;top:112px;left:56px;background:#111;color:#fff;padding:5px 9px;font-size:12px;transform:rotate(1.2deg)">(and other things)</div>
+    <div style="position:absolute;bottom:16px;left:16px;right:16px;background:#fff;border:2px solid #111;padding:9px"><div class="lines" style="height:39px"></div></div>
+  </div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:5px 9px;font-size:13px;margin-bottom:12px">SUPPORTING OUR LOCAL BAKERIES</div>
+    <div class="lines" style="height:52px;margin-bottom:12px"></div>
+    <div class="hatch b" style="height:110px"><span class="mono" style="font-size:10px;color:#666">photo</span></div>
+  </div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:5px 9px;font-size:13px;margin-bottom:12px">DONUT MAPS</div>
+    <div class="b hatch" style="height:96px;margin-bottom:9px;background-color:#fff"><span class="mono" style="font-size:10px;color:#666">Raleigh</span></div>
+    <div class="b hatch" style="height:96px;margin-bottom:12px;background-color:#fff"><span class="mono" style="font-size:10px;color:#666">D.C. Metro</span></div>
+    <div class="b" style="display:block;text-align:center;padding:11px;font-size:13px;background:#fff200">Open the maps →</div>
+  </div>
+  <div style="padding:18px;background:#111;color:#fff"><div class="mono" style="font-size:10px;line-height:2;opacity:.85">Donut Maps<br>Blog<br>Contact Us<br>Instagram</div></div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Maps-first — hero is a panel, the maps are the page</div>
+<div class="dv-card wf" style="width:620px;padding:0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:2px solid #111;position:sticky;top:0;background:#fff">
+    <div class="tw" style="font-size:14px">@doughnut_days</div>
+    <div class="mono" style="display:flex;gap:14px;font-size:11px"><span>Donut Maps</span><span>Blog</span><span>Contact Us</span><span class="b" style="padding:1px 5px">IG</span></div>
+  </div>
+  <div style="display:flex;border-bottom:2px solid #111">
+    <div style="width:47%;padding:30px 24px;border-right:2px solid #111;display:flex;flex-direction:column;justify-content:center">
+      <div class="tw" style="background:#111;color:#fff;padding:10px 14px;font-size:26px;display:inline-block;margin-bottom:8px">DOUGHNUT DAYS</div>
+      <div class="tw" style="background:#111;color:#fff;padding:6px 11px;font-size:15px;align-self:flex-start;margin-bottom:16px">(and other things)</div>
+      <div class="lines" style="height:65px"></div>
+    </div>
+    <div class="hatch" style="width:53%;min-height:280px"><span class="mono" style="font-size:10px;color:#666">HERO IMAGE — half panel</span></div>
+  </div>
+  <div style="padding:26px 24px;border-bottom:2px solid #111">
+    <div class="b" style="display:inline-block;padding:6px 11px;font-size:17px;margin-bottom:14px">Find a doughnut near you</div>
+    <div style="display:flex;gap:14px">
+      <div class="b" style="flex:1;padding:12px">
+        <div class="hatch" style="height:96px;margin-bottom:10px"><span class="mono" style="font-size:10px;color:#666">Raleigh map embed</span></div>
+        <div style="font-size:15px;margin-bottom:5px">Raleigh, NC</div>
+        <div class="mono" style="font-size:10px;color:#666">Google My Maps embed · yeast / cake / baked key</div>
+      </div>
+      <div class="b" style="flex:1;padding:12px">
+        <div class="hatch" style="height:96px;margin-bottom:10px"><span class="mono" style="font-size:10px;color:#666">D.C. map embed</span></div>
+        <div style="font-size:15px;margin-bottom:5px">D.C. Metro Area</div>
+        <div class="mono" style="font-size:10px;color:#666">30-mile radius, Shady Grove</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:26px 24px;border-bottom:2px solid #111;display:flex;gap:20px;align-items:flex-start">
+    <div style="flex:1">
+      <div class="b" style="display:inline-block;padding:6px 11px;font-size:17px;margin-bottom:12px">Supporting our local bakeries</div>
+      <div class="lines" style="height:65px"></div>
+    </div>
+    <div style="width:190px">
+      <div class="mono" style="font-size:9px;letter-spacing:.1em;color:#999;margin-bottom:8px">LATEST FROM THE BLOG</div>
+      <div class="b" style="padding:9px;margin-bottom:8px"><div class="lines" style="height:26px"></div></div>
+      <div class="b" style="padding:9px"><div class="lines" style="height:26px"></div></div>
+    </div>
+  </div>
+  <div style="padding:22px 24px;display:flex;justify-content:space-between;background:#111;color:#fff">
+    <div class="mono" style="font-size:10px;line-height:1.9;opacity:.85">Donut Maps<br>Blog<br>Contact Us</div>
+    <div class="mono" style="font-size:10px;line-height:1.9;text-align:right;opacity:.85">Contact us<br>Instagram</div>
+  </div>
+</div>
+<div class="dv-olabel" style="margin-top:4px"><span class="dv-oid" style="background:rgba(0,0,0,.04)">1c·m</span>Mobile</div>
+<div class="dv-card wf" style="width:300px;padding:0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:2px solid #111">
+    <div class="tw" style="font-size:12px">@doughnut_days</div>
+    <div class="b" style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">≡</div>
+  </div>
+  <div class="hatch" style="height:150px;border-bottom:2px solid #111"><span class="mono" style="font-size:10px;color:#666">HERO IMAGE</span></div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:7px 11px;font-size:19px;margin-bottom:7px">DOUGHNUT DAYS</div>
+    <div class="tw" style="background:#111;color:#fff;display:inline-block;padding:5px 9px;font-size:12px;margin-bottom:12px">(and other things)</div>
+    <div class="lines" style="height:52px"></div>
+  </div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="b" style="display:inline-block;padding:5px 9px;font-size:14px;margin-bottom:12px">Find a doughnut near you</div>
+    <div class="b" style="padding:9px;margin-bottom:10px"><div class="hatch" style="height:84px;margin-bottom:8px"><span class="mono" style="font-size:10px;color:#666">Raleigh</span></div><div style="font-size:13px">Raleigh, NC</div></div>
+    <div class="b" style="padding:9px"><div class="hatch" style="height:84px;margin-bottom:8px"><span class="mono" style="font-size:10px;color:#666">D.C.</span></div><div style="font-size:13px">D.C. Metro Area</div></div>
+  </div>
+  <div style="padding:18px;border-bottom:2px solid #111">
+    <div class="b" style="display:inline-block;padding:5px 9px;font-size:14px;margin-bottom:12px">Supporting our local bakeries</div>
+    <div class="lines" style="height:52px"></div>
+  </div>
+  <div style="padding:18px;background:#111;color:#fff"><div class="mono" style="font-size:10px;line-height:2;opacity:.85">Donut Maps<br>Blog<br>Contact Us<br>Instagram</div></div>
+</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Build spec — read before implementing any of the above</div>
+<div class="dv-card" style="width:400px;padding:22px 24px;font-family:'IBM Plex Mono',monospace">
+  <div style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;margin-bottom:14px">DOUGHNUT DAYS · LANDING PAGE SPEC</div>
+
+  <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c2185b;margin:16px 0 6px">STRUCTURE (all variants)</div>
+  <ol class="speclist">
+    <li>Header: wordmark "@doughnut_days" left; nav right — Donut Maps, Blog, Contact Us, Instagram icon. Collapses to a hamburger below 768px.</li>
+    <li>Hero: full-bleed decorative photo (felt sun, DD_hero image.jpeg). H1 "Doughnut Days", subhead "(and other things)".</li>
+    <li>Intro paragraph.</li>
+    <li>H2 "Supporting our local bakeries" + paragraph.</li>
+    <li>H2 "Donut Maps" + paragraph + link to the maps page.</li>
+    <li>Footer: page links list | contact us + Instagram icon.</li>
+  </ol>
+
+  <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c2185b;margin:16px 0 6px">TYPE + COLOR (from the 2026 brand guide)</div>
+  <ul class="speclist">
+    <li>Headings: typewriter-inspired face, always white text on an opaque black box. Text-box style, zine/collage feel.</li>
+    <li>Body: plain, highly readable sans. Do not set body copy in the typewriter face.</li>
+    <li>Doughnut base #fdc689 · frosting #fff200 · text #eb3c8e. Use as accents only — the page is black, white, and photography.</li>
+    <li>Hero photo must not carry meaning: decorative, alt="".</li>
+  </ul>
+
+  <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c2185b;margin:16px 0 6px">VOICE</div>
+  <ul class="speclist">
+    <li>Authentic, relatable, sarcastic — against the system, never against a donut.</li>
+    <li>Informant tone: what you can get, what it costs, how hard it was to get.</li>
+    <li>Archetype: Everyman / Jester. Copy is conversational, never markety.</li>
+  </ul>
+
+  <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c2185b;margin:16px 0 6px">DECISIONS ALREADY MADE</div>
+  <ul class="speclist">
+    <li>One "Donut Maps" page covers both Raleigh and D.C. Metro (was two pages on the old site).</li>
+    <li>Maps stay Google My Maps embeds.</li>
+    <li>About is not in the nav on this pass; landing page only in scope.</li>
+    <li>Every screen ships desktop + mobile.</li>
+  </ul>
+
+  <div style="font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#c2185b;margin:16px 0 6px">STILL OPEN</div>
+  <ul class="speclist">
+    <li>Real copy for all three paragraphs.</li>
+    <li>Whether the blog lives on this domain or links out.</li>
+    <li>Which typewriter face (Special Elite is a stand-in here).</li>
+  </ul>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "build out <a class="dv-oid" href="#1b">1b</a> at full fidelity" · "make <a class="dv-oid" href="#1a">1a</a> more zine, less tidy" · "wireframe the Donut Maps page to match <a class="dv-oid" href="#1c">1c</a>"</p>
+</section>
+
+</x-dc>
+</body>
+</html>
