@@ -15,7 +15,18 @@ netlify.toml                    publish directory
 
 ## Local preview
 
-Open `site/index.html` in a browser, or run any static server from `site/`.
+Any static server pointed at `site/` works. With Node installed:
+
+```
+npx --yes serve site -l 3000
+```
+
+Then open http://localhost:3000. `.claude/launch.json` runs exactly this
+command, so Claude Code can start the preview itself.
+
+Opening `site/index.html` as a `file://` URL mostly works too, but relative
+paths and the Google Fonts request behave differently there — prefer the
+server when checking a change.
 
 ## Netlify
 

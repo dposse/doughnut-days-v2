@@ -3,13 +3,8 @@
   "configurations": [
     {
       "name": "doughnut-days",
-      "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
-      "runtimeArgs": [
-        "C:/Users/maria/AppData/Roaming/npm/node_modules/serve/build/main.js",
-        "site",
-        "-l",
-        "3000"
-      ],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "site", "-l", "3000"],
       "port": 3000
     }
   ]
