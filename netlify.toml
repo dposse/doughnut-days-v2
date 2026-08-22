@@ -1,0 +1,4 @@
+# Publish only the site itself. The design handoff bundle lives outside
+# `site/` so it stays in the repo without being deployed.
+[build]
+  publish = "site"
