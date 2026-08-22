@@ -18,6 +18,21 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 .page{max-width:1180px;margin:0 auto;background:var(--paper);border-left:var(--rule);border-right:var(--rule);overflow:hidden}
 
+/* ---- accessibility utilities ---- */
+/* Off-screen until focused, then a taped label in the top-left. Fixed, and
+   above the sticky header's z-index:20. */
+.skip{
+  position:fixed;top:-120px;left:var(--pad);z-index:100;
+  font-family:'Special Elite',monospace;font-size:15px;text-decoration:none;
+  background:var(--ink);color:var(--paper);border:var(--rule);padding:10px 18px;
+}
+.skip:focus{top:12px}
+/* Available to screen readers, removed from the visual layout. */
+.sr-only{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;
+}
+
 /* ---- typewriter box treatment ---- */
 .tape{
   font-family:'Special Elite',monospace;font-weight:400;
@@ -34,11 +49,16 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .wordmark{font-family:'Special Elite',monospace;font-size:19px;text-decoration:none;letter-spacing:.01em}
 .nav{font-size:13.5px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
 .nav ul{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0}
-.nav a{text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
-.nav a:hover{border-bottom-color:var(--ink)}
+/* :not(.ig) — the underline rules are for text links only. Without it they
+   out-specify .ig and blank out its bottom edge. */
+.nav a:not(.ig){text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.nav a:not(.ig):hover{border-bottom-color:var(--ink)}
+/* Icon button: 38x38 with an inset ring rather than a border — a 2px border on
+   a box that lands on a fractional pixel drops an edge at some zoom levels. */
 .ig{
-  display:flex;align-items:center;justify-content:center;
-  width:34px;height:34px;border:var(--rule);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  width:38px;height:38px;color:var(--ink);
+  box-shadow:inset 0 0 0 2px var(--ink);
 }
 .ig:hover{background:var(--ink);color:var(--paper)}
 
@@ -49,7 +69,11 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   position:absolute;top:150px;left:var(--pad);margin:0;
   font-size:74px;line-height:1;padding:16px 26px;
   transform:rotate(-1.4deg);letter-spacing:.005em;
+  scroll-margin-top:90px;
 }
+/* Focused via the skip link. Paper outline — an ink one would sit on the ink
+   box and disappear. */
+.hero__title:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
 .hero__sub{
   position:absolute;top:264px;left:210px;margin:0;
   font-family:'Special Elite',monospace;font-size:28px;
@@ -114,11 +138,11 @@ h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
 }
 .foot h2{margin:0 0 16px;font-size:19px;letter-spacing:.06em;padding:8px 14px}
 .foot ul{display:flex;flex-direction:column;gap:9px;font-size:15px;list-style:none;margin:0;padding:0}
-.foot a{color:var(--paper);text-decoration:none;padding:2px 0;border-bottom:2px solid transparent;width:fit-content}
-.foot a:hover{border-bottom-color:var(--paper)}
+.foot a:not(.ig){color:var(--paper);text-decoration:none;padding:2px 0;border-bottom:2px solid transparent;width:fit-content}
+.foot a:not(.ig):hover{border-bottom-color:var(--paper)}
 .foot a:focus-visible{outline-color:var(--paper)}
 .foot .email{display:block;width:fit-content;margin:16px 0;font-size:15px}
-.foot .ig{border-color:var(--paper);color:var(--paper);display:inline-flex}
+.foot .ig{box-shadow:inset 0 0 0 2px var(--paper);color:var(--paper);display:inline-flex}
 .foot .ig:hover{background:var(--paper);color:var(--ink)}
 
 /* ---- mobile ---- */
