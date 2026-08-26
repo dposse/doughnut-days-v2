@@ -6,12 +6,20 @@ Static landing page for Doughnut Days. No build step — plain HTML, CSS and ima
 
 ```
 site/                           everything that gets deployed
-  index.html                    the whole page
+  index.html                    landing page
+  Raleigh-Donut-Map/index.html  the donut map page (63 shops)
+  maps.js                       tag + search filtering for the map page
   styles.css                    all styles (tokens at the top of the file)
   assets/                       hero photo, cruller photo
+  assets/map-icons/             the five Google My Maps category pins
 design_handoff_doughnut_days/   design system, prototypes, screenshots — not deployed
 netlify.toml                    publish directory
 ```
+
+The shop list in `Raleigh-Donut-Map/index.html` was generated from the owner's
+spreadsheet (`2026 Raleigh Donut Map - Google Maps Data Input`). Filtering is
+progressive enhancement — the full list is in the HTML and `maps.js` only hides
+and shows rows, so the page still works with JavaScript off.
 
 ## Local preview
 
@@ -40,7 +48,11 @@ without being deployed.
 
 ## Still placeholder
 
-- Google My Maps embed — see the `TODO` comment in `site/index.html` (`.mapcard`); drop the iframe in where the `.mapcard__frame` div is.
+- Google My Maps embed — the map is built but not public yet. `TODO` comments mark
+  both spots: `site/index.html` (`.mapcard`) and `site/Raleigh-Donut-Map/index.html`
+  (the embed, the blurb beside it, and the "Open in Google Maps" link).
+- The About blurb and the blurb beside the map on the donut map page are
+  placeholder text.
 - `hello@doughnutdays.com` in the footer is invented — replace with the real address.
 - The Donut Map Contact Form the copy promises does not exist yet.
 - `#blog` and the maps link point at anchors on this page; they need real pages before launch.
