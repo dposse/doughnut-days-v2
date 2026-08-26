@@ -16,10 +16,25 @@ design_handoff_doughnut_days/   design system, prototypes, screenshots — not d
 netlify.toml                    publish directory
 ```
 
-The shop list in `Raleigh-Donut-Map/index.html` was generated from the owner's
-spreadsheet (`2026 Raleigh Donut Map - Google Maps Data Input`). Filtering is
-progressive enhancement — the full list is in the HTML and `maps.js` only hides
-and shows rows, so the page still works with JavaScript off.
+Filtering is progressive enhancement — the full list is in the HTML and `maps.js`
+only hides and shows rows, so the page still works with JavaScript off.
+
+## Regenerating the donut map list
+
+`site/Raleigh-Donut-Map/index.html` is generated. Do not hand-edit the shop
+list — edit `data/raleigh-donut-map.xlsx`, then:
+
+```
+node tools/build-maps.mjs
+```
+
+No npm install: the `.xlsx` is a zip of XML and the script unzips it with Node's
+own `zlib`. It rebuilds the whole page, so edits to the page's wording, blurbs
+and TODOs belong in `tools/build-maps.mjs`, not in the generated HTML.
+
+Spreadsheet columns: `Name`, `Address`, `Website`, `Map Category`, `List Tags`,
+`Description`. A shop may list two Map Categories separated by a comma, and is
+then listed under both. `Website` may be the literal text "No website available".
 
 ## Local preview
 

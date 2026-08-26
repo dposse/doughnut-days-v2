@@ -8,15 +8,16 @@
   if (!form) return;
 
   var q = document.getElementById('q');
-  var clear = document.getElementById('clear');
+  var clearAll = document.getElementById('clear');
+  var clearSearch = document.getElementById('clear-search');
   var results = document.getElementById('results');
   var noresults = document.getElementById('noresults');
   var shops = Array.prototype.slice.call(document.querySelectorAll('.shop'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('.cat'));
   var boxes = Array.prototype.slice.call(form.querySelectorAll('input[name="tag"]'));
 
-  // The query only applies once it is submitted, so that the announced result
-  // count always matches what the user asked for.
+  // The query only applies once it is submitted, so the announced result count
+  // always matches what the user asked for.
   var query = '';
 
   function checkedTags() {
@@ -34,17 +35,15 @@
   }
 
   function describe(n) {
-    var parts = [];
-    if (query) parts.push('matching "' + query + '"');
+    var spots = n + ' donut ' + (n === 1 ? 'spot' : 'spots');
     var tags = checkedTags().length;
-    if (tags === 1) parts.push('tagged with 1 tag');
-    else if (tags > 1) parts.push('tagged with any of ' + tags + ' tags');
-    var noun = n === 1 ? 'spot' : 'spots';
-    if (!parts.length) return n + ' ' + noun;
-    return n + ' ' + noun + ' ' + parts.join(', ');
+    var tagPart = tags ? ' using ' + tags + ' ' + (tags === 1 ? 'tag' : 'tags') : '';
+    var queryPart = query ? ' matching "' + query + '"' : '';
+    if (!tagPart && !queryPart) return spots;
+    return spots + ' found' + queryPart + tagPart;
   }
 
-  function apply(announce) {
+  function apply(announce, prefix) {
     var tags = checkedTags();
     // A shop in two categories is listed twice, so count distinct shops.
     var seen = {};
@@ -69,7 +68,7 @@
     });
 
     noresults.hidden = total !== 0;
-    if (announce) results.textContent = describe(total);
+    if (announce) results.textContent = (prefix || '') + describe(total);
     return total;
   }
 
@@ -83,19 +82,28 @@
     box.addEventListener('change', function () { apply(true); });
   });
 
-  clear.addEventListener('click', function () {
+  // Clears the text query only; the tag checkboxes stay as they are.
+  clearSearch.addEventListener('click', function () {
     q.value = '';
     query = '';
-    boxes.forEach(function (b) { b.checked = false; });
-    apply(true);
+    apply(true, 'Search cleared. ');
     q.focus();
   });
 
-  // Clearing the field with the search input's own X should restore the list.
+  clearAll.addEventListener('click', function () {
+    q.value = '';
+    query = '';
+    boxes.forEach(function (b) { b.checked = false; });
+    // Say what happened before focus moves, or the move is all the user gets.
+    apply(true, 'Cleared. ');
+    q.focus();
+  });
+
+  // Escape in a search field still clears it natively.
   q.addEventListener('search', function () {
-    if (q.value === '') {
+    if (q.value === '' && query !== '') {
       query = '';
-      apply(true);
+      apply(true, 'Search cleared. ');
     }
   });
 
