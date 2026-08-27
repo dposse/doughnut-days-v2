@@ -55,6 +55,26 @@ entry per shop:
 The build fails loudly on a missing field or an unknown category, so a bad edit
 does not reach the page.
 
+## CSS conventions
+
+`site/styles.css` uses one cascade layer, `base`. Rules that set a default for
+an element or a whole region go inside `@layer base { ... }`; rules that style
+one named component stay unlayered.
+
+Unlayered beats layered regardless of specificity, so a component class always
+wins against a default without needing a defensive selector. Before this,
+`.band p` silently overrode `.cat__count`, and `h3.tape` overrode
+`.key__heading` — the declarations were there but never applied.
+
+When adding CSS:
+
+- styling an element or a whole region? put it in `@layer base`
+- styling one named thing? leave it unlayered
+
+Layering only settles conflicts over the *same* property. A component that
+never declares `padding` still inherits the region's, which is why the nav and
+footer link rules keep their `:not(.ig)`.
+
 ## Local preview
 
 Any static server pointed at `site/` works. With Node installed:

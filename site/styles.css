@@ -1,3 +1,21 @@
+/* ================================================================
+   Cascade layers
+
+   Everything that sets a DEFAULT for an element or a region goes in
+   @layer base. Everything else — components like .ig, .btn, .shop,
+   .key__heading — stays unlayered.
+
+   Unlayered rules beat every layered rule no matter how specific the
+   layered one is, so `.band p` can no longer out-specify `.cat__count`,
+   and `h3.tape` can no longer out-specify `.key__heading`. A component
+   never has to be written defensively to win against a default.
+
+   Rule of thumb when adding CSS:
+     styling an element or a whole region?  ->  @layer base { ... }
+     styling one named thing?               ->  leave it unlayered
+   ================================================================ */
+@layer base;
+
 :root{
   --paper:#f9f7f1;
   --ink:#111;
@@ -5,16 +23,18 @@
   --shadow:7px 7px 0 rgba(17,17,17,.9);
   --pad:52px;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
-  -webkit-font-smoothing:antialiased;
+@layer base{
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%}
+  a{color:var(--ink)}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 }
-img{max-width:100%}
-a{color:var(--ink)}
-a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 .page{max-width:1180px;margin:0 auto;background:var(--paper);border-left:var(--rule);border-right:var(--rule);overflow:hidden}
 
@@ -34,8 +54,10 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 }
 /* Buttons and fields get the same offset ring as links. Without the offset an
    ink ring on an ink-filled button is invisible. */
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
-  outline:2px solid var(--ink);outline-offset:3px;
+@layer base{
+  button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+    outline:2px solid var(--ink);outline-offset:3px;
+  }
 }
 
 /* ---- typewriter box treatment ---- */
@@ -54,10 +76,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .wordmark{font-family:'Special Elite',monospace;font-size:19px;text-decoration:none;letter-spacing:.01em}
 .nav{font-size:13.5px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
 .nav ul{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0}
-/* :not(.ig) — the underline rules are for text links only. Without it they
-   out-specify .ig and blank out its bottom edge. */
-.nav a:not(.ig){text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
-.nav a:not(.ig):hover{border-bottom-color:var(--ink)}
+/* :not(.ig) stays: layering settles conflicts over the same property, but the
+   icon button never declares padding or border-bottom, so it would still
+   inherit them from a region default. */
+@layer base{
+  .nav a:not(.ig){text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+  .nav a:not(.ig):hover{border-bottom-color:var(--ink)}
+}
 /* Icon button: 38x38 with an inset ring rather than a border — a 2px border on
    a box that lands on a fractional pixel drops an edge at some zoom levels. */
 .ig{
@@ -95,9 +120,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .band{padding:60px var(--pad);border-bottom:var(--rule)}
 .band--intro{padding-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
 .band--bakeries{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
-.band p{font-size:17px;line-height:1.65;text-wrap:pretty}
+/* Region defaults: any component class overrides these without a fight. */
+@layer base{
+  .band p{font-size:17px;line-height:1.65;text-wrap:pretty}
+  h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
+  h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
+}
 .band--intro p{margin:0}
-h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
 .tilt-l{transform:rotate(-1deg)}
 .tilt-r{transform:rotate(.8deg)}
 
@@ -143,9 +172,11 @@ h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
 }
 .foot h2{margin:0 0 16px;font-size:19px;letter-spacing:.06em;padding:8px 14px}
 .foot ul{display:flex;flex-direction:column;gap:9px;font-size:15px;list-style:none;margin:0;padding:0}
-.foot a:not(.ig){color:var(--paper);text-decoration:none;padding:2px 0;border-bottom:2px solid transparent;width:fit-content}
-.foot a:not(.ig):hover{border-bottom-color:var(--paper)}
-.foot a:focus-visible{outline-color:var(--paper)}
+@layer base{
+  .foot a:not(.ig){color:var(--paper);text-decoration:none;padding:2px 0;border-bottom:2px solid transparent;width:fit-content}
+  .foot a:not(.ig):hover{border-bottom-color:var(--paper)}
+  .foot a:focus-visible{outline-color:var(--paper)}
+}
 .foot .email{display:block;width:fit-content;margin:16px 0;font-size:15px}
 .foot .ig{box-shadow:inset 0 0 0 2px var(--paper);color:var(--paper);display:inline-flex}
 .foot .ig:hover{background:var(--paper);color:var(--ink)}
@@ -188,8 +219,7 @@ h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
 .aboutcard p{margin:0;font-size:16.5px;line-height:1.6;text-wrap:pretty}
 
 .about__lists{display:grid;grid-template-columns:1fr 2fr;gap:44px;margin-top:40px}
-/* Taped labels like every other heading on the page. */
-h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
+/* h3.tape sizing lives in @layer base, with the other heading defaults. */
 .plainlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:15px}
 .plainlist--wrap{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
 
@@ -210,10 +240,9 @@ h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
 .mapside__blurb{border:var(--rule);background:var(--paper);padding:18px 20px;transform:rotate(.5deg)}
 .mapside__blurb p{margin:0;font-size:15.5px;line-height:1.6}
 
-/* Both classes, so it beats h3.tape's margin. The right column of .maplayout
-   is taller than the map card, so without this the heading sits directly on
-   the "Open in Google Maps" button. */
-h3.tape.key__heading{margin:48px 0 16px}
+/* The right column of .maplayout is taller than the map card, so this margin
+   is what holds the heading off the "Open in Google Maps" button. */
+.key__heading{margin:48px 0 16px}
 .key{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:14px 30px}
 .key__item{display:flex;align-items:center;gap:10px}
 /* The pins are the real Google My Maps markers, so they keep their own colors. */
@@ -280,10 +309,8 @@ h3.tape.key__heading{margin:48px 0 16px}
 .shop[hidden]{display:none}
 .shop__name{font-family:'Special Elite',monospace;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}
 .shop__address{margin:0 0 6px}
-/* Special Elite, matching the shop name above it. Scoped to .shop so it beats
-   `.band p`, which otherwise sets the size of the Tags label but not the
-   Address one — the first is a <p>, the second a <span>. */
-.shop .shop__label{
+/* Special Elite, matching the shop name above it. */
+.shop__label{
   font-family:'Special Elite',monospace;font-weight:400;font-size:17px;
   color:var(--ink);margin:0;
 }
