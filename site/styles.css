@@ -210,7 +210,10 @@ h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
 .mapside__blurb{border:var(--rule);background:var(--paper);padding:18px 20px;transform:rotate(.5deg)}
 .mapside__blurb p{margin:0;font-size:15.5px;line-height:1.6}
 
-.key__heading{margin:40px 0 16px}
+/* Both classes, so it beats h3.tape's margin. The right column of .maplayout
+   is taller than the map card, so without this the heading sits directly on
+   the "Open in Google Maps" button. */
+h3.tape.key__heading{margin:48px 0 16px}
 .key{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:14px 30px}
 .key__item{display:flex;align-items:center;gap:10px}
 /* The pins are the real Google My Maps markers, so they keep their own colors. */
@@ -255,25 +258,28 @@ h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
 }
 .tagbox__n{color:#555;font-size:12.5px}
 
+/* Paragraphs inside .band take their size and line-height from `.band p`,
+   which out-specifies a single class. Only override with a selector that
+   beats it — see .aboutcard p. */
 .results{
-  font-family:'Special Elite',monospace;font-size:16px;margin:0 0 8px;
+  font-family:'Special Elite',monospace;margin:0 0 8px;
   background:var(--ink);color:var(--paper);display:inline-block;padding:7px 14px;
   transform:rotate(-.6deg);
 }
-.noresults{font-size:16px;margin:12px 0 0;max-width:560px}
+.noresults{margin:12px 0 0;max-width:560px}
 
 /* ---- the list ---- */
 .cat{margin:44px 0 0}
 .cat[hidden]{display:none}
 .cat__count{
-  font-size:12.5px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;
+  font-weight:500;text-transform:uppercase;letter-spacing:.07em;
   color:#555;margin:0 0 20px;
 }
 .shops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .shop{border:var(--rule);background:var(--paper);padding:20px 22px}
 .shop[hidden]{display:none}
 .shop__name{font-family:'Special Elite',monospace;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}
-.shop__address{margin:0 0 6px;font-size:14.5px;line-height:1.5}
+.shop__address{margin:0 0 6px}
 /* Special Elite, matching the shop name above it. Scoped to .shop so it beats
    `.band p`, which otherwise sets the size of the Tags label but not the
    Address one — the first is a <p>, the second a <span>. */
@@ -287,7 +293,7 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 /* Label sits on the same line as the chips and wraps with them. */
 .shop__tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 0}
 .shop__tags{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0}
-.shop__desc{margin:14px 0 0;font-size:15px;line-height:1.6;text-wrap:pretty}
+.shop__desc{margin:14px 0 0}
 
 @media (max-width:900px){
   .pagetitle{font-size:32px}
