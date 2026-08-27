@@ -274,9 +274,11 @@ h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
 .shop[hidden]{display:none}
 .shop__name{font-family:'Special Elite',monospace;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}
 .shop__address{margin:0 0 6px;font-size:14.5px;line-height:1.5}
-/* Special Elite, matching the shop name above it. */
-.shop__label{
-  font-family:'Special Elite',monospace;font-weight:400;font-size:14px;
+/* Special Elite, matching the shop name above it. Scoped to .shop so it beats
+   `.band p`, which otherwise sets the size of the Tags label but not the
+   Address one — the first is a <p>, the second a <span>. */
+.shop .shop__label{
+  font-family:'Special Elite',monospace;font-weight:400;font-size:17px;
   color:var(--ink);margin:0;
 }
 .shop__site{font-size:14.5px;display:inline-block;width:fit-content;padding:2px 0;border-bottom:2px solid transparent}
