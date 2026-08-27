@@ -84,12 +84,14 @@ function shopHtml(r) {
   // the result count can count shops rather than rows.
   return `        <li class="shop" data-id="${esc(slug(r.Name))}" data-tags="${esc(r.tags.map(slug).join(' '))}" data-search="${esc(search)}">
           <h3 class="shop__name">${esc(r.Name)}</h3>
-          <p class="shop__address">${esc(r.Address)}</p>
+          <p class="shop__address"><span class="shop__label">Address:</span> ${esc(r.Address)}</p>
           ${website}
-          <p class="shop__tagslabel">Tags:</p>
-          <ul class="shop__tags">
-${r.tags.map(t => `            <li class="chip">${esc(t)}</li>`).join('\n')}
-          </ul>
+          <div class="shop__tagrow">
+            <p class="shop__label">Tags:</p>
+            <ul class="shop__tags">
+${r.tags.map(t => `              <li class="chip">${esc(t)}</li>`).join('\n')}
+            </ul>
+          </div>
           <p class="shop__desc">${esc(r.Description)}</p>
         </li>`;
 }
@@ -168,13 +170,13 @@ const html = `<!DOCTYPE html>
 
     <div class="about__lists">
       <div>
-        <h3>Categories</h3>
+        <h3 class="tape tilt-l">Categories</h3>
         <ul class="plainlist">
 ${categoryList}
         </ul>
       </div>
       <div>
-        <h3>Tags</h3>
+        <h3 class="tape tilt-r">Tags</h3>
         <ul class="plainlist plainlist--wrap">
 ${tagListAbout}
         </ul>
@@ -215,7 +217,7 @@ ${tagListAbout}
          above the embed. -->
     <a class="btn btn--skipmap" href="#map-heading">Skip Google Map<span class="sr-only">, back to the Google Map Embed heading</span></a>
 
-    <h3 class="key__heading">Key</h3>
+    <h3 class="tape tilt-l key__heading">Key</h3>
     <ul class="key">
 ${keyItems}
     </ul>
