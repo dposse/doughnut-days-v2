@@ -22,19 +22,38 @@ only hides and shows rows, so the page still works with JavaScript off.
 ## Regenerating the donut map list
 
 `site/Raleigh-Donut-Map/index.html` is generated. Do not hand-edit the shop
-list — edit `data/raleigh-donut-map.xlsx`, then:
+list — edit `data/raleigh-donut-map.json`, then:
 
 ```
 node tools/build-maps.mjs
 ```
 
-No npm install: the `.xlsx` is a zip of XML and the script unzips it with Node's
-own `zlib`. It rebuilds the whole page, so edits to the page's wording, blurbs
-and TODOs belong in `tools/build-maps.mjs`, not in the generated HTML.
+No npm install. The build rebuilds the whole page, so edits to the page's
+wording, blurbs and TODOs belong in `tools/build-maps.mjs`, not in the
+generated HTML.
 
-Spreadsheet columns: `Name`, `Address`, `Website`, `Map Category`, `List Tags`,
-`Description`. A shop may list two Map Categories separated by a comma, and is
-then listed under both. `Website` may be the literal text "No website available".
+`data/raleigh-donut-map.json` is the source of truth for the shop list. One
+entry per shop:
+
+```json
+{
+  "name": "Baker's Dozen (Durham)",
+  "address": "3438 Hillsborough Rd, Durham, NC 27705",
+  "website": "https://example.com",
+  "categories": ["Traditional"],
+  "tags": ["Yeast", "Cake"],
+  "description": "..."
+}
+```
+
+- `website` is `null` when a shop has none; the page then shows "No website"
+  as plain text instead of a link.
+- `categories` must come from: Traditional, Novelty, Gourmet, Gluten-Friendly,
+  Vegan. A shop may list two and is then shown under both.
+- `tags` are free text. "Yeast-Raised" is treated as "Yeast".
+
+The build fails loudly on a missing field or an unknown category, so a bad edit
+does not reach the page.
 
 ## Local preview
 

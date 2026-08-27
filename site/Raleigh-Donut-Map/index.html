@@ -80,7 +80,7 @@
   </section>
 
   <section class="band" id="map">
-    <h2 class="tape tilt-r" id="map-heading">Google Map Embed</h2>
+    <h2 class="tape tilt-r" id="map-heading" tabindex="-1">Google Map Embed</h2>
 
     <!-- Off-screen until focused, like the page's skip link. Sits before the
          embed so keyboard users meet it before the map's own focus stops. -->
@@ -106,6 +106,11 @@
         <a class="btn" href="#map">Open in Google Maps</a>
       </div>
     </div>
+
+    <!-- The mirror of the one above: someone shift-tabbing up from the list
+         reaches this before the map's own focus stops, and it puts them back
+         above the embed. -->
+    <a class="btn btn--skipmap" href="#map-heading">Skip Google Map<span class="sr-only">, back to the Google Map Embed heading</span></a>
 
     <h3 class="key__heading">Key</h3>
     <ul class="key">
@@ -235,6 +240,7 @@
           <h3 class="shop__name">Anne's Donuts and Bakery</h3>
           <p class="shop__address">2714 Sunset Ave, Rocky Mount, NC 27804</p>
           <a class="shop__site" href="https://www.annesdonutsofnc.com/" aria-label="Anne's Donuts and Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -245,6 +251,7 @@
           <h3 class="shop__name">Baker's Dozen (Raleigh - Buck Jones Rd)</h3>
           <p class="shop__address">1307 Buck Jones Rd, Raleigh, NC 27606</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -258,6 +265,7 @@
           <h3 class="shop__name">Baker's Dozen (Raleigh - Capital Blvd)</h3>
           <p class="shop__address">6320 Capital Blvd #123, Raleigh, NC 27616</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -271,6 +279,7 @@
           <h3 class="shop__name">Baker's Dozen (Durham)</h3>
           <p class="shop__address">3825 S Roxboro St Unit 150, Durham, NC 27713</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -284,6 +293,7 @@
           <h3 class="shop__name">Baker's Dozen (Apex)</h3>
           <p class="shop__address">1232 W Williams St, Apex, NC 27502</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -297,6 +307,7 @@
           <h3 class="shop__name">Carolina Glazed Donuts</h3>
           <p class="shop__address">5400 S Miami Blvd, Durham, NC 27703</p>
           <a class="shop__site" href="https://www.facebook.com/p/Carolina-Glazed-Donuts-100057904514800/" aria-label="Carolina Glazed Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -309,6 +320,7 @@
           <h3 class="shop__name">Daily Donuts</h3>
           <p class="shop__address">1067 S Main St, Graham, NC 27253</p>
           <a class="shop__site" href="https://www.facebook.com/dailydonuts.net/" aria-label="Daily Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -321,6 +333,7 @@
           <h3 class="shop__name">Daylight Donuts</h3>
           <p class="shop__address">7550 Creedmoor Rd #101, Raleigh, NC 27613</p>
           <a class="shop__site" href="https://www.daylightdonutsraleigh.com/" aria-label="Daylight Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -332,6 +345,7 @@
           <h3 class="shop__name">Donut Daily</h3>
           <p class="shop__address">106 Bratton Dr ste 3, Garner, NC 27529</p>
           <a class="shop__site" href="https://www.facebook.com/p/Donut-Daily-Garner-100080843866611/" aria-label="Donut Daily website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -344,6 +358,7 @@
           <h3 class="shop__name">Early Bird Donuts</h3>
           <p class="shop__address">2816 Erwin Rd #101, Durham, NC 27705</p>
           <a class="shop__site" href="https://www.facebook.com/EBDONUTS/" aria-label="Early Bird Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -356,6 +371,7 @@
           <h3 class="shop__name">Heritage Donuts</h3>
           <p class="shop__address">1040 Forestville Rd Ste 132, Wake Forest, NC 27587</p>
           <a class="shop__site" href="https://www.facebook.com/heritagedonuts" aria-label="Heritage Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -368,6 +384,7 @@
           <h3 class="shop__name">Krispy Kreme</h3>
           <p class="shop__address">549 N Person St, Raleigh, NC 27604</p>
           <a class="shop__site" href="https://www.krispykreme.com/" aria-label="Krispy Kreme website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -378,6 +395,7 @@
           <h3 class="shop__name">NC Jelly Donuts (Burlington)</h3>
           <p class="shop__address">3260 S Church St, Burlington, NC 27215</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -390,6 +408,7 @@
           <h3 class="shop__name">NC Jelly Donuts (Mebane)</h3>
           <p class="shop__address">126 Millstead Dr, Mebane, NC 27302</p>
           <span class="shop__site shop__site--none">No website</span>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -402,6 +421,7 @@
           <h3 class="shop__name">Wilson Doughnut Shop</h3>
           <p class="shop__address">525 Tarboro St SW, Wilson, NC 27893</p>
           <a class="shop__site" href="https://www.wilsondoughnut.com/" aria-label="Wilson Doughnut Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -412,6 +432,7 @@
           <h3 class="shop__name">Burney’s Sweets &amp; More (Clinton)</h3>
           <p class="shop__address">107 Vance St, Clinton, NC 28328</p>
           <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Clinton) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -421,6 +442,7 @@
           <h3 class="shop__name">Burney’s Sweets &amp; More (Raleigh)</h3>
           <p class="shop__address">4500 Falls of Neuse Rd #100, Raleigh, NC 27609</p>
           <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Raleigh) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -430,6 +452,7 @@
           <h3 class="shop__name">Burney’s Sweets &amp; More (Smithfield)</h3>
           <p class="shop__address">517 Outlet Center Dr, Smithfield, NC 27577</p>
           <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Smithfield) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -439,6 +462,7 @@
           <h3 class="shop__name">Burney’s Sweets &amp; More (Erwin)</h3>
           <p class="shop__address">121 E H St, Erwin, NC 28339</p>
           <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Erwin) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -448,15 +472,17 @@
           <h3 class="shop__name">Burney’s Sweets &amp; More (Clayton)</h3>
           <p class="shop__address">312 E Main St, Clayton, NC 27520</p>
           <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Clayton) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
           <p class="shop__desc">This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina.</p>
         </li>
-        <li class="shop" data-id="burney-s-sweets-more-fayetville" data-tags="yeast" data-search="burney’s sweets &amp; more (fayetville) 3319-b raeford rd, fayetteville, nc 28303 yeast this bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). they got their start in elizabethtown, nc, and have several locations in north carolina.">
-          <h3 class="shop__name">Burney’s Sweets &amp; More (Fayetville)</h3>
+        <li class="shop" data-id="burney-s-sweets-more-fayetteville" data-tags="yeast" data-search="burney’s sweets &amp; more (fayetteville) 3319-b raeford rd, fayetteville, nc 28303 yeast this bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). they got their start in elizabethtown, nc, and have several locations in north carolina.">
+          <h3 class="shop__name">Burney’s Sweets &amp; More (Fayetteville)</h3>
           <p class="shop__address">3319-B Raeford Rd, Fayetteville, NC 28303</p>
-          <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Fayetville) website">Website</a>
+          <a class="shop__site" href="https://www.burneyssweetsandmore.com/" aria-label="Burney’s Sweets &amp; More (Fayetteville) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -466,6 +492,7 @@
           <h3 class="shop__name">Paul's Pastry Shop NC</h3>
           <p class="shop__address">720 S Church St, Burlington, NC 27215</p>
           <a class="shop__site" href="https://paulspastryshop.com/" aria-label="Paul's Pastry Shop NC website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -476,6 +503,7 @@
           <h3 class="shop__name">Sandra's Bakery</h3>
           <p class="shop__address">225 Wicker St, Sanford, NC 27330</p>
           <a class="shop__site" href="https://sandrasbakery-sanfordnc.com/" aria-label="Sandra's Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -487,6 +515,7 @@
           <h3 class="shop__name">Sherry's Bakery</h3>
           <p class="shop__address">122 N Wilson Ave, Dunn, NC 28334</p>
           <a class="shop__site" href="https://www.facebook.com/sherrysbakerydunn/" aria-label="Sherry's Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Fritter</li>
@@ -497,6 +526,7 @@
           <h3 class="shop__name">Superior Bakery</h3>
           <p class="shop__address">2433 Hope Mills Rd, Fayetteville, NC 28304</p>
           <a class="shop__site" href="https://www.superiorbakerync.com/" aria-label="Superior Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -507,6 +537,7 @@
           <h3 class="shop__name">The Farm House Cafe &amp; Bakery</h3>
           <p class="shop__address">301 Raleigh St, Newton Grove, NC 28366</p>
           <a class="shop__site" href="https://www.farmhousecafebakery.com/" aria-label="The Farm House Cafe &amp; Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -516,6 +547,7 @@
           <h3 class="shop__name">The Donut Shoppe</h3>
           <p class="shop__address">808 S Bickett Blvd, Louisburg, NC 27549</p>
           <a class="shop__site" href="https://www.facebook.com/p/The-donut-shoppe-61555036061811/" aria-label="The Donut Shoppe website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Cake</li>
             <li class="chip">Filled</li>
@@ -528,6 +560,7 @@
           <h3 class="shop__name">Sweet Tooth Bakery</h3>
           <p class="shop__address">25A Old Durham Rd, Roxboro, NC 27573</p>
           <a class="shop__site" href="https://www.facebook.com/TerrySweetToothBakery/" aria-label="Sweet Tooth Bakery website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -538,6 +571,7 @@
           <h3 class="shop__name">Mickey's Pastry Shop</h3>
           <p class="shop__address">2704 Graves Dr, Goldsboro, NC 27534</p>
           <a class="shop__site" href="https://mickeyspastry.com/" aria-label="Mickey's Pastry Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
           </ul>
@@ -554,6 +588,7 @@
           <h3 class="shop__name">Peace, Love and Little Donuts of Apex</h3>
           <p class="shop__address">2826 Teachey Pl., Apex, NC 27523</p>
           <a class="shop__site" href="https://www.peaceloveandlittledonuts.com/" aria-label="Peace, Love and Little Donuts of Apex website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -563,6 +598,7 @@
           <h3 class="shop__name">Cultivate Coffee Roasters</h3>
           <p class="shop__address">128 S Fuquay Ave, Fuquay-Varina, NC 27526</p>
           <a class="shop__site" href="https://www.cultivate.coffee/" aria-label="Cultivate Coffee Roasters website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -574,6 +610,7 @@
           <h3 class="shop__name">Boba Boba Cafe</h3>
           <p class="shop__address">12102 Bradford Green Square, Cary, NC 27513</p>
           <a class="shop__site" href="https://www.bobababacafe.com/" aria-label="Boba Boba Cafe website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mochi</li>
           </ul>
@@ -583,6 +620,7 @@
           <h3 class="shop__name">Cacao Canela (Cocoa Cinnamon)</h3>
           <p class="shop__address">2033-2011 Chapel Hill Rd, Durham, NC 27707</p>
           <a class="shop__site" href="https://littlewaves.coffee/pages/cocoa-cinnamon-lakewood-little-waves-coffee-roastery" aria-label="Cacao Canela (Cocoa Cinnamon) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Churros</li>
           </ul>
@@ -592,6 +630,7 @@
           <h3 class="shop__name">Big Dom's Bagel Shop</h3>
           <p class="shop__address">203 E Chatham St, Cary, NC 27511</p>
           <a class="shop__site" href="http://www.bigdomsbagelshop.com/" aria-label="Big Dom's Bagel Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Baked</li>
           </ul>
@@ -601,6 +640,7 @@
           <h3 class="shop__name">The Phoenix</h3>
           <p class="shop__address">664 West St, Pittsboro, NC 27312</p>
           <a class="shop__site" href="https://www.thephoenixbakerync.com/" aria-label="The Phoenix website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Baked</li>
           </ul>
@@ -610,6 +650,7 @@
           <h3 class="shop__name">Celtic Creamery (Smithfield)</h3>
           <p class="shop__address">257 NC-210, Smithfield, NC 27577</p>
           <a class="shop__site" href="https://celticcreamery.com/" aria-label="Celtic Creamery (Smithfield) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -619,6 +660,7 @@
           <h3 class="shop__name">Celtic Creamery (Clayton)</h3>
           <p class="shop__address">8926 Cleveland Rd, Clayton, NC 27520</p>
           <a class="shop__site" href="https://celticcreamery.com/" aria-label="Celtic Creamery (Clayton) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -628,6 +670,7 @@
           <h3 class="shop__name">LA HORCHATERIA</h3>
           <p class="shop__address">2261 New Hope Church Rd, Raleigh, NC 27604</p>
           <a class="shop__site" href="https://lahorchaterianc.com/" aria-label="LA HORCHATERIA website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Churros</li>
           </ul>
@@ -637,6 +680,7 @@
           <h3 class="shop__name">Millstone Creek Orchards</h3>
           <p class="shop__address">506 Parks Crossroads Church Rd, Ramseur, NC 27316</p>
           <a class="shop__site" href="https://www.millstonecreekorchards.com/" aria-label="Millstone Creek Orchards website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -646,6 +690,7 @@
           <h3 class="shop__name">Sola Coffee Cafe</h3>
           <p class="shop__address">7705 Lead Mine Rd, Raleigh, NC 27615</p>
           <a class="shop__site" href="https://www.solacoffee.com/" aria-label="Sola Coffee Cafe website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -655,6 +700,7 @@
           <h3 class="shop__name">The Nomad at the Osbunn</h3>
           <p class="shop__address">122 W King St, Hillsborough, NC 27278</p>
           <a class="shop__site" href="https://thenomadnc.com/" aria-label="The Nomad at the Osbunn website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Bombolini</li>
           </ul>
@@ -664,6 +710,7 @@
           <h3 class="shop__name">Yee Haw Doughnuts</h3>
           <p class="shop__address">Yee Haw Doughnuts, Carrborro, NC</p>
           <a class="shop__site" href="https://www.facebook.com/YeeHawDoughnuts/" aria-label="Yee Haw Doughnuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gourmet</li>
           </ul>
@@ -673,6 +720,7 @@
           <h3 class="shop__name">Kitoko Bites</h3>
           <p class="shop__address">1201 Agriculture St, Raleigh, NC 27603</p>
           <a class="shop__site" href="https://kitokobites.com/" aria-label="Kitoko Bites website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
           </ul>
@@ -682,6 +730,7 @@
           <h3 class="shop__name">Chillz Intergalactic Donuts</h3>
           <p class="shop__address">504 N McPherson Church Rd, Fayetteville, NC 28303</p>
           <a class="shop__site" href="https://www.igdonuts.com/" aria-label="Chillz Intergalactic Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -691,6 +740,7 @@
           <h3 class="shop__name">Oh Mochi Raleigh</h3>
           <p class="shop__address">1141 Falls River Ave Ste 124, Raleigh, NC 27614</p>
           <a class="shop__site" href="https://www.ohmochi.us/" aria-label="Oh Mochi Raleigh website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mochi</li>
           </ul>
@@ -707,6 +757,7 @@
           <h3 class="shop__name">Bright Spot Donuts</h3>
           <p class="shop__address">1501 Sunrise Ave Ste 180, Raleigh, NC 27608</p>
           <a class="shop__site" href="https://www.brightspotdonuts.com/" aria-label="Bright Spot Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -719,6 +770,7 @@
           <h3 class="shop__name">Tepuy Donuts</h3>
           <p class="shop__address">2820 Capital Blvd, Raleigh, NC 27604</p>
           <a class="shop__site" href="https://www.tepuydonuts.com/" aria-label="Tepuy Donuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Sourdough</li>
           </ul>
@@ -728,6 +780,7 @@
           <h3 class="shop__name">Monuts</h3>
           <p class="shop__address">1002 9th St, Durham, NC 27705</p>
           <a class="shop__site" href="https://www.monutsdonuts.com/" aria-label="Monuts website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -738,6 +791,7 @@
           <h3 class="shop__name">Bakery Story</h3>
           <p class="shop__address">1201 Agriculture St, Raleigh, NC 27603</p>
           <a class="shop__site" href="https://www.bakerystory26.com/" aria-label="Bakery Story website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Filled</li>
@@ -748,6 +802,7 @@
           <h3 class="shop__name">Blue Ox Bakery at The Little Blue Bakehouse</h3>
           <p class="shop__address">2116-H New Bern Ave, Raleigh, NC 27610</p>
           <a class="shop__site" href="https://www.theblueoxbakery.com/" aria-label="Blue Ox Bakery at The Little Blue Bakehouse website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -761,6 +816,7 @@
           <h3 class="shop__name">Paul &amp; Jack’s (Cary)</h3>
           <p class="shop__address">1881 Lake Pine Dr, Cary, NC 27511</p>
           <a class="shop__site" href="https://www.facebook.com/paulandjackbakery/" aria-label="Paul &amp; Jack’s (Cary) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Bombolini</li>
           </ul>
@@ -770,6 +826,7 @@
           <h3 class="shop__name">Paul &amp; Jack’s (Raleigh)</h3>
           <p class="shop__address">911 N West St Ste 107, Raleigh, NC 27603</p>
           <a class="shop__site" href="https://www.facebook.com/paulandjackbakery/" aria-label="Paul &amp; Jack’s (Raleigh) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Bombolini</li>
           </ul>
@@ -779,6 +836,7 @@
           <h3 class="shop__name">Paul &amp; Jack’s (Wake Forest)</h3>
           <p class="shop__address">2010 S Main St #404, Wake Forest, NC 27587</p>
           <a class="shop__site" href="https://www.facebook.com/paulandjackbakery/" aria-label="Paul &amp; Jack’s (Wake Forest) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Bombolini</li>
           </ul>
@@ -788,6 +846,7 @@
           <h3 class="shop__name">Ann’s Bakeshop</h3>
           <p class="shop__address">300 W Ballentine St, Holly Springs, NC 27540</p>
           <a class="shop__site" href="https://annsbakeshop.com/" aria-label="Ann’s Bakeshop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Yeast</li>
             <li class="chip">Cake</li>
@@ -798,6 +857,7 @@
           <h3 class="shop__name">Guglehupf</h3>
           <p class="shop__address">2706 Durham-Chapel Hill Blvd, Durham, NC 27707</p>
           <a class="shop__site" href="https://guglhupf.com/" aria-label="Guglehupf website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Filled</li>
           </ul>
@@ -807,6 +867,7 @@
           <h3 class="shop__name">Hereghty Heavenly Delicious</h3>
           <p class="shop__address">2603 Glenwood Ave #123, Raleigh, NC 27608</p>
           <a class="shop__site" href="http://www.hereghty.com/" aria-label="Hereghty Heavenly Delicious website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Croissant Donut</li>
           </ul>
@@ -816,6 +877,7 @@
           <h3 class="shop__name">Kim's Bake Shop</h3>
           <p class="shop__address">111 N Churton St, Hillsborough, NC 27278</p>
           <a class="shop__site" href="https://www.downtownpies.com/" aria-label="Kim's Bake Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gourmet</li>
           </ul>
@@ -832,6 +894,7 @@
           <h3 class="shop__name">Peace, Love and Little Donuts of Apex</h3>
           <p class="shop__address">2826 Teachey Pl., Apex, NC 27523</p>
           <a class="shop__site" href="https://www.peaceloveandlittledonuts.com/" aria-label="Peace, Love and Little Donuts of Apex website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Mini</li>
           </ul>
@@ -841,6 +904,7 @@
           <h3 class="shop__name">Plant Cakes Bake Shop</h3>
           <p class="shop__address">410 S White St, Wake Forest, NC 27587</p>
           <a class="shop__site" href="https://www.plantcakesbakeshop.com/" aria-label="Plant Cakes Bake Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Baked</li>
             <li class="chip">Vegan</li>
@@ -852,6 +916,7 @@
           <h3 class="shop__name">Levant Bistro</h3>
           <p class="shop__address">7400 Six Forks Rd #7, Raleigh, NC 27615</p>
           <a class="shop__site" href="https://freshlevant.com/" aria-label="Levant Bistro website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
           </ul>
@@ -861,25 +926,28 @@
           <h3 class="shop__name">Sweetheart Treats</h3>
           <p class="shop__address">6150 Rogers Rd, Rolesville, NC 27571</p>
           <a class="shop__site" href="https://www.sweethearttreatsnc.com/" aria-label="Sweetheart Treats website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
           </ul>
           <p class="shop__desc">Sweetheart Treats says their bakery is a space where every dessert and/or treat is customizable to suit dietary restrictions. Gluten-free fried donuts appear to be available on some Fridays throughout the month.</p>
         </li>
-        <li class="shop" data-id="jp-s-pastry-raleigh" data-tags="gluten-friendly vegan" data-search="jp's pastry (raleigh) 7072 nc-751 #108, durham, nc 27707 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
+        <li class="shop" data-id="jp-s-pastry-raleigh" data-tags="gluten-friendly vegan" data-search="jp's pastry (raleigh) 2310 bale st ste 104, raleigh, nc 27608 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
           <h3 class="shop__name">JP's Pastry (Raleigh)</h3>
-          <p class="shop__address">7072 NC-751 #108, Durham, NC 27707</p>
+          <p class="shop__address">2310 Bale St Ste 104, Raleigh, NC 27608</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Raleigh) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>
           </ul>
           <p class="shop__desc">JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media.</p>
         </li>
-        <li class="shop" data-id="jp-s-pastry-durham" data-tags="gluten-friendly vegan" data-search="jp's pastry (durham) 2310 bale st ste 104, raleigh, nc 27608 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
+        <li class="shop" data-id="jp-s-pastry-durham" data-tags="gluten-friendly vegan" data-search="jp's pastry (durham) 7072 nc-751 #108, durham, nc 27707 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
           <h3 class="shop__name">JP's Pastry (Durham)</h3>
-          <p class="shop__address">2310 Bale St Ste 104, Raleigh, NC 27608</p>
+          <p class="shop__address">7072 NC-751 #108, Durham, NC 27707</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Durham) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>
@@ -890,6 +958,7 @@
           <h3 class="shop__name">JP's Pastry (Benson)</h3>
           <p class="shop__address">111 S Railroad St, Benson, NC 27504</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Benson) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>
@@ -907,6 +976,7 @@
           <h3 class="shop__name">Plant Cakes Bake Shop</h3>
           <p class="shop__address">410 S White St, Wake Forest, NC 27587</p>
           <a class="shop__site" href="https://www.plantcakesbakeshop.com/" aria-label="Plant Cakes Bake Shop website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Baked</li>
             <li class="chip">Vegan</li>
@@ -914,20 +984,22 @@
           </ul>
           <p class="shop__desc">A vegan bakery and dessert bar run by a vegan duo that launched in 2020. They’re known for their assortment of cake doughnuts, cupcakes, muffins, cookies, and more. Not only do they bake without any animal products, but they also have gluten-free options regularly on their menu as well.</p>
         </li>
-        <li class="shop" data-id="jp-s-pastry-raleigh" data-tags="gluten-friendly vegan" data-search="jp's pastry (raleigh) 7072 nc-751 #108, durham, nc 27707 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
+        <li class="shop" data-id="jp-s-pastry-raleigh" data-tags="gluten-friendly vegan" data-search="jp's pastry (raleigh) 2310 bale st ste 104, raleigh, nc 27608 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
           <h3 class="shop__name">JP's Pastry (Raleigh)</h3>
-          <p class="shop__address">7072 NC-751 #108, Durham, NC 27707</p>
+          <p class="shop__address">2310 Bale St Ste 104, Raleigh, NC 27608</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Raleigh) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>
           </ul>
           <p class="shop__desc">JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media.</p>
         </li>
-        <li class="shop" data-id="jp-s-pastry-durham" data-tags="gluten-friendly vegan" data-search="jp's pastry (durham) 2310 bale st ste 104, raleigh, nc 27608 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
+        <li class="shop" data-id="jp-s-pastry-durham" data-tags="gluten-friendly vegan" data-search="jp's pastry (durham) 7072 nc-751 #108, durham, nc 27707 gluten-friendly vegan jp's pastries can be found in many spots around the triangle. they're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. they've been known to have donuts on occassion and usually announce it on their social media.">
           <h3 class="shop__name">JP's Pastry (Durham)</h3>
-          <p class="shop__address">2310 Bale St Ste 104, Raleigh, NC 27608</p>
+          <p class="shop__address">7072 NC-751 #108, Durham, NC 27707</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Durham) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>
@@ -938,6 +1010,7 @@
           <h3 class="shop__name">JP's Pastry (Benson)</h3>
           <p class="shop__address">111 S Railroad St, Benson, NC 27504</p>
           <a class="shop__site" href="https://www.jpspastry.com/" aria-label="JP's Pastry (Benson) website">Website</a>
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
             <li class="chip">Gluten-Friendly</li>
             <li class="chip">Vegan</li>

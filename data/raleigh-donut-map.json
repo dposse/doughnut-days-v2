@@ -1,0 +1,833 @@
+{
+  "shops": [
+    {
+      "name": "Anne's Donuts and Bakery",
+      "address": "2714 Sunset Ave, Rocky Mount, NC 27804",
+      "website": "https://www.annesdonutsofnc.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled"
+      ],
+      "description": "Anne’s Donuts was founded in 1952. It’s known for its donuts, brownies, cookies, custom cakes and other specialty goods."
+    },
+    {
+      "name": "Baker's Dozen (Raleigh - Buck Jones Rd)",
+      "address": "1307 Buck Jones Rd, Raleigh, NC 27606",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter",
+        "Cruller"
+      ],
+      "description": "So old school, they don’t need a website. A local favorite, these family-owned and operated shops carry an assortment of yeast donuts, cake donuts, filled donuts, apple fritters, bear claws, and buttermilk bars. The apple fritters are not to be missed."
+    },
+    {
+      "name": "Baker's Dozen (Raleigh - Capital Blvd)",
+      "address": "6320 Capital Blvd #123, Raleigh, NC 27616",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter",
+        "Cruller"
+      ],
+      "description": "So old school, they don’t need a website. A local favorite, these family-owned and operated shops carry an assortment of yeast donuts, cake donuts, filled donuts, apple fritters, bear claws, and buttermilk bars. The apple fritters are not to be missed."
+    },
+    {
+      "name": "Baker's Dozen (Durham)",
+      "address": "3825 S Roxboro St Unit 150, Durham, NC 27713",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter",
+        "Cruller"
+      ],
+      "description": "So old school, they don’t need a website. A local favorite, these family-owned and operated shops carry an assortment of yeast donuts, cake donuts, filled donuts, apple fritters, bear claws, and buttermilk bars. The apple fritters are not to be missed."
+    },
+    {
+      "name": "Baker's Dozen (Apex)",
+      "address": "1232 W Williams St, Apex, NC 27502",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter",
+        "Cruller"
+      ],
+      "description": "So old school, they don’t need a website. A local favorite, these family-owned and operated shops carry an assortment of yeast donuts, cake donuts, filled donuts, apple fritters, bear claws, and buttermilk bars. The apple fritters are not to be missed."
+    },
+    {
+      "name": "Bright Spot Donuts",
+      "address": "1501 Sunrise Ave Ste 180, Raleigh, NC 27608",
+      "website": "https://www.brightspotdonuts.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled",
+        "Cruller",
+        "Fritter"
+      ],
+      "description": "The teams behind Boulted Bread, Jubala Coffee, and Benchwarmers Bagels are at it again with Bright Spot Donuts. This small shop has yeast raised donuts in an assortment of seasonal flavors."
+    },
+    {
+      "name": "Carolina Glazed Donuts",
+      "address": "5400 S Miami Blvd, Durham, NC 27703",
+      "website": "https://www.facebook.com/p/Carolina-Glazed-Donuts-100057904514800/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "This donut shop has an assortment of raised and cake doughnuts as well as some cinnamon bun style doughnuts in fun and cute shapes."
+    },
+    {
+      "name": "Daily Donuts",
+      "address": "1067 S Main St, Graham, NC 27253",
+      "website": "https://www.facebook.com/dailydonuts.net/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "This local doughnut shop was named the best bakery in the area by Buzzfeed via Yelp reviews in 2018 and it was named one of the Top 10 Local Donut Shops by Money Magazine in 2019."
+    },
+    {
+      "name": "Daylight Donuts",
+      "address": "7550 Creedmoor Rd #101, Raleigh, NC 27613",
+      "website": "https://www.daylightdonutsraleigh.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled"
+      ],
+      "description": "Originally a chain from Tulsa, Oklahoma, this Daylight Donuts in North Raleigh has been locally owned and operated in the Triangle since the 1990s. It carries a wide assortment of doughnuts in loads of flavors as well as coffee and a few other delightful confections. All of their products are Peanut-Free and Nut-Free."
+    },
+    {
+      "name": "Donut Daily",
+      "address": "106 Bratton Dr ste 3, Garner, NC 27529",
+      "website": "https://www.facebook.com/p/Donut-Daily-Garner-100080843866611/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "This shop carries an assortment of yeast raised and cake donuts alongside donut-style cinnamon rolls, bear claws, apple fritters, and more. They also offer espresso drinks alongside their donut flavor combos and breakfast sandwiches."
+    },
+    {
+      "name": "Early Bird Donuts",
+      "address": "2816 Erwin Rd #101, Durham, NC 27705",
+      "website": "https://www.facebook.com/EBDONUTS/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "This popular spot near Duke University’s campus is known for their large and fluffy doughnuts. They carry an assortment of yeast raised and cake doughnuts alongside other traditional doughnut shop treats like fritters, cinnamon rolls, bear claws, and more. This shop also offers coffee and breakfast sandwiches."
+    },
+    {
+      "name": "Heritage Donuts",
+      "address": "1040 Forestville Rd Ste 132, Wake Forest, NC 27587",
+      "website": "https://www.facebook.com/heritagedonuts",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "This mom & pop style shop is known for their large and fluffy doughnuts that come in an assortment of flavors."
+    },
+    {
+      "name": "Krispy Kreme",
+      "address": "549 N Person St, Raleigh, NC 27604",
+      "website": "https://www.krispykreme.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled"
+      ],
+      "description": "This Krispy Kreme has a serious history in the Triangle. Krispy Kreme’s origin story starts in Winston-Salem, NC, but this little shop in Raleigh has been open since the 1970s in Raleigh’s Historic Oakwood Neighborhood. If the Hot Donut sign is on, you have to stop to get one. Those are the rules."
+    },
+    {
+      "name": "NC Jelly Donuts (Burlington)",
+      "address": "3260 S Church St, Burlington, NC 27215",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "These shops carry an assortment of raised and cake doughnuts, as well as coffee. There are two locations, one in Burlington and one in Mebane."
+    },
+    {
+      "name": "NC Jelly Donuts (Mebane)",
+      "address": "126 Millstead Dr, Mebane, NC 27302",
+      "website": null,
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Fritter"
+      ],
+      "description": "These shops carry an assortment of raised and cake doughnuts, as well as coffee. There are two locations, one in Burlington and one in Mebane."
+    },
+    {
+      "name": "Peace, Love and Little Donuts of Apex",
+      "address": "2826 Teachey Pl., Apex, NC 27523",
+      "website": "https://www.peaceloveandlittledonuts.com/",
+      "categories": [
+        "Novelty",
+        "Gluten-Friendly"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "Peace Love & Little Donuts of Apex make small cake donuts in an assortment of flavors. They offer gluten-friendly donuts, but only on certain days and via preorder. We’ve only seen details for the Gluten-Friendly preorders posted to the Gluten Free Gang of Raleigh Facebook group."
+    },
+    {
+      "name": "Tepuy Donuts",
+      "address": "2820 Capital Blvd, Raleigh, NC 27604",
+      "website": "https://www.tepuydonuts.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Sourdough"
+      ],
+      "description": "Tepuy Donuts makes handcrafted sourdough donuts and other baked goods. Their cafe offers coffee (hot and iced, but no espresso), tea, matcha, and hot chocolate. Their featured donut flavors rotate seasonally."
+    },
+    {
+      "name": "Wilson Doughnut Shop",
+      "address": "525 Tarboro St SW, Wilson, NC 27893",
+      "website": "https://www.wilsondoughnut.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled"
+      ],
+      "description": "Reviews tell us that this local shop is known for their friendly customer service and golden glazed doughnuts. The Wilson Doughnut Shop has an assortment of yeast-raised doughnuts, cake doughnuts, cream puffs, breakfast items, and more."
+    },
+    {
+      "name": "Cultivate Coffee Roasters",
+      "address": "128 S Fuquay Ave, Fuquay-Varina, NC 27526",
+      "website": "https://www.cultivate.coffee/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Fritter"
+      ],
+      "description": "This popular coffee shop in Fuquay Varina has doughnuts available in their pastry case, which they source from their friends at Baker’s Dozen."
+    },
+    {
+      "name": "Monuts",
+      "address": "1002 9th St, Durham, NC 27705",
+      "website": "https://www.monutsdonuts.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake"
+      ],
+      "description": "Monuts got their start as a little donut stand at the Durham Farmers Market in 2011 and have since evolved into a counter-service restaurant and bakery with a variety of breakfast and lunch options. Despite their growth, they’re still most known for well-loved house-made doughnuts."
+    },
+    {
+      "name": "Boba Boba Cafe",
+      "address": "12102 Bradford Green Square, Cary, NC 27513",
+      "website": "https://www.bobababacafe.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mochi"
+      ],
+      "description": "A tea café in Cary that offers some sweet house-made pastries in the form of Mochi Donuts and Cream Puffs. They're currently being rotated on the menu and appear to only be available on weekends."
+    },
+    {
+      "name": "Cacao Canela (Cocoa Cinnamon)",
+      "address": "2033-2011 Chapel Hill Rd, Durham, NC 27707",
+      "website": "https://littlewaves.coffee/pages/cocoa-cinnamon-lakewood-little-waves-coffee-roastery",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Churros"
+      ],
+      "description": "This cute coffee shop has made-to-order churros available daily. There are 3 Cocoa Cinnamon’s in Durham, the one that serves churros is located on Chapel Hill Road (not to be confused with Chapel Hill the City) and says Cacao Canela on the outside.."
+    },
+    {
+      "name": "Bakery Story",
+      "address": "1201 Agriculture St, Raleigh, NC 27603",
+      "website": "https://www.bakerystory26.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled"
+      ],
+      "description": "Bakery Story is a family-owned Asian bakery started by Korean Americans, built on sharing comfort, culture, and homemade pastries. They offer a mix of savory and sweet pastries, from kimchi croquettes and bulgogi mozzarella buns to cream-filled donuts and seasonal favorites. They’ve created signature items like the Logie Donut (named after their mom) and continue to add new recipes inspired by our community."
+    },
+    {
+      "name": "Blue Ox Bakery at The Little Blue Bakehouse",
+      "address": "2116-H New Bern Ave, Raleigh, NC 27610",
+      "website": "https://www.theblueoxbakery.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled",
+        "Cruller",
+        "Sour Cream"
+      ],
+      "description": "The Blue Ox Bakery is a pop-up and wholesale bakery in the Raleigh area. They have a wide array pastries including croissants, cinnamon buns, crullers, donuts, cookies, brownies, and specialty seasonal pastries. They take special orders and can cater private events. They usually have hot donut pop ups in the Fall, Winter, and early Spring. Gluten-friendly crullers are not regularly available, but they can be custom ordered."
+    },
+    {
+      "name": "Burney’s Sweets & More (Clinton)",
+      "address": "107 Vance St, Clinton, NC 28328",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Burney’s Sweets & More (Raleigh)",
+      "address": "4500 Falls of Neuse Rd #100, Raleigh, NC 27609",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Burney’s Sweets & More (Smithfield)",
+      "address": "517 Outlet Center Dr, Smithfield, NC 27577",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Burney’s Sweets & More (Erwin)",
+      "address": "121 E H St, Erwin, NC 28339",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Burney’s Sweets & More (Clayton)",
+      "address": "312 E Main St, Clayton, NC 27520",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Burney’s Sweets & More (Fayetteville)",
+      "address": "3319-B Raeford Rd, Fayetteville, NC 28303",
+      "website": "https://www.burneyssweetsandmore.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "This bakery has all sorts of baked goods, but is known for their croissant-shaped doughnuts (doughnut dough rolled in the shape of a croissant). They got their start in Elizabethtown, NC, and have several locations in North Carolina."
+    },
+    {
+      "name": "Paul & Jack’s (Cary)",
+      "address": "1881 Lake Pine Dr, Cary, NC 27511",
+      "website": "https://www.facebook.com/paulandjackbakery/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Bombolini"
+      ],
+      "description": "This pastry shop makes fresh bomboloni everyday alongside a large assortment of pastries and delicacies."
+    },
+    {
+      "name": "Paul & Jack’s (Raleigh)",
+      "address": "911 N West St Ste 107, Raleigh, NC 27603",
+      "website": "https://www.facebook.com/paulandjackbakery/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Bombolini"
+      ],
+      "description": "This pastry shop makes fresh bomboloni everyday alongside a large assortment of pastries and delicacies."
+    },
+    {
+      "name": "Paul & Jack’s (Wake Forest)",
+      "address": "2010 S Main St #404, Wake Forest, NC 27587",
+      "website": "https://www.facebook.com/paulandjackbakery/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Bombolini"
+      ],
+      "description": "This pastry shop makes fresh bomboloni everyday alongside a large assortment of pastries and delicacies."
+    },
+    {
+      "name": "Paul's Pastry Shop NC",
+      "address": "720 S Church St, Burlington, NC 27215",
+      "website": "https://paulspastryshop.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Filled"
+      ],
+      "description": "A pastry shop known for their fresh donuts, pastries, cookies & Cakes in Burlington. They’ve been serving up sweet treats since 1942 and have a convenient drive thru window."
+    },
+    {
+      "name": "Sandra's Bakery",
+      "address": "225 Wicker St, Sanford, NC 27330",
+      "website": "https://sandrasbakery-sanfordnc.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake",
+        "Filled"
+      ],
+      "description": "A locally owned bakery in Sanford featuring made from scratch muffins, cupcakes, novelties, and a wide assortment of donuts in their pastry case. The staff is friendly and the shop is well stocked, but expect to wait a bit in line if you get there at peak donut hours."
+    },
+    {
+      "name": "Sherry's Bakery",
+      "address": "122 N Wilson Ave, Dunn, NC 28334",
+      "website": "https://www.facebook.com/sherrysbakerydunn/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Fritter"
+      ],
+      "description": "A cafe and bakery in Dunn that was opened in 1967. It has some breakfast and lunch items, as well as several kinds of doughnuts, fritters, pies, cakes, and more."
+    },
+    {
+      "name": "Superior Bakery",
+      "address": "2433 Hope Mills Rd, Fayetteville, NC 28304",
+      "website": "https://www.superiorbakerync.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake"
+      ],
+      "description": "This low-key bakery in Fayetteville with house-made doughnuts has been family owned and operated since 1956."
+    },
+    {
+      "name": "The Farm House Cafe & Bakery",
+      "address": "301 Raleigh St, Newton Grove, NC 28366",
+      "website": "https://www.farmhousecafebakery.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "The Farm House Cafe & Bakery describes itself as, a family owned and operated restaurant that specialize in country breakfast and lunch. A photo on google from May of 2025 shows a box of yeast raised, glazed donuts."
+    },
+    {
+      "name": "Big Dom's Bagel Shop",
+      "address": "203 E Chatham St, Cary, NC 27511",
+      "website": "http://www.bigdomsbagelshop.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Baked"
+      ],
+      "description": "A bagel shop in downtown Cary that offers an assortment of bagel sandwiches, schmears, and coffee. They also bake their own donuts, called b’donuts, which are made from a buttermilk vanilla batter and served covered in powdered sugar. They’re perfect for dipping in coffee and are offered as a regular item on the menu. Big Dom’s has been known to dabble in other kinds of doughnuts—yeast raised baked, fritters, etc.—following them on Instagram is your best shot at finding out when they’ll be offering more doughnut-related treats."
+    },
+    {
+      "name": "Plant Cakes Bake Shop",
+      "address": "410 S White St, Wake Forest, NC 27587",
+      "website": "https://www.plantcakesbakeshop.com/",
+      "categories": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "tags": [
+        "Baked",
+        "Vegan",
+        "Gluten-Friendly"
+      ],
+      "description": "A vegan bakery and dessert bar run by a vegan duo that launched in 2020. They’re known for their assortment of cake doughnuts, cupcakes, muffins, cookies, and more. Not only do they bake without any animal products, but they also have gluten-free options regularly on their menu as well."
+    },
+    {
+      "name": "The Phoenix",
+      "address": "664 West St, Pittsboro, NC 27312",
+      "website": "https://www.thephoenixbakerync.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Baked"
+      ],
+      "description": "A locally owned bakery in Pittsboro that aims to source as many local, organic, non GMO, and whole ingredients as possible. They make small batches of all sorts of confections daily, which includes a small collection of donuts. What’s most striking about their doughnuts is that they’re all baked, not fried, but some are still yeast raised. It’s the only case of raised baked donuts that we know of regularly offered in this region."
+    },
+    {
+      "name": "Ann’s Bakeshop",
+      "address": "300 W Ballentine St, Holly Springs, NC 27540",
+      "website": "https://annsbakeshop.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Yeast",
+        "Cake"
+      ],
+      "description": "Ann’s Bakeshop is a regular at the Holly Springs Farmers Market. They offer a wide assortment of baked goods like bread, cakes, cookies, muffins, pies, and even some Keto and Gluten-free options. Among their selection is cake doughnuts in a few different flavors. You can pre-order to have a batch ready for a Saturday pick up at the Holly Springs Farmers Market."
+    },
+    {
+      "name": "Celtic Creamery (Smithfield)",
+      "address": "257 NC-210, Smithfield, NC 27577",
+      "website": "https://celticcreamery.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "This ice cream shop offers homemade ice cream, sundaes, alongside mini donuts and other baked goods."
+    },
+    {
+      "name": "Celtic Creamery (Clayton)",
+      "address": "8926 Cleveland Rd, Clayton, NC 27520",
+      "website": "https://celticcreamery.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "This ice cream shop offers homemade ice cream, sundaes, alongside mini donuts and other baked goods."
+    },
+    {
+      "name": "Guglehupf",
+      "address": "2706 Durham-Chapel Hill Blvd, Durham, NC 27707",
+      "website": "https://guglhupf.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Filled"
+      ],
+      "description": "Guglhupf describes itself as \"...serv[ing] contemporary cuisine with a nod to its southern German roots...\" They focus on seasonal ingredients and have Berliners (Jelly Donuts) on Saturdays."
+    },
+    {
+      "name": "Hereghty Heavenly Delicious",
+      "address": "2603 Glenwood Ave #123, Raleigh, NC 27608",
+      "website": "http://www.hereghty.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Croissant Donut"
+      ],
+      "description": "A bake shop in Glenwood Village shopping Center that makes their own croissants, muffins, scones, and other treats. They regularly have a fried croissant style doughnut (croissant dough in the shape of a doughnut) on their menu called a “French Donut.”"
+    },
+    {
+      "name": "LA HORCHATERIA",
+      "address": "2261 New Hope Church Rd, Raleigh, NC 27604",
+      "website": "https://lahorchaterianc.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Churros"
+      ],
+      "description": "This cute and fun little coffee shop in North Raleigh offers an assortment of made-to-order churros along with pan dulces, espresso drinks, aguas frescas, and waffles."
+    },
+    {
+      "name": "Millstone Creek Orchards",
+      "address": "506 Parks Crossroads Church Rd, Ramseur, NC 27316",
+      "website": "https://www.millstonecreekorchards.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "This orchard started by offering apple cider mini-donuts as part of their seasonal Fall menu. They gained popularity and are now offered in various seasonal flavors on weekends throughout most of the year."
+    },
+    {
+      "name": "Sola Coffee Cafe",
+      "address": "7705 Lead Mine Rd, Raleigh, NC 27615",
+      "website": "https://www.solacoffee.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "A family owned coffee shop in North Raleigh that opened its doors in 2012. They offer breakfast and lunch items and feature made-to-order mini donuts on their menu."
+    },
+    {
+      "name": "The Nomad at the Osbunn",
+      "address": "122 W King St, Hillsborough, NC 27278",
+      "website": "https://thenomadnc.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Bombolini"
+      ],
+      "description": "From the folks that brought you Kasturi, Tan-Durm and Viceroy, comes The Nomad, an international street food-inspired eatery. On their dessert menu you'll find Bomboloni, house made fried Italian doughnuts with vanilla cream custard."
+    },
+    {
+      "name": "Kim's Bake Shop",
+      "address": "111 N Churton St, Hillsborough, NC 27278",
+      "website": "https://www.downtownpies.com/",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Gourmet"
+      ],
+      "description": "This new addition is right next door to the Wooden Nickel Pub in the Historic James Pharmacy building in Hillsborough. They currently offer cakes, pies, cookies, yeast based cinnamon apple fritters, old fashioned sour cream donuts and more. The WNP Bake Shop is only open on Saturdays, Sundays, and Mondays."
+    },
+    {
+      "name": "Yee Haw Doughnuts",
+      "address": "Yee Haw Doughnuts, Carrborro, NC",
+      "website": "https://www.facebook.com/YeeHawDoughnuts/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Gourmet"
+      ],
+      "description": "Yee Haw Doughnuts is a regular at the Carrboro Farmers Market. They make sweet potato cake doughnuts with an assortment of toppings. Their social media accounts say that they regularly appear in Saxapahaw, the Greensboro Farmers Curb Market, and other Triangle/Triad events, festivals, and markets and that they accept special orders."
+    },
+    {
+      "name": "Kitoko Bites",
+      "address": "1201 Agriculture St, Raleigh, NC 27603",
+      "website": "https://kitokobites.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Gluten-Friendly"
+      ],
+      "description": "KiKitoko Bites are vegan or plant-based gluten free donuts that are made with yuca or cassava. They strive to offer our customers all(strict) vegan and gluten free and \"free of myriads of allergies\"."
+    },
+    {
+      "name": "Levant Bistro",
+      "address": "7400 Six Forks Rd #7, Raleigh, NC 27615",
+      "website": "https://freshlevant.com/",
+      "categories": [
+        "Gluten-Friendly"
+      ],
+      "tags": [
+        "Gluten-Friendly"
+      ],
+      "description": "Levant Bistro offers up Levantine Cuisine, fresh Baked Pastries, all of which are organic and Gluten Free. They appear to have donuts on rotation."
+    },
+    {
+      "name": "The Donut Shoppe",
+      "address": "808 S Bickett Blvd, Louisburg, NC 27549",
+      "website": "https://www.facebook.com/p/The-donut-shoppe-61555036061811/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Cake",
+        "Filled",
+        "Fritter",
+        "Yeast-Raised"
+      ],
+      "description": "The Donut Shoppe is a Mom & Pop style shop with yeast raised and cake donuts, including popular options like blueberry cake and cream-filled."
+    },
+    {
+      "name": "Sweet Tooth Bakery",
+      "address": "25A Old Durham Rd, Roxboro, NC 27573",
+      "website": "https://www.facebook.com/TerrySweetToothBakery/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast-Raised",
+        "Filled"
+      ],
+      "description": "This bakery offers a wide range of desserts, including vegan and gluten-free options. The donuts do not appear to be gluten-free or vegan."
+    },
+    {
+      "name": "Sweetheart Treats",
+      "address": "6150 Rogers Rd, Rolesville, NC 27571",
+      "website": "https://www.sweethearttreatsnc.com/",
+      "categories": [
+        "Gluten-Friendly"
+      ],
+      "tags": [
+        "Gluten-Friendly"
+      ],
+      "description": "Sweetheart Treats says their bakery is a space where every dessert and/or treat is customizable to suit dietary restrictions. Gluten-free fried donuts appear to be available on some Fridays throughout the month."
+    },
+    {
+      "name": "Chillz Intergalactic Donuts",
+      "address": "504 N McPherson Church Rd, Fayetteville, NC 28303",
+      "website": "https://www.igdonuts.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "Chillz Intergalactic Donuts is a food truck that that offers made to order mini-donuts with an assortment of toppings."
+    },
+    {
+      "name": "Oh Mochi Raleigh",
+      "address": "1141 Falls River Ave Ste 124, Raleigh, NC 27614",
+      "website": "https://www.ohmochi.us/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mochi"
+      ],
+      "description": "Oh Mochi! offers a combination of Mochi Donuts, Korean Corndogs, Boba Tea, and Ice Cream."
+    },
+    {
+      "name": "Mickey's Pastry Shop",
+      "address": "2704 Graves Dr, Goldsboro, NC 27534",
+      "website": "https://mickeyspastry.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "Mickey's Pastry Shop has been up and running for over 75 years. They sell donuts, pies, cakes, and coffee."
+    },
+    {
+      "name": "JP's Pastry (Raleigh)",
+      "address": "2310 Bale St Ste 104, Raleigh, NC 27608",
+      "website": "https://www.jpspastry.com/",
+      "categories": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "tags": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "description": "JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media."
+    },
+    {
+      "name": "JP's Pastry (Durham)",
+      "address": "7072 NC-751 #108, Durham, NC 27707",
+      "website": "https://www.jpspastry.com/",
+      "categories": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "tags": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "description": "JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media."
+    },
+    {
+      "name": "JP's Pastry (Benson)",
+      "address": "111 S Railroad St, Benson, NC 27504",
+      "website": "https://www.jpspastry.com/",
+      "categories": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "tags": [
+        "Gluten-Friendly",
+        "Vegan"
+      ],
+      "description": "JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media."
+    }
+  ]
+}

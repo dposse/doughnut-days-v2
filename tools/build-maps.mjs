@@ -1,92 +1,35 @@
-/* Regenerates site/Raleigh-Donut-Map/index.html from the owner's spreadsheet.
+/* Regenerates site/Raleigh-Donut-Map/index.html from the shop database.
  *
  *   node tools/build-maps.mjs
  *
- * Reads data/raleigh-donut-map.xlsx and rewrites the shop list. No npm
- * dependencies — the .xlsx is a zip of XML, and Node can unzip it with zlib.
- * Edit the spreadsheet, run this, commit the result.
+ * Reads data/raleigh-donut-map.json — the source of truth for the shop list.
+ * Edit that file, run this, commit the result. No npm dependencies.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { inflateRawSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const XLSX = join(ROOT, 'data', 'raleigh-donut-map.xlsx');
+const DATA = join(ROOT, 'data', 'raleigh-donut-map.json');
 const OUT = join(ROOT, 'site', 'Raleigh-Donut-Map', 'index.html');
 
-/* ---------- minimal zip reader ---------- */
-function unzip(buf) {
-  // End of central directory, scanned backwards past any trailing comment.
-  let eocd = -1;
-  for (let i = buf.length - 22; i >= 0; i--) {
-    if (buf.readUInt32LE(i) === 0x06054b50) { eocd = i; break; }
+const db = JSON.parse(readFileSync(DATA, 'utf8'));
+if (!Array.isArray(db.shops)) throw new Error('data file has no "shops" array');
+
+const recs = db.shops.map((s, i) => {
+  for (const field of ['name', 'address', 'description']) {
+    if (!s[field]) throw new Error(`shop ${i} ("${s.name || '?'}") is missing ${field}`);
   }
-  if (eocd < 0) throw new Error('not a zip file');
-
-  const count = buf.readUInt16LE(eocd + 10);
-  let p = buf.readUInt32LE(eocd + 16);
-  const files = {};
-
-  for (let i = 0; i < count; i++) {
-    if (buf.readUInt32LE(p) !== 0x02014b50) throw new Error('bad central directory');
-    const method = buf.readUInt16LE(p + 10);
-    const compSize = buf.readUInt32LE(p + 20);
-    const nameLen = buf.readUInt16LE(p + 28);
-    const extraLen = buf.readUInt16LE(p + 30);
-    const commentLen = buf.readUInt16LE(p + 32);
-    const localOff = buf.readUInt32LE(p + 42);
-    const name = buf.toString('utf8', p + 46, p + 46 + nameLen);
-
-    // The local header repeats the name/extra lengths, which can differ.
-    const lNameLen = buf.readUInt16LE(localOff + 26);
-    const lExtraLen = buf.readUInt16LE(localOff + 28);
-    const start = localOff + 30 + lNameLen + lExtraLen;
-    const raw = buf.subarray(start, start + compSize);
-
-    files[name] = method === 0 ? raw : inflateRawSync(raw);
-    p += 46 + nameLen + extraLen + commentLen;
+  if (!Array.isArray(s.categories) || !s.categories.length) {
+    throw new Error(`shop "${s.name}" has no categories`);
   }
-  return files;
-}
-
-/* ---------- sheet -> records ---------- */
-const dec = s => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
-  .replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (m, d) => String.fromCharCode(+d))
-  .replace(/&amp;/g, '&');
-
-const zip = unzip(readFileSync(XLSX));
-const ssXml = zip['xl/sharedStrings.xml'].toString('utf8');
-const shared = [...ssXml.matchAll(/<si>([\s\S]*?)<\/si>/g)].map(m =>
-  [...m[1].matchAll(/<t[^>]*>([\s\S]*?)<\/t>/g)].map(t => dec(t[1])).join(''));
-
-const sheetXml = zip['xl/worksheets/sheet1.xml'].toString('utf8');
-const rows = [];
-for (const rm of sheetXml.matchAll(/<row[^>]*r="(\d+)"[^>]*>([\s\S]*?)<\/row>/g)) {
-  const cells = {};
-  for (const cm of rm[2].matchAll(/<c r="([A-Z]+)\d+"([^>]*)>([\s\S]*?)<\/c>/g)) {
-    const [, col, attrs, body] = cm;
-    const t = (attrs.match(/t="([^"]+)"/) || [])[1];
-    const v = (body.match(/<v>([\s\S]*?)<\/v>/) || [])[1];
-    const inline = body.match(/<is>[\s\S]*?<t[^>]*>([\s\S]*?)<\/t>/);
-    let val;
-    if (t === 's') val = shared[+v];
-    else if (inline) val = dec(inline[1]);
-    else if (v !== undefined) val = dec(v);
-    if (val !== undefined && String(val).trim() !== '') cells[col] = String(val).trim();
-  }
-  if (Object.keys(cells).length) rows.push(cells);
-}
-
-const header = rows[0];
-const cols = Object.keys(header);
-const recs = rows.slice(1).map(r => Object.fromEntries(cols.map(c => [header[c], (r[c] ?? '').trim()])));
+  return s;
+});
 
 /* ---------- shaping ---------- */
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const splitList = s => s.split(',').map(x => x.trim()).filter(Boolean);
 
 // "Yeast-Raised" is the same thing as "Yeast" — merged for display and filtering.
 const TAG_ALIASES = { 'Yeast-Raised': 'Yeast' };
@@ -100,11 +43,14 @@ const baseName = n => n.replace(/\s*\([^)]*\)\s*$/, '').trim();
 const cityOf = a => { const m = a.match(/,\s*([^,]+),\s*NC/); return m ? m[1].trim() : ''; };
 
 for (const r of recs) {
-  r.categories = splitList(r['Map Category']);
-  r.tags = [...new Set(splitList(r['List Tags']).map(t => TAG_ALIASES[t] || t))];
-  r.hasSite = !/^no website/i.test(r.Website);
-  r.city = cityOf(r.Address);
-  r.base = baseName(r.Name);
+  r.Name = r.name;
+  r.Address = r.address;
+  r.Website = r.website;
+  r.Description = r.description;
+  r.tags = [...new Set((r.tags || []).map(t => TAG_ALIASES[t] || t))];
+  r.hasSite = Boolean(r.website);
+  r.city = cityOf(r.address);
+  r.base = baseName(r.name);
 }
 
 // Shops sharing a base name get their city in the link label, so the website
@@ -140,6 +86,7 @@ function shopHtml(r) {
           <h3 class="shop__name">${esc(r.Name)}</h3>
           <p class="shop__address">${esc(r.Address)}</p>
           ${website}
+          <p class="shop__tagslabel">Tags:</p>
           <ul class="shop__tags">
 ${r.tags.map(t => `            <li class="chip">${esc(t)}</li>`).join('\n')}
           </ul>
@@ -236,7 +183,7 @@ ${tagListAbout}
   </section>
 
   <section class="band" id="map">
-    <h2 class="tape tilt-r" id="map-heading">Google Map Embed</h2>
+    <h2 class="tape tilt-r" id="map-heading" tabindex="-1">Google Map Embed</h2>
 
     <!-- Off-screen until focused, like the page's skip link. Sits before the
          embed so keyboard users meet it before the map's own focus stops. -->
@@ -262,6 +209,11 @@ ${tagListAbout}
         <a class="btn" href="#map">Open in Google Maps</a>
       </div>
     </div>
+
+    <!-- The mirror of the one above: someone shift-tabbing up from the list
+         reaches this before the map's own focus stops, and it puts them back
+         above the embed. -->
+    <a class="btn btn--skipmap" href="#map-heading">Skip Google Map<span class="sr-only">, back to the Google Map Embed heading</span></a>
 
     <h3 class="key__heading">Key</h3>
     <ul class="key">
