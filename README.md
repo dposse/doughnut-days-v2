@@ -1,20 +1,36 @@
 # doughnut-days-v2
 
-Static landing page for Doughnut Days. No build step — plain HTML, CSS and images.
+Static site for Doughnut Days — plain HTML, CSS and images. Netlify builds
+nothing; the pages are generated locally by Node scripts and committed.
 
 ## Structure
 
 ```
 site/                           everything that gets deployed
-  index.html                    landing page
-  Raleigh-Donut-Map/index.html  the donut map page (63 shops)
+  index.html                    landing page (hand-written)
+  Raleigh-Donut-Map/            the donut map page (63 shops)      generated
+  Blog/                         blog index + one page per post     generated
+  Contact-Us/                   contact form + thanks page         generated
   maps.js                       tag + search filtering for the map page
   styles.css                    all styles (tokens at the top of the file)
   assets/                       hero photo, cruller photo
   assets/map-icons/             the five Google My Maps category pins
+data/                           source of truth for generated content
+tools/                          the generators
 design_handoff_doughnut_days/   design system, prototypes, screenshots — not deployed
 netlify.toml                    publish directory
 ```
+
+Every page except the landing page is generated. Do not hand-edit them:
+
+```
+node tools/build.mjs
+```
+
+That runs `build-maps.mjs`, `build-blog.mjs` and `build-contact.mjs`. No npm
+install. The header and footer come from `tools/layout.mjs`, so the nav is
+defined once — except on `site/index.html`, which is hand-written and has its
+own copy to keep in step.
 
 Filtering is progressive enhancement — the full list is in the HTML and `maps.js`
 only hides and shows rows, so the page still works with JavaScript off.
@@ -54,6 +70,37 @@ entry per shop:
 
 The build fails loudly on a missing field or an unknown category, so a bad edit
 does not reach the page.
+
+## The blog
+
+Posts live in `data/blog.json`. Add one to the `posts` array:
+
+```json
+{
+  "title": "What Makes a Good Apple Fritter",
+  "date": "2026-08-31",
+  "body": ["First paragraph.", "Second paragraph."]
+}
+```
+
+The URL comes from the title, so `/Blog/what-makes-a-good-apple-fritter/`.
+Renaming a title changes the URL — the build deletes the old directory, so the
+previous link will 404. Posts are ordered newest first by `date`, which must be
+`YYYY-MM-DD`; it is displayed as "August 31st, 2026".
+
+Everything currently in there is placeholder text.
+
+## The contact form
+
+The form posts to **Netlify Forms**. It needs no backend and no JavaScript, but
+it only works once deployed — submitting from a local server does nothing.
+
+After the first deploy the form shows up as "contact" under **Forms** in the
+Netlify dashboard, where you turn on notification emails. Free tier is 100
+submissions a month.
+
+A successful submission lands on `/Contact-Us/thanks/`. Spam is filtered by a
+honeypot field that is hidden from people but visible to bots.
 
 ## CSS conventions
 
@@ -107,6 +154,8 @@ without being deployed.
   (the embed, the blurb beside it, and the "Open in Google Maps" link).
 - The About blurb and the blurb beside the map on the donut map page are
   placeholder text.
-- `hello@doughnutdays.com` in the footer is invented — replace with the real address.
-- The Donut Map Contact Form the copy promises does not exist yet.
-- `#blog` and the maps link point at anchors on this page; they need real pages before launch.
+- Every blog post in `data/blog.json` is placeholder text.
+- `hello@doughnut-days.com` is the address the owner's sketch gives, but the
+  mailbox has not been confirmed as live.
+- Netlify Forms only starts capturing after the first deploy, and notification
+  emails have to be switched on in the dashboard.

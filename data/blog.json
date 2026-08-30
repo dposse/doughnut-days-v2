@@ -1,0 +1,30 @@
+{
+  "intro": "Our thoughts and ramblings on doughnuts and other things.",
+  "posts": [
+    {
+      "title": "Placeholder: What Makes a Good Apple Fritter",
+      "date": "2026-08-31",
+      "body": [
+        "Placeholder post. Replace this text with the real thing. Every paragraph in this array becomes its own paragraph on the page, so break the post up the way you want it to read.",
+        "A second placeholder paragraph, here to show what more than one paragraph looks like on the detail page. The title, the date and this body all come from data/blog.json.",
+        "Nothing on this page is final copy."
+      ]
+    },
+    {
+      "title": "Placeholder: The 2026 Maps Are Live",
+      "date": "2026-07-14",
+      "body": [
+        "Placeholder post. Replace this text with the real thing.",
+        "Posts are listed newest first on the blog index, so the date field is what controls the order."
+      ]
+    },
+    {
+      "title": "Placeholder: Six Years of Going Dark and Coming Back",
+      "date": "2026-06-02",
+      "body": [
+        "Placeholder post. Replace this text with the real thing.",
+        "Add a new post by adding an object to the posts array — title, date as YYYY-MM-DD, and body as an array of paragraphs. The URL is generated from the title."
+      ]
+    }
+  ]
+}

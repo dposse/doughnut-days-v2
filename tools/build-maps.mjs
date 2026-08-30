@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { head, header, footer, foot, esc, slug } from './layout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data', 'raleigh-donut-map.json');
@@ -27,10 +28,6 @@ const recs = db.shops.map((s, i) => {
 });
 
 /* ---------- shaping ---------- */
-const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
-  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-
 // "Yeast-Raised" is the same thing as "Yeast" — merged for display and filtering.
 const TAG_ALIASES = { 'Yeast-Raised': 'Yeast' };
 const CATEGORY_ORDER = ['Traditional', 'Novelty', 'Gourmet', 'Gluten-Friendly', 'Vegan'];
@@ -122,38 +119,11 @@ const tagBoxes = allTags.map(t =>
 const categoryList = CATEGORY_ORDER.map(c => `        <li>${esc(c)}</li>`).join('\n');
 const tagListAbout = allTags.map(t => `        <li>${esc(t)}</li>`).join('\n');
 
-const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raleigh Donut Map — Doughnut Days</title>
-<meta name="description" content="Every donut spot on the 2026 Raleigh Donut Map, grouped by category and filterable by tag.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="page">
-
-  <header class="masthead">
-    <a class="wordmark" href="/">@doughnut_days</a>
-    <nav class="nav">
-      <ul>
-        <li><a href="/Raleigh-Donut-Map/" aria-current="page">Donut Maps</a></li>
-        <li><a href="/#blog">Blog</a></li>
-        <li><a href="/#contact">Contact Us</a></li>
-        <li>
-          <a class="ig" href="https://instagram.com/doughnut_days" aria-label="Doughnut Days on Instagram">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle></svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
+const html = head({
+  title: 'Raleigh Donut Map — Doughnut Days',
+  description: 'Every donut spot on the 2026 Raleigh Donut Map, grouped by category and filterable by tag.',
+  depth: 1,
+}) + header('/Raleigh-Donut-Map/') + `
   <section class="band band--pagehead">
     <h1 class="pagetitle tape" id="main" tabindex="-1">Raleigh Donut Maps</h1>
   </section>
@@ -259,31 +229,7 @@ ${sections}
     </div>
   </section>
 
-  <footer class="foot" id="contact">
-    <div>
-      <h2 class="tape tape--invert tilt-l">Pages</h2>
-      <ul>
-        <li><a href="/Raleigh-Donut-Map/">Donut Maps</a></li>
-        <li><a href="/#blog">Blog</a></li>
-        <li><a href="/#contact">Contact Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2 class="tape tape--invert tilt-r">Contact Us</h2>
-      <a class="email" href="mailto:hello@doughnutdays.com">hello@doughnutdays.com</a>
-      <div>
-        <a class="ig" href="https://instagram.com/doughnut_days" aria-label="Doughnut Days on Instagram">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-</div>
-<script src="../maps.js"></script>
-</body>
-</html>
-`;
+` + footer() + foot({ depth: 1, script: 'maps.js' });
 
 writeFileSync(OUT, html, 'utf8');
 

@@ -328,3 +328,56 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
   .mapcard__frame--tall{height:300px}
   .filters{padding:18px}
 }
+
+/* ================================================================
+   Blog
+   ================================================================ */
+.blog__intro{max-width:640px;margin:0 0 40px}
+
+.posts{list-style:none;margin:0;padding:0}
+.post{margin:0 0 36px}
+.post__title{
+  font-family:'Special Elite',monospace;font-weight:400;font-size:26px;
+  margin:0 0 6px;line-height:1.25;
+}
+.post__title a{text-decoration:none;border-bottom:2px solid transparent}
+.post__title a:hover{border-bottom-color:var(--ink)}
+.post__date{
+  font-size:13.5px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;
+  color:#555;margin:0;
+}
+/* The rule under each post, with the doughnut sitting on its left end. */
+.post__rule{display:flex;align-items:center;gap:12px;margin-top:16px}
+.post__rule span{flex:1;height:2px;background:var(--ink)}
+.donut{flex:none;color:var(--ink)}
+
+.postbody{max-width:680px;margin:28px 0 0}
+.postbody p{margin:0 0 20px}
+.postbody p:last-child{margin-bottom:0}
+.postback{margin:40px 0 0}
+.postback a{text-decoration:none;border-bottom:2px solid transparent;padding:2px 0}
+.postback a:hover{border-bottom-color:var(--ink)}
+
+/* ================================================================
+   Contact
+   ================================================================ */
+.contact__intro{max-width:640px;margin:0 0 40px}
+.contact__intro p{margin:0 0 14px}
+.contact__intro p:last-child{margin-bottom:0}
+
+.contactform{max-width:620px}
+.field{display:flex;flex-direction:column;gap:8px;margin:0 0 22px}
+.field label{font-size:13.5px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+.field input,.field textarea{
+  font-family:inherit;font-size:16px;padding:11px 14px;border-radius:0;
+  border:var(--rule);background:var(--paper);color:var(--ink);width:100%;
+}
+.field textarea{resize:vertical;min-height:160px;line-height:1.6}
+.contactform button{cursor:pointer}
+/* Honeypot: a real field, hidden from people, that bots tend to fill in.
+   Netlify discards any submission that arrives with it filled. */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+@media (max-width:900px){
+  .post__title{font-size:21px}
+}
