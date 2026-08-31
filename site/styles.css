@@ -399,6 +399,18 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 .field :is(input,textarea)[aria-invalid="true"]{
   box-shadow:inset 0 0 0 2px var(--ink);
 }
+
+/* Shown in place of the form after a successful send. */
+.formnote{
+  border:var(--rule);background:var(--paper);box-shadow:var(--shadow);
+  padding:22px 24px;max-width:620px;transform:rotate(-.4deg);
+}
+.formnote p{
+  font-family:'Special Elite',monospace;font-size:19px;line-height:1.4;margin:0;
+}
+.formnote:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+.contactform button[disabled]{opacity:.65;cursor:default}
+#form-error{margin-top:14px}
 /* Honeypot: a real field, hidden from people, that bots tend to fill in.
    Netlify discards any submission that arrives with it filled. */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}

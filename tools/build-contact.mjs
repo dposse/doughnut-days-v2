@@ -40,10 +40,21 @@ const page = head({
 
     <h2 class="tape tilt-l">Contact Form</h2>
 
+    <!-- Shown in place of the form once a submission goes through. The text is
+         in the markup rather than built in script, so the live region has
+         something to announce the moment it is unhidden. -->
+    <div class="formnote" id="form-success" role="status" tabindex="-1" hidden>
+      <p>Thanks! Your message has been successfully sent.</p>
+    </div>
+
     <!-- required and type=email stay in the markup so the browser still
          validates with JavaScript off. contact.js sets novalidate and takes
          over, because the browsers' own messages differ from each other and
-         cannot be restyled. -->
+         cannot be restyled.
+
+         action is the no-JavaScript path: a normal POST, which Netlify
+         redirects to the thanks page. With script running, the submission goes
+         in the background and the page is not left. -->
     <form class="contactform" id="contactform" name="contact" method="POST"
           data-netlify="true" netlify-honeypot="bot-field"
           action="/Contact-Us/thanks/">
@@ -73,7 +84,8 @@ const page = head({
         <p class="field__error" id="message-error" role="alert" hidden></p>
       </div>
 
-      <button class="btn btn--solid" type="submit">Send</button>
+      <button class="btn btn--solid" id="send" type="submit">Send</button>
+      <p class="field__error" id="form-error" role="alert" hidden></p>
     </form>
   </section>
 ` + footer() + foot({ depth: 1, script: 'contact.js' });

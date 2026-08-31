@@ -75,6 +75,45 @@
     });
   });
 
+  var button = document.getElementById('send');
+  var success = document.getElementById('form-success');
+  var sendError = document.getElementById('form-error');
+
+  function failed(message) {
+    sendError.textContent = message;
+    sendError.hidden = false;
+    button.disabled = false;
+    button.textContent = 'Send';
+  }
+
+  function succeeded() {
+    form.hidden = true;
+    success.hidden = false;
+    // Focus the message as well as announcing it. A live region alone is
+    // easily missed; focus makes sure it is read, and puts the reading
+    // position somewhere sensible now that the form is gone.
+    success.focus();
+  }
+
+  function send() {
+    sendError.hidden = true;
+    sendError.textContent = '';
+    button.disabled = true;
+    button.textContent = 'Sending…';
+
+    // Netlify reads the submission from the form-name field, not the path.
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      succeeded();
+    }).catch(function () {
+      failed('Your message could not be sent. Try again, or email us directly.');
+    });
+  }
+
   form.addEventListener('submit', function (e) {
     submitted = true;
     var firstBad = null;
@@ -90,6 +129,11 @@
       // its error, so a screen reader reads the message on arrival. That works
       // even where a live region would be missed.
       document.getElementById(firstBad.id).focus();
+      return;
     }
+
+    // Valid. Submit in the background so the page is not left.
+    e.preventDefault();
+    send();
   });
 })();

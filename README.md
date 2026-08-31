@@ -99,8 +99,21 @@ After the first deploy the form shows up as "contact" under **Forms** in the
 Netlify dashboard, where you turn on notification emails. Free tier is 100
 submissions a month.
 
-A successful submission lands on `/Contact-Us/thanks/`. Spam is filtered by a
-honeypot field that is hidden from people but visible to bots.
+With script running, the submission is posted in the background and the page is
+not left: the form is replaced by "Thanks! Your message has been successfully
+sent." in a `role="status"` region that also takes focus. A failed send leaves
+the form in place and shows a `role="alert"` message under the Send button, so
+nothing typed is lost.
+
+`/Contact-Us/thanks/` is the **no-JavaScript** path. Without script the form
+does an ordinary POST and Netlify redirects there. Do not delete that page.
+
+Spam is filtered by a honeypot field that is hidden from people but visible to
+bots.
+
+Note that a local `serve` answers the background POST with a 200, so the
+success message appears locally even though nothing is captured. Only a deployed
+build actually records a submission.
 
 `site/contact.js` replaces the browser's validation messages, which differ
 between browsers and cannot be restyled. Each field gets a message below it,
