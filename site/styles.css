@@ -32,6 +32,9 @@
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%}
+  /* Only 400, 500 and 600 are loaded. Left at the default bold (700) the
+     browser would synthesise a heavier face instead of using the real one. */
+  strong,b{font-weight:600}
   a{color:var(--ink)}
   a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 }

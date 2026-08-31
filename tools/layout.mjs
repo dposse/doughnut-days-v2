@@ -10,7 +10,7 @@
 export const EMAIL = 'hello@doughnut-days.com';
 
 const NAV = [
-  { href: '/Raleigh-Donut-Map/', label: 'Donut Maps' },
+  { href: '/Raleigh-Donut-Map/', label: 'Donut Map' },
   { href: '/Blog/', label: 'Blog' },
   { href: '/Contact-Us/', label: 'Contact Us' },
 ];
