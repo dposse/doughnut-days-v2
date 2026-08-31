@@ -54,10 +54,14 @@ const page = head({
 
          action is the no-JavaScript path: a normal POST, which Netlify
          redirects to the thanks page. With script running, the submission goes
-         in the background and the page is not left. -->
+         in the background and the page is not left.
+
+         The action must be lower case. Netlify canonicalises URLs to lower
+         case, and a POST to the mixed-case path answers 301 — which browsers
+         follow as a GET, dropping the submission. -->
     <form class="contactform" id="contactform" name="contact" method="POST"
           data-netlify="true" netlify-honeypot="bot-field"
-          action="/Contact-Us/thanks/">
+          action="/contact-us/thanks/">
       <input type="hidden" name="form-name" value="contact">
       <p class="hp">
         <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
