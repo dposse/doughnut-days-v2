@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { head, header, footer, foot, esc, slug } from './layout.mjs';
+import { head, header, footer, foot, esc, slug, EMAIL } from './layout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data', 'raleigh-donut-map.json');
@@ -131,11 +131,29 @@ const html = head({
   <section class="band" id="about">
     <h2 class="tape tilt-l">About</h2>
     <div class="aboutcard">
-      <!-- TODO: replace with the real blurb about the maps. -->
-      <p>Placeholder. A short paragraph about what these maps cover, how they were
-      put together, and how to use them goes here. Local donut spots within 60
-      miles of the Raleigh State Capitol Building, sorted into ${CATEGORY_ORDER.length}
-      categories and tagged by what they make.</p>
+      <p>During the pandemic and before AI, we started hunting for every location
+      around the triangle that offered donuts. The origin is admittedly simple,
+      literally just googling "Raleigh donut", but eventually moved into more
+      laboriously documenting what we found on a map, creating a list by hand,
+      and sharing on social media. We've been lucky to have folks reach out and
+      share any locations we've missed and our updated donut data sets come from
+      this work. If we've missed a spot, let us know by filling out the form on
+      our <a href="/Contact-Us/">contact page</a> or sending an email to
+      <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+    </div>
+  </section>
+
+  <section class="band" id="how-they-work">
+    <h2 class="tape tilt-r">How they work</h2>
+    <div class="prose">
+      <p>Our maps feature local donut shops and makers within 60 miles of the
+      Raleigh State Capitol Building. Chain shops like Krispy Kreme, Dunkin’,
+      Rise, or Duck Donuts have been excluded from our maps. Our focus is on
+      local business, but some exceptions have been made for culturally
+      significant locations. This is still Krispy Kreme town, after all.</p>
+      <p>There is a Google Map to navigate through as well as a list that can be
+      filtered and searched through. The maps and list are sorted into 5
+      categories and searchable by the tags, all listed below.</p>
     </div>
 
     <div class="about__lists">
@@ -155,7 +173,7 @@ ${tagListAbout}
   </section>
 
   <section class="band" id="map">
-    <h2 class="tape tilt-r" id="map-heading" tabindex="-1">Google Map Embed</h2>
+    <h2 class="tape tilt-l" id="map-heading" tabindex="-1">Google Map Embed</h2>
 
     <!-- Off-screen until focused, like the page's skip link. Sits before the
          embed so keyboard users meet it before the map's own focus stops. -->
@@ -194,7 +212,7 @@ ${keyItems}
   </section>
 
   <section class="band" id="list">
-    <h2 class="tape tilt-l" id="list-heading" tabindex="-1">Donut Map List</h2>
+    <h2 class="tape tilt-r" id="list-heading" tabindex="-1">Donut Map List</h2>
 
     <form class="filters" id="filters">
       <div class="filters__search">

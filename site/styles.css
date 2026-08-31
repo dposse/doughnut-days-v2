@@ -217,6 +217,18 @@
   box-shadow:var(--shadow);transform:rotate(-.4deg);max-width:760px;
 }
 .aboutcard p{margin:0;font-size:16.5px;line-height:1.6;text-wrap:pretty}
+/* Links inside running text stay underlined. Nothing in this palette changes
+   colour on hover, so the underline is the only thing marking them as links —
+   the hover-only border used on standalone links would leave them invisible
+   mid-sentence. */
+.aboutcard a,.prose a,.postbody a{
+  text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;
+}
+
+/* Body copy is capped for line length — full band width is far too wide to read. */
+.prose{max-width:680px}
+.prose p{margin:0 0 20px}
+.prose p:last-child{margin-bottom:0}
 
 .about__lists{display:grid;grid-template-columns:1fr 2fr;gap:44px;margin-top:40px}
 /* h3.tape sizing lives in @layer base, with the other heading defaults. */
