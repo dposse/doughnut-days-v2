@@ -191,9 +191,10 @@ ${tagListAbout}
       </div>
       <div class="mapside">
         <div class="mapside__blurb">
-          <!-- TODO: replace with the real blurb. -->
-          <p>Placeholder. A sentence or two about the map itself — what the pins
-          mean and how to open it in Google Maps.</p>
+          <p>Our maps feature local donut shops and makers within 60 miles of the
+          Raleigh State Capitol Building. If we've missed a spot, let us know by
+          filling out the form on our <a href="/Contact-Us/">contact page</a> or
+          sending an email to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
         </div>
         <!-- TODO: point at the public My Maps URL. -->
         <a class="btn" href="#map">Open in Google Maps</a>

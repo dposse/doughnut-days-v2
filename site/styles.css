@@ -221,7 +221,7 @@
    colour on hover, so the underline is the only thing marking them as links —
    the hover-only border used on standalone links would leave them invisible
    mid-sentence. */
-.aboutcard a,.prose a,.postbody a{
+.aboutcard a,.prose a,.postbody a,.mapside__blurb a,.contact__intro a{
   text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;
 }
 

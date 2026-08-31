@@ -150,10 +150,9 @@ without being deployed.
 ## Still placeholder
 
 - Google My Maps embed — the map is built but not public yet. `TODO` comments mark
-  both spots: `site/index.html` (`.mapcard`) and `site/Raleigh-Donut-Map/index.html`
-  (the embed, the blurb beside it, and the "Open in Google Maps" link).
-- The About blurb and the blurb beside the map on the donut map page are
-  placeholder text.
+  the two spots that need the URL: the embed itself and the "Open in Google Maps"
+  link, in `tools/build-maps.mjs`, plus `.mapcard` in `site/index.html`. All the
+  prose around them is now the owner's real copy.
 - Every blog post in `data/blog.json` is placeholder text.
 - `hello@doughnut-days.com` is the address the owner's sketch gives, but the
   mailbox has not been confirmed as live.
