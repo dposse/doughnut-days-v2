@@ -40,7 +40,11 @@ const page = head({
 
     <h2 class="tape tilt-l">Contact Form</h2>
 
-    <form class="contactform" name="contact" method="POST"
+    <!-- required and type=email stay in the markup so the browser still
+         validates with JavaScript off. contact.js sets novalidate and takes
+         over, because the browsers' own messages differ from each other and
+         cannot be restyled. -->
+    <form class="contactform" id="contactform" name="contact" method="POST"
           data-netlify="true" netlify-honeypot="bot-field"
           action="/Contact-Us/thanks/">
       <input type="hidden" name="form-name" value="contact">
@@ -50,23 +54,29 @@ const page = head({
 
       <div class="field">
         <label for="name">Name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
+        <input id="name" name="name" type="text" autocomplete="name" required
+               aria-describedby="name-error">
+        <p class="field__error" id="name-error" role="alert" hidden></p>
       </div>
 
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
+        <input id="email" name="email" type="email" autocomplete="email" required
+               aria-describedby="email-error">
+        <p class="field__error" id="email-error" role="alert" hidden></p>
       </div>
 
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="8" required></textarea>
+        <textarea id="message" name="message" rows="8" required
+                  aria-describedby="message-error"></textarea>
+        <p class="field__error" id="message-error" role="alert" hidden></p>
       </div>
 
       <button class="btn btn--solid" type="submit">Send</button>
     </form>
   </section>
-` + footer() + foot({ depth: 1 });
+` + footer() + foot({ depth: 1, script: 'contact.js' });
 
 const thanks = head({
   title: 'Message sent — Doughnut Days',

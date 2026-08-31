@@ -386,6 +386,19 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 }
 .field textarea{resize:vertical;min-height:160px;line-height:1.6}
 .contactform button{cursor:pointer}
+
+/* No red in this palette, so an error cannot be signalled by colour. It is an
+   inverted label — a shape change, legible to everyone — and the field it
+   belongs to doubles its edge. */
+.field__error{
+  font-family:'Special Elite',monospace;font-size:14px;
+  background:var(--ink);color:var(--paper);
+  display:inline-block;width:fit-content;padding:6px 11px;margin:2px 0 0;
+}
+.field__error[hidden]{display:none}
+.field :is(input,textarea)[aria-invalid="true"]{
+  box-shadow:inset 0 0 0 2px var(--ink);
+}
 /* Honeypot: a real field, hidden from people, that bots tend to fill in.
    Netlify discards any submission that arrives with it filled. */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}

@@ -102,6 +102,17 @@ submissions a month.
 A successful submission lands on `/Contact-Us/thanks/`. Spam is filtered by a
 honeypot field that is hidden from people but visible to bots.
 
+`site/contact.js` replaces the browser's validation messages, which differ
+between browsers and cannot be restyled. Each field gets a message below it,
+tied to the input by `aria-describedby` and marked `role="alert"`, and focus
+moves to the first bad field on submit so a screen reader reads the message on
+arrival. Errors appear only after the first submit attempt, then clear as each
+field is fixed.
+
+`required` and `type="email"` stay in the markup and `novalidate` is set from
+script, so with JavaScript off the browser still validates the old way rather
+than not at all.
+
 ## CSS conventions
 
 `site/styles.css` uses one cascade layer, `base`. Rules that set a default for
