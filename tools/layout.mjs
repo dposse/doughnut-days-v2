@@ -11,8 +11,8 @@ export const EMAIL = 'hello@doughnut-days.com';
 
 /* Every generated page is titled "<Page Name> — Doughnut Days". head() appends
    the suffix, so callers pass only the page name and it cannot drift.
-   site/index.html is the home page and the deliberate exception: it leads with
-   the site name, since "Home — Doughnut Days" tells a reader nothing. */
+   site/index.html is the home page and is titled just "Doughnut Days" — it is
+   the site, so it needs no page name in front. */
 export const SITE = 'Doughnut Days';
 
 const NAV = [
