@@ -23,7 +23,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUTDIR = join(ROOT, 'site', 'Contact-Us');
 
 const page = head({
-  title: 'Contact Us — Doughnut Days',
+  title: 'Contact Us',
   description: 'Found a donut spot that is not on our map, or want to work with us? Get in touch.',
   depth: 1,
 }) + header('/Contact-Us/') + `
@@ -95,7 +95,7 @@ const page = head({
 ` + footer() + foot({ depth: 1, script: 'contact.js' });
 
 const thanks = head({
-  title: 'Message sent — Doughnut Days',
+  title: 'Message Sent',
   description: 'Your message has been sent to Doughnut Days.',
   depth: 2,
 }) + header('/Contact-Us/') + `
@@ -112,7 +112,7 @@ const thanks = head({
     </div>
 
     <div class="actions">
-      <a class="btn btn--solid" href="/Raleigh-Donut-Map/">Back to the donut maps</a>
+      <a class="btn btn--solid" href="/Raleigh-Donut-Map/">Back to the Raleigh Donut Map</a>
       <a class="btn" href="/">Back to the home page</a>
     </div>
   </section>

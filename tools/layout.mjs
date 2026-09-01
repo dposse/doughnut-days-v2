@@ -9,6 +9,12 @@
 
 export const EMAIL = 'hello@doughnut-days.com';
 
+/* Every generated page is titled "<Page Name> — Doughnut Days". head() appends
+   the suffix, so callers pass only the page name and it cannot drift.
+   site/index.html is the home page and the deliberate exception: it leads with
+   the site name, since "Home — Doughnut Days" tells a reader nothing. */
+export const SITE = 'Doughnut Days';
+
 const NAV = [
   { href: '/Raleigh-Donut-Map/', label: 'Donut Map' },
   { href: '/Blog/', label: 'Blog' },
@@ -44,7 +50,7 @@ export function head({ title, description, depth = 1, script = null }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
+<title>${esc(title)} — ${esc(SITE)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

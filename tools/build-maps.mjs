@@ -120,7 +120,7 @@ const categoryList = CATEGORY_ORDER.map(c => `        <li>${esc(c)}</li>`).join(
 const tagListAbout = allTags.map(t => `        <li>${esc(t)}</li>`).join('\n');
 
 const html = head({
-  title: 'Raleigh Donut Map — Doughnut Days',
+  title: 'Raleigh Donut Map',
   description: 'Every donut spot on the 2026 Raleigh Donut Map, grouped by category and filterable by tag.',
   depth: 1,
 }) + header('/Raleigh-Donut-Map/') + `

@@ -52,7 +52,7 @@ const entries = posts.map(p => `        <li class="post">
         </li>`).join('\n');
 
 const index = head({
-  title: 'Doughnut Days Blog',
+  title: 'Blog',
   description: 'Our thoughts and ramblings on doughnuts and other things.',
   depth: 1,
 }) + header('/Blog/') + `
@@ -90,7 +90,7 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 for (const p of posts) {
   const paras = p.body.map(t => `      <p>${esc(t)}</p>`).join('\n');
   const page = head({
-    title: `${p.title} — Doughnut Days`,
+    title: p.title,
     description: p.body[0].slice(0, 155),
     depth: 2,
   }) + header('/Blog/') + `
