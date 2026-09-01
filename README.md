@@ -71,6 +71,20 @@ entry per shop:
 The build fails loudly on a missing field or an unknown category, so a bad edit
 does not reach the page.
 
+## The favicon
+
+`site/favicon.svg`, `site/favicon.ico` and `site/apple-touch-icon.png` are all
+generated from one set of constants:
+
+```
+node tools/build-favicon.mjs
+```
+
+It is the doughnut from the blog list, redrawn heavier — the list icon is a
+2px-stroke line drawing and strokes that fine disappear at 16px. Do not edit
+`favicon.svg` by hand; it is overwritten by the build. No npm dependencies: the
+shapes are circles, drawn directly and encoded with Node's own `zlib`.
+
 ## The blog
 
 Posts live in `data/blog.json`. Add one to the `posts` array:
