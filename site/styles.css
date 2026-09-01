@@ -138,12 +138,13 @@
 .tilt-r{transform:rotate(.8deg)}
 
 .figure{margin:0;transform:rotate(1.8deg)}
-/* aspect-ratio matches cruller-cutout.jpg, so nothing is cropped — the hand is
-   at the very bottom edge of that photo and the old fixed 300px height was
-   trimming it off. Update the ratio if the photo is replaced. */
+/* cruller-hand.jpg is a 3:4 portrait. Square keeps the cruller and the whole
+   hand while trimming the bakery cases at the top; the full portrait would run
+   ~600px against a 300px text column and unbalance the row. 60% favours the
+   lower half, where the hand is. */
 .figure img{
-  display:block;width:100%;height:auto;aspect-ratio:2300/1820;
-  object-fit:cover;object-position:center bottom;
+  display:block;width:100%;height:auto;aspect-ratio:1/1;
+  object-fit:cover;object-position:center 60%;
   border:var(--rule);box-shadow:var(--shadow);
 }
 .figure figcaption{
@@ -210,9 +211,9 @@
   .hero__card{position:static;width:auto;margin:22px var(--pad) 0;box-shadow:5px 5px 0 rgba(17,17,17,.9)}
   .band--intro,.band--bakeries,.maps__grid,.foot{grid-template-columns:1fr;gap:28px}
   .band{padding:36px var(--pad)}
-  /* Single column here, so the figure spans the full width. Left uncapped the
-     photo would be ~670px tall on a tablet. */
-  .figure img{aspect-ratio:auto;height:300px}
+  /* Single column here, so the figure spans the full width. Square would be as
+     tall as the screen is wide; 4:3 with a cap keeps it in proportion. */
+  .figure img{aspect-ratio:4/3;max-height:400px}
   .figure{transform:rotate(1deg)}
   h2.tape{font-size:26px}
   .mapcard{transform:rotate(-.5deg)}
