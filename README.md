@@ -80,10 +80,13 @@ generated from one set of constants:
 node tools/build-favicon.mjs
 ```
 
-It is the doughnut from the blog list, redrawn heavier — the list icon is a
-2px-stroke line drawing and strokes that fine disappear at 16px. Do not edit
-`favicon.svg` by hand; it is overwritten by the build. No npm dependencies: the
-shapes are circles, drawn directly and encoded with Node's own `zlib`.
+It is the doughnut from the blog list — same geometry, scaled from 24 units to
+32, ink on paper. The tile is filled with paper rather than left transparent so
+the ink lines stay visible on a dark tab strip.
+
+Do not edit `favicon.svg` by hand; it is overwritten by the build. No npm
+dependencies: the shapes are circles, drawn directly and encoded with Node's
+own `zlib`.
 
 ## The blog
 
