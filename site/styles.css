@@ -138,7 +138,14 @@
 .tilt-r{transform:rotate(.8deg)}
 
 .figure{margin:0;transform:rotate(1.8deg)}
-.figure img{display:block;width:100%;height:300px;object-fit:cover;object-position:center 45%;border:var(--rule);box-shadow:var(--shadow)}
+/* aspect-ratio matches cruller-cutout.jpg, so nothing is cropped — the hand is
+   at the very bottom edge of that photo and the old fixed 300px height was
+   trimming it off. Update the ratio if the photo is replaced. */
+.figure img{
+  display:block;width:100%;height:auto;aspect-ratio:2300/1820;
+  object-fit:cover;object-position:center bottom;
+  border:var(--rule);box-shadow:var(--shadow);
+}
 .figure figcaption{
   margin-top:12px;font-family:'Special Elite',monospace;font-size:12.5px;
   color:var(--paper);background:var(--ink);border:1px solid var(--ink);
@@ -203,6 +210,9 @@
   .hero__card{position:static;width:auto;margin:22px var(--pad) 0;box-shadow:5px 5px 0 rgba(17,17,17,.9)}
   .band--intro,.band--bakeries,.maps__grid,.foot{grid-template-columns:1fr;gap:28px}
   .band{padding:36px var(--pad)}
+  /* Single column here, so the figure spans the full width. Left uncapped the
+     photo would be ~670px tall on a tablet. */
+  .figure img{aspect-ratio:auto;height:300px}
   .figure{transform:rotate(1deg)}
   h2.tape{font-size:26px}
   .mapcard{transform:rotate(-.5deg)}
