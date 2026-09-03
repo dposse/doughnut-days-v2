@@ -9,13 +9,14 @@
  *
  * The geometry below mirrors favicon.svg. Change one, run this, and they match.
  */
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { deflateSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'site');
+const BRAND = join(ROOT, 'brand');   // not deployed
 
 const INK = [0x11, 0x11, 0x11];
 const PAPER = [0xf9, 0xf7, 0xf1];
@@ -43,8 +44,10 @@ function inkAt(x, y) {
   return false;
 }
 
-/* 4x4 supersampling, so the curves do not come out jagged at 32px. */
-function render(size) {
+/* 4x4 supersampling, so the curves do not come out jagged at 32px.
+   `fill` is how much of the canvas the drawing occupies — 1 is edge to edge,
+   lower values leave a margin. Sampling farther out shrinks the drawing. */
+function render(size, fill = 1) {
   const px = Buffer.alloc(size * size * 4);
   const scale = 32 / size;
   const S = 4;
@@ -53,8 +56,8 @@ function render(size) {
       let hits = 0;
       for (let sy = 0; sy < S; sy++) {
         for (let sx = 0; sx < S; sx++) {
-          const x = (pxi + (sx + 0.5) / S) * scale;
-          const y = (py + (sy + 0.5) / S) * scale;
+          const x = 16 + ((pxi + (sx + 0.5) / S) * scale - 16) / fill;
+          const y = 16 + ((py + (sy + 0.5) / S) * scale - 16) / fill;
           if (inkAt(x, y)) hits++;
         }
       }
@@ -150,3 +153,15 @@ writeFileSync(join(OUT, 'favicon.svg'), svg, 'utf8');
 writeFileSync(join(OUT, 'favicon.ico'), ico(32, png32));
 writeFileSync(join(OUT, 'apple-touch-icon.png'), png(180, render(180)));
 console.log('wrote site/favicon.svg, favicon.ico (' + (png32.length + 22) + ' bytes), apple-touch-icon.png');
+
+/* The same mark as an avatar, for the Google account behind the My Maps embed.
+ * Not part of the site — it lives outside site/ so it is never deployed.
+ *
+ * Avatars are shown cropped to a circle, so the drawing is pulled in to 78% of
+ * the canvas: at full size the ring reaches 92% of the radius and looks pinched
+ * against the crop. The corners are lost to the crop, which is why the tile is
+ * a flat paper fill rather than transparent — a circle of paper with an ink
+ * doughnut, legible on Google's dark header strip. */
+mkdirSync(BRAND, { recursive: true });
+writeFileSync(join(BRAND, 'profile-picture.png'), png(512, render(512, 0.78)));
+console.log('wrote brand/profile-picture.png (512x512, for the Google account)');

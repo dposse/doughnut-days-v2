@@ -84,6 +84,12 @@ It is the doughnut from the blog list — same geometry, scaled from 24 units to
 32, ink on paper. The tile is filled with paper rather than left transparent so
 the ink lines stay visible on a dark tab strip.
 
+The same run also writes `brand/profile-picture.png` — the same mark at 512x512,
+for the Google account behind the My Maps embed. `brand/` sits outside `site/`,
+so it is version controlled but never deployed. The drawing is pulled in to 78%
+of the canvas there because avatars are shown cropped to a circle, and at full
+size the ring reaches 92% of the radius and looks pinched.
+
 Do not edit `favicon.svg` by hand; it is overwritten by the build. No npm
 dependencies: the shapes are circles, drawn directly and encoded with Node's
 own `zlib`.
