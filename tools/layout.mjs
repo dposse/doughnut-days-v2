@@ -9,6 +9,21 @@
 
 export const EMAIL = 'hello@doughnut-days.com';
 
+/* The Google My Maps embed.
+ *
+ * Google's dialog hands you a URL containing /u/5/ — that 5 is the position of
+ * the map owner's account in their own signed-in account list, not part of the
+ * map's identity. Dropped here: the map is public, and the path without it is
+ * what everyone else resolves.
+ *
+ * ehbc is the colour of Google's own header strip above the map; 2E312F is what
+ * the dialog produced. The viewer URL is the same map as a full page, built
+ * from the same id so the two cannot point at different maps.
+ */
+export const MAP_ID = '1roZ3uaRy9r6bIvwyGwJ3zP6Mp-n2z2A';
+export const MAP_EMBED = `https://www.google.com/maps/d/embed?mid=${MAP_ID}&ehbc=2E312F`;
+export const MAP_VIEW = `https://www.google.com/maps/d/viewer?mid=${MAP_ID}`;
+
 /* Every generated page is titled "<Page Name> — Doughnut Days". head() appends
    the suffix, so callers pass only the page name and it cannot drift.
    site/index.html is the home page and is titled just "Doughnut Days" — it is

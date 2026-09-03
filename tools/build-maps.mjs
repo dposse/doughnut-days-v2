@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { head, header, footer, foot, esc, slug, EMAIL } from './layout.mjs';
+import { head, header, footer, foot, esc, slug, EMAIL, MAP_EMBED, MAP_VIEW } from './layout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data', 'raleigh-donut-map.json');
@@ -180,14 +180,9 @@ ${tagListAbout}
     <a class="btn btn--skipmap" href="#list-heading">Skip Google Map</a>
 
     <div class="maplayout">
-      <div class="mapcard">
-        <!-- TODO: replace this placeholder with the Google My Maps iframe once the
-             map is public:
-             <iframe src="https://www.google.com/maps/d/embed?mid=YOUR_MAP_ID" title="2026 Raleigh Donut Map" loading="lazy"></iframe> -->
-        <div class="mapcard__frame mapcard__frame--tall">
-          <span>Google My Maps embed</span>
-          <span>2026 Raleigh Donut Map · placeholder until the map is public</span>
-        </div>
+      <div class="mapcard mapcard--tall">
+        <iframe src="${MAP_EMBED}" title="2026 Raleigh Donut Map"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="mapside">
         <div class="mapside__blurb">
@@ -196,8 +191,7 @@ ${tagListAbout}
           filling out the form on our <a href="/Contact-Us/">contact page</a> or
           sending an email to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
         </div>
-        <!-- TODO: point at the public My Maps URL. -->
-        <a class="btn" href="#map">Open in Google Maps</a>
+        <a class="btn" href="${MAP_VIEW}">Open in Google Maps</a>
       </div>
     </div>
 
