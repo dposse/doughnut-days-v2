@@ -111,7 +111,7 @@ Renaming a title changes the URL — the build deletes the old directory, so the
 previous link will 404. Posts are ordered newest first by `date`, which must be
 `YYYY-MM-DD`; it is displayed as "August 31st, 2026".
 
-Everything currently in there is placeholder text.
+The one post in there is real copy, written by the owner.
 
 ## The contact form
 
@@ -196,11 +196,9 @@ without being deployed.
 
 ## Still placeholder
 
-- Google My Maps embed — the map is built but not public yet. `TODO` comments mark
-  the two spots that need the URL: the embed itself and the "Open in Google Maps"
-  link, in `tools/build-maps.mjs`, plus `.mapcard` in `site/index.html`. All the
-  prose around them is now the owner's real copy.
-- Every blog post in `data/blog.json` is placeholder text.
+- The embed header shows the map owner's Google display name and avatar. That
+  is the "include the owner's profile picture and name" toggle in Google's
+  Embed dialog; turning it off changes the embed URL.
 - `hello@doughnut-days.com` is the address the owner's sketch gives, but the
   mailbox has not been confirmed as live.
 - Netlify Forms only starts capturing after the first deploy, and notification
