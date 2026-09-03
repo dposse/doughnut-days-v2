@@ -111,6 +111,12 @@ Renaming a title changes the URL — the build deletes the old directory, so the
 previous link will 404. Posts are ordered newest first by `date`, which must be
 `YYYY-MM-DD`; it is displayed as "August 31st, 2026".
 
+Body paragraphs are plain text, with one exception: `[label](href)` becomes a
+link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. The text is escaped
+before the syntax is expanded, so the only HTML a post can produce is an anchor.
+Hrefs must start with `/`, `https://` or `mailto:` — anything else fails the
+build rather than reaching the page.
+
 The one post in there is real copy, written by the owner.
 
 ## The contact form

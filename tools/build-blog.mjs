@@ -31,6 +31,22 @@ function longDate(iso) {
   return `${MONTHS[+mo - 1]} ${ordinal(+d)}, ${y}`;
 }
 
+/* Body paragraphs are plain text, with one exception: [label](href) becomes a
+   link. The text is escaped FIRST and the syntax expanded after, so the only
+   HTML a post can produce is an anchor — pasting copy with a stray < into
+   blog.json still cannot inject markup.
+   Hrefs are restricted to internal paths, https and mailto. */
+const LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+const plain = t => t.replace(LINK, '$1');
+function inline(text, where) {
+  return esc(text).replace(LINK, (m, label, href) => {
+    if (!/^(\/|https:\/\/|mailto:)/.test(href)) {
+      throw new Error(`${where}: link "${href}" must start with /, https:// or mailto:`);
+    }
+    return `<a href="${href}">${label}</a>`;
+  });
+}
+
 const posts = db.posts.map((p, i) => {
   for (const f of ['title', 'date']) {
     if (!p[f]) throw new Error(`post ${i} ("${p.title || '?'}") is missing ${f}`);
@@ -88,10 +104,10 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 
 /* ---------- one page per post ---------- */
 for (const p of posts) {
-  const paras = p.body.map(t => `      <p>${esc(t)}</p>`).join('\n');
+  const paras = p.body.map(t => `      <p>${inline(t, p.title)}</p>`).join('\n');
   const page = head({
     title: p.title,
-    description: p.body[0].slice(0, 155),
+    description: plain(p.body[0]).slice(0, 155),
     depth: 2,
   }) + header('/Blog/') + `
   <section class="band band--pagehead">
