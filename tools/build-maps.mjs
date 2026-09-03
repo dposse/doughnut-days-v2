@@ -147,7 +147,7 @@ const html = head({
     <h2 class="tape tilt-r">How they work</h2>
     <div class="prose">
       <p>Our map features local donut shops and makers within 60 miles of the
-      Raleigh State Capitol Building. Chain shops like Krispy Kreme, Dunkin’,
+      North Carolina State Capitol Building. Chain shops like Krispy Kreme, Dunkin’,
       Rise, or Duck Donuts have been excluded from our map. Our focus is on
       local business, but some exceptions have been made for culturally
       significant locations. This is still Krispy Kreme town, after all.</p>
@@ -187,7 +187,7 @@ ${tagListAbout}
       <div class="mapside">
         <div class="mapside__blurb">
           <p>Our map features local donut shops and makers within 60 miles of the
-          Raleigh State Capitol Building. If we've missed a spot, let us know by
+          North Carolina State Capitol Building. If we've missed a spot, let us know by
           filling out the form on our <a href="/Contact-Us/">contact page</a> or
           sending an email to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
         </div>
