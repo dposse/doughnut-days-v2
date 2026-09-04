@@ -108,6 +108,18 @@
       "description": "This donut shop has an assortment of raised and cake doughnuts as well as some cinnamon bun style doughnuts in fun and cute shapes."
     },
     {
+      "name": "Clayton Bakery & Cafe",
+      "address": "8970 Clayton Blvd #200, Clayton, NC 27520",
+      "website": "http://www.claytonbakery.com/",
+      "categories": [
+        "Traditional"
+      ],
+      "tags": [
+        "Yeast"
+      ],
+      "description": "A family-owned and operated bakery cafe that opened its doors in 2005. They offer assorted sandwiches and baked goods. Donuts have been spotted in their pastry case."
+    },
+    {
       "name": "Daily Donuts",
       "address": "1067 S Main St, Graham, NC 27253",
       "website": "https://www.facebook.com/dailydonuts.net/",
