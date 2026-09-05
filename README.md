@@ -35,6 +35,12 @@ own copy to keep in step.
 Filtering is progressive enhancement — the full list is in the HTML and `maps.js`
 only hides and shows rows, so the page still works with JavaScript off.
 
+The map page filters on three things at once: a search box, category checkboxes
+and tag checkboxes. Within a group the boxes are OR (any Novelty **or** Gourmet);
+between groups they are AND (Novelty **and** tagged Yeast). Both checkbox groups
+and their counts are generated from the data, so adding a category or a tag to a
+shop adds the filter.
+
 ## Regenerating the donut map list
 
 `site/Raleigh-Donut-Map/index.html` is generated. Do not hand-edit the shop

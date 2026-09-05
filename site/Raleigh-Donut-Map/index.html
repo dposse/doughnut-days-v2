@@ -168,7 +168,35 @@
         </div>
       </div>
 
-      <fieldset class="filters__tags">
+      <!-- Category before tag: it is the coarser cut, and checking one leaves
+           that section alone on the page. -->
+      <fieldset class="filters__group">
+        <legend>Filter by category</legend>
+        <div class="tagboxes">
+          <label class="tagbox">
+            <input type="checkbox" name="category" value="traditional" data-name="Traditional">
+            <span>Traditional <span class="tagbox__n">(30)</span></span>
+          </label>
+          <label class="tagbox">
+            <input type="checkbox" name="category" value="novelty" data-name="Novelty">
+            <span>Novelty <span class="tagbox__n">(17)</span></span>
+          </label>
+          <label class="tagbox">
+            <input type="checkbox" name="category" value="gourmet" data-name="Gourmet">
+            <span>Gourmet <span class="tagbox__n">(13)</span></span>
+          </label>
+          <label class="tagbox">
+            <input type="checkbox" name="category" value="gluten-friendly" data-name="Gluten-Friendly">
+            <span>Gluten-Friendly <span class="tagbox__n">(7)</span></span>
+          </label>
+          <label class="tagbox">
+            <input type="checkbox" name="category" value="vegan" data-name="Vegan">
+            <span>Vegan <span class="tagbox__n">(4)</span></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="filters__group">
         <legend>Filter by tag</legend>
         <div class="tagboxes">
           <label class="tagbox">
@@ -253,7 +281,7 @@
     <p class="noresults" id="noresults" hidden>No donut spots match those filters. Try clearing the search or unchecking some tags.</p>
 
     <div id="cats">
-      <section class="cat" data-category="Traditional" id="cat-traditional">
+      <section class="cat" data-category="Traditional" data-cat="traditional" id="cat-traditional">
         <h2 class="tape tilt-l">Traditional</h2>
         <p class="cat__count">30 spots</p>
         <ul class="shops">
@@ -673,7 +701,7 @@
         </ul>
       </section>
 
-      <section class="cat" data-category="Novelty" id="cat-novelty">
+      <section class="cat" data-category="Novelty" data-cat="novelty" id="cat-novelty">
         <h2 class="tape tilt-r">Novelty</h2>
         <p class="cat__count">17 spots</p>
         <ul class="shops">
@@ -887,7 +915,7 @@
         </ul>
       </section>
 
-      <section class="cat" data-category="Gourmet" id="cat-gourmet">
+      <section class="cat" data-category="Gourmet" data-cat="gourmet" id="cat-gourmet">
         <h2 class="tape tilt-l">Gourmet</h2>
         <p class="cat__count">13 spots</p>
         <ul class="shops">
@@ -1060,7 +1088,7 @@
         </ul>
       </section>
 
-      <section class="cat" data-category="Gluten-Friendly" id="cat-gluten-friendly">
+      <section class="cat" data-category="Gluten-Friendly" data-cat="gluten-friendly" id="cat-gluten-friendly">
         <h2 class="tape tilt-r">Gluten-Friendly</h2>
         <p class="cat__count">7 spots</p>
         <ul class="shops">
@@ -1156,7 +1184,7 @@
         </ul>
       </section>
 
-      <section class="cat" data-category="Vegan" id="cat-vegan">
+      <section class="cat" data-category="Vegan" data-cat="vegan" id="cat-vegan">
         <h2 class="tape tilt-l">Vegan</h2>
         <p class="cat__count">4 spots</p>
         <ul class="shops">

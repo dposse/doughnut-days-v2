@@ -12,9 +12,9 @@
   var clearSearch = document.getElementById('clear-search');
   var results = document.getElementById('results');
   var noresults = document.getElementById('noresults');
-  var shops = Array.prototype.slice.call(document.querySelectorAll('.shop'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('.cat'));
   var boxes = Array.prototype.slice.call(form.querySelectorAll('input[name="tag"]'));
+  var catBoxes = Array.prototype.slice.call(form.querySelectorAll('input[name="category"]'));
 
   // The query only applies once it is submitted, so the announced result count
   // always matches what the user asked for.
@@ -23,6 +23,10 @@
   function checkedTags() {
     return boxes.filter(function (b) { return b.checked; })
                 .map(function (b) { return b.value; });
+  }
+
+  function checkedCats() {
+    return catBoxes.filter(function (b) { return b.checked; });
   }
 
   function matches(shop, tags) {
@@ -36,35 +40,44 @@
 
   function describe(n) {
     var spots = n + ' donut ' + (n === 1 ? 'spot' : 'spots');
+    var parts = '';
+    if (query) parts += ' matching "' + query + '"';
     var tags = checkedTags().length;
-    var tagPart = tags ? ' using ' + tags + ' ' + (tags === 1 ? 'tag' : 'tags') : '';
-    var queryPart = query ? ' matching "' + query + '"' : '';
-    if (!tagPart && !queryPart) return spots;
-    return spots + ' found' + queryPart + tagPart;
+    if (tags) parts += ' using ' + tags + ' ' + (tags === 1 ? 'tag' : 'tags');
+    var cats = checkedCats();
+    // One category is worth naming; several are not worth listing out.
+    if (cats.length === 1) parts += ' in ' + cats[0].getAttribute('data-name');
+    else if (cats.length > 1) parts += ' in ' + cats.length + ' categories';
+    return parts ? spots + ' found' + parts : spots;
   }
 
   function apply(announce, prefix) {
     var tags = checkedTags();
+    var cats = checkedCats().map(function (b) { return b.value; });
     // A shop in two categories is listed twice, so count distinct shops.
     var seen = {};
     var total = 0;
 
-    shops.forEach(function (shop) {
-      var ok = matches(shop, tags);
-      shop.hidden = !ok;
-      var id = shop.getAttribute('data-id');
-      if (ok && !seen[id]) { seen[id] = true; total++; }
-    });
-
-    // A category heading with nothing under it is hidden entirely.
+    // Walked section by section, because a shop's row only survives if its
+    // section survives — the same shop can be kept in one category and dropped
+    // in another.
     sections.forEach(function (section) {
-      var visible = Array.prototype.slice.call(section.querySelectorAll('.shop'))
-        .filter(function (s) { return !s.hidden; });
-      section.hidden = visible.length === 0;
+      var allowed = !cats.length || cats.indexOf(section.getAttribute('data-cat')) !== -1;
+      var shown = 0;
+
+      Array.prototype.slice.call(section.querySelectorAll('.shop')).forEach(function (shop) {
+        var ok = allowed && matches(shop, tags);
+        shop.hidden = !ok;
+        if (!ok) return;
+        shown++;
+        var id = shop.getAttribute('data-id');
+        if (!seen[id]) { seen[id] = true; total++; }
+      });
+
+      // A category heading with nothing under it is hidden entirely.
+      section.hidden = shown === 0;
       var count = section.querySelector('.cat__count');
-      if (count) {
-        count.textContent = visible.length + (visible.length === 1 ? ' spot' : ' spots');
-      }
+      if (count) count.textContent = shown + (shown === 1 ? ' spot' : ' spots');
     });
 
     noresults.hidden = total !== 0;
@@ -78,11 +91,11 @@
     apply(true);
   });
 
-  boxes.forEach(function (box) {
+  boxes.concat(catBoxes).forEach(function (box) {
     box.addEventListener('change', function () { apply(true); });
   });
 
-  // Clears the text query only; the tag checkboxes stay as they are.
+  // Clears the text query only; the checkboxes stay as they are.
   clearSearch.addEventListener('click', function () {
     q.value = '';
     query = '';
@@ -93,7 +106,7 @@
   clearAll.addEventListener('click', function () {
     q.value = '';
     query = '';
-    boxes.forEach(function (b) { b.checked = false; });
+    boxes.concat(catBoxes).forEach(function (b) { b.checked = false; });
     // Say what happened before focus moves, or the move is all the user gets.
     apply(true, 'Cleared. ');
     q.focus();

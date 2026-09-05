@@ -95,7 +95,7 @@ ${r.tags.map(t => `              <li class="chip">${esc(t)}</li>`).join('\n')}
 
 const sections = CATEGORY_ORDER.map((cat, i) => {
   const shops = recs.filter(r => r.categories.includes(cat));
-  return `      <section class="cat" data-category="${esc(cat)}" id="cat-${slug(cat)}">
+  return `      <section class="cat" data-category="${esc(cat)}" data-cat="${slug(cat)}" id="cat-${slug(cat)}">
         <h2 class="tape ${i % 2 ? 'tilt-r' : 'tilt-l'}">${esc(cat)}</h2>
         <p class="cat__count">${shops.length} ${shops.length === 1 ? 'spot' : 'spots'}</p>
         <ul class="shops">
@@ -114,6 +114,14 @@ const tagBoxes = allTags.map(t =>
   `          <label class="tagbox">
             <input type="checkbox" name="tag" value="${slug(t)}">
             <span>${esc(t)} <span class="tagbox__n">(${tagCount(t)})</span></span>
+          </label>`).join('\n');
+
+// data-name carries the display name so the result message can say "in Novelty"
+// rather than "in 1 category".
+const categoryBoxes = CATEGORY_ORDER.map(c =>
+  `          <label class="tagbox">
+            <input type="checkbox" name="category" value="${slug(c)}" data-name="${esc(c)}">
+            <span>${esc(c)} <span class="tagbox__n">(${recs.filter(r => r.categories.includes(c)).length})</span></span>
           </label>`).join('\n');
 
 const categoryList = CATEGORY_ORDER.map(c => `        <li>${esc(c)}</li>`).join('\n');
@@ -220,7 +228,16 @@ ${keyItems}
         </div>
       </div>
 
-      <fieldset class="filters__tags">
+      <!-- Category before tag: it is the coarser cut, and checking one leaves
+           that section alone on the page. -->
+      <fieldset class="filters__group">
+        <legend>Filter by category</legend>
+        <div class="tagboxes">
+${categoryBoxes}
+        </div>
+      </fieldset>
+
+      <fieldset class="filters__group">
         <legend>Filter by tag</legend>
         <div class="tagboxes">
 ${tagBoxes}
