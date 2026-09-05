@@ -47,6 +47,24 @@ function inline(text, where) {
   });
 }
 
+/* Width and height are written onto the <img> so the page does not jump when
+   the photo loads. Read straight out of the JPEG's SOF marker. */
+function jpegSize(file) {
+  const b = readFileSync(file);
+  let i = 2;
+  while (i < b.length) {
+    if (b[i] !== 0xff) { i++; continue; }
+    const marker = b[i + 1];
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  throw new Error(`could not read the dimensions of ${file}`);
+}
+
+const IMAGE_DIR = join(ROOT, 'site', 'assets', 'blog');
+
 const posts = db.posts.map((p, i) => {
   for (const f of ['title', 'date']) {
     if (!p[f]) throw new Error(`post ${i} ("${p.title || '?'}") is missing ${f}`);
@@ -54,7 +72,18 @@ const posts = db.posts.map((p, i) => {
   if (!Array.isArray(p.body) || !p.body.length) {
     throw new Error(`post "${p.title}" has no body paragraphs`);
   }
-  return { ...p, slug: slug(p.title), display: longDate(p.date) };
+  let image = null;
+  if (p.image) {
+    if (!p.image.src) throw new Error(`post "${p.title}": image needs a src`);
+    // Missing alt is a mistake; alt: "" is a decision, and means decorative.
+    if (typeof p.image.alt !== 'string') {
+      throw new Error(`post "${p.title}": image needs alt text (use "" only if it is decorative)`);
+    }
+    const file = join(IMAGE_DIR, p.image.src);
+    if (!existsSync(file)) throw new Error(`post "${p.title}": no such image, site/assets/blog/${p.image.src}`);
+    image = { ...p.image, ...jpegSize(file) };
+  }
+  return { ...p, image, slug: slug(p.title), display: longDate(p.date) };
 }).sort((a, b) => b.date.localeCompare(a.date));
 
 const dupes = posts.map(p => p.slug).filter((s, i, a) => a.indexOf(s) !== i);
@@ -105,6 +134,12 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 /* ---------- one page per post ---------- */
 for (const p of posts) {
   const paras = p.body.map(t => `      <p>${inline(t, p.title)}</p>`).join('\n');
+  const figure = p.image ? `
+    <figure class="postimage">
+      <img src="/assets/blog/${esc(p.image.src)}" alt="${esc(p.image.alt)}"
+           width="${p.image.w}" height="${p.image.h}" loading="lazy">
+    </figure>
+` : '';
   const page = head({
     title: p.title,
     description: plain(p.body[0]).slice(0, 155),
@@ -116,7 +151,7 @@ for (const p of posts) {
 
   <section class="band">
     <p class="post__date"><time datetime="${esc(p.date)}">${esc(p.display)}</time></p>
-
+${figure}
     <article class="postbody">
 ${paras}
     </article>

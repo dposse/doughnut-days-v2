@@ -438,3 +438,11 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 @media (max-width:900px){
   .post__title{font-size:21px}
 }
+
+/* Photo at the top of a blog post. Capped to the body's measure so it does not
+   outrun the text it belongs to. */
+.postimage{margin:28px 0 0;max-width:680px}
+.postimage img{
+  display:block;width:100%;height:auto;
+  border:var(--rule);box-shadow:var(--shadow);transform:rotate(-.6deg);
+}

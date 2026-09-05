@@ -117,6 +117,17 @@ Renaming a title changes the URL — the build deletes the old directory, so the
 previous link will 404. Posts are ordered newest first by `date`, which must be
 `YYYY-MM-DD`; it is displayed as "August 31st, 2026".
 
+A post may carry one photo, shown between the date and the body:
+
+```json
+"image": { "src": "britts-donut-shop.jpg", "alt": "..." }
+```
+
+The file goes in `site/assets/blog/`. The build fails if it is not there, and
+fails if `alt` is missing — write `"alt": ""` only when the photo is decorative.
+Width and height are read from the JPEG and written onto the tag, so the page
+does not jump as it loads.
+
 Body paragraphs are plain text, with one exception: `[label](href)` becomes a
 link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. The text is escaped
 before the syntax is expanded, so the only HTML a post can produce is an anchor.
