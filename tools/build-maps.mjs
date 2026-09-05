@@ -72,8 +72,20 @@ function siteLabel(r) {
   return needsCity ? `${r.Name} in ${r.city} website` : `${r.Name} website`;
 }
 
+/* Search index. Typing an apostrophe the other way round should still find the
+   shop: 11 names here use a curly apostrophe and 14 use a straight one, so
+   matching the raw text makes it a coin flip whether a search works.
+   Curly quotes are folded to straight, then all punctuation becomes a space, so
+   "stuf'd", "stuf’d" and "gluten friendly" all match. The squashed name is
+   appended as well, so "stufd" and "burneys" find them too. */
+const foldQuotes = s => s.toLowerCase()
+  .replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
+const loose = s => foldQuotes(s).replace(/[^a-z0-9]+/g, ' ').trim();
+const squash = s => foldQuotes(s).replace(/[^a-z0-9]+/g, '');
+
 function shopHtml(r) {
-  const search = [r.Name, r.Address, r.tags.join(' '), r.Description].join(' ').toLowerCase();
+  const blob = [r.Name, r.Address, r.tags.join(' '), r.Description].join(' ');
+  const search = loose(blob) + ' ' + squash(r.Name);
   const website = r.hasSite
     ? `<a class="shop__site" href="${esc(r.Website)}" aria-label="${esc(siteLabel(r))}">Website</a>`
     : `<span class="shop__site shop__site--none">No website</span>`;

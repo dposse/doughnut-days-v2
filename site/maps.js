@@ -17,8 +17,24 @@
   var catBoxes = Array.prototype.slice.call(form.querySelectorAll('input[name="category"]'));
 
   // The query only applies once it is submitted, so the announced result count
-  // always matches what the user asked for.
+  // always matches what the user asked for. `query` is what was typed, kept for
+  // the message; the other two are what actually get matched.
   var query = '';
+  var qLoose = '';
+  var qSquash = '';
+
+  /* Must fold exactly the way the index in build-maps.mjs does, or a search
+     that should hit will miss. Curly quotes to straight, then punctuation to
+     spaces; the squashed form also matches a name typed without its
+     apostrophe. */
+  function foldQuotes(s) {
+    return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
+  }
+  function setQuery(raw) {
+    query = raw.trim();
+    qLoose = foldQuotes(query).replace(/[^a-z0-9]+/g, ' ').trim();
+    qSquash = foldQuotes(query).replace(/[^a-z0-9]+/g, '');
+  }
 
   function checkedTags() {
     return boxes.filter(function (b) { return b.checked; })
@@ -30,7 +46,12 @@
   }
 
   function matches(shop, tags) {
-    if (query && shop.getAttribute('data-search').indexOf(query) === -1) return false;
+    if (qLoose) {
+      var hay = shop.getAttribute('data-search');
+      var hit = hay.indexOf(qLoose) !== -1 ||
+                (qSquash && hay.indexOf(qSquash) !== -1);
+      if (!hit) return false;
+    }
     if (!tags.length) return true;
     var own = shop.getAttribute('data-tags').split(' ');
     // Any selected tag is enough — narrowing with every tag checked would
@@ -87,7 +108,7 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    query = q.value.trim().toLowerCase();
+    setQuery(q.value);
     apply(true);
   });
 
@@ -98,14 +119,14 @@
   // Clears the text query only; the checkboxes stay as they are.
   clearSearch.addEventListener('click', function () {
     q.value = '';
-    query = '';
+    setQuery('');
     apply(true, 'Search cleared. ');
     q.focus();
   });
 
   clearAll.addEventListener('click', function () {
     q.value = '';
-    query = '';
+    setQuery('');
     boxes.concat(catBoxes).forEach(function (b) { b.checked = false; });
     // Say what happened before focus moves, or the move is all the user gets.
     apply(true, 'Cleared. ');
@@ -115,7 +136,7 @@
   // Escape in a search field still clears it natively.
   q.addEventListener('search', function () {
     if (q.value === '' && query !== '') {
-      query = '';
+      setQuery('');
       apply(true, 'Search cleared. ');
     }
   });
