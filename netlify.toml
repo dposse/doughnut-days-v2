@@ -2,3 +2,11 @@
 # `site/` so it stays in the repo without being deployed.
 [build]
   publish = "site"
+
+# A post's URL comes from its title, so renaming one moves the page and the old
+# address 404s. This post went out as "How to avoid a line at Britt's Donuts"
+# before being retitled. Safe to drop once nothing is pointing at the old link.
+[[redirects]]
+  from = "/blog/how-to-avoid-a-line-at-britts-donuts/"
+  to = "/blog/avoiding-the-line-at-britts-donuts/"
+  status = 301
