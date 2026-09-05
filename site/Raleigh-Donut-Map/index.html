@@ -79,6 +79,7 @@
       <div>
         <h3 class="tape tilt-r">Tags</h3>
         <ul class="plainlist plainlist--wrap">
+        <li>Air-Fried</li>
         <li>Baked</li>
         <li>Bombolini</li>
         <li>Cake</li>
@@ -171,6 +172,10 @@
         <legend>Filter by tag</legend>
         <div class="tagboxes">
           <label class="tagbox">
+            <input type="checkbox" name="tag" value="air-fried">
+            <span>Air-Fried <span class="tagbox__n">(1)</span></span>
+          </label>
+          <label class="tagbox">
             <input type="checkbox" name="tag" value="baked">
             <span>Baked <span class="tagbox__n">(3)</span></span>
           </label>
@@ -224,7 +229,7 @@
           </label>
           <label class="tagbox">
             <input type="checkbox" name="tag" value="sourdough">
-            <span>Sourdough <span class="tagbox__n">(1)</span></span>
+            <span>Sourdough <span class="tagbox__n">(2)</span></span>
           </label>
           <label class="tagbox">
             <input type="checkbox" name="tag" value="vegan">
@@ -232,7 +237,7 @@
           </label>
           <label class="tagbox">
             <input type="checkbox" name="tag" value="yeast">
-            <span>Yeast <span class="tagbox__n">(36)</span></span>
+            <span>Yeast <span class="tagbox__n">(37)</span></span>
           </label>
         </div>
       </fieldset>
@@ -244,7 +249,7 @@
       </div>
     </form>
 
-    <p class="results" id="results" role="status" aria-live="polite">64 donut spots</p>
+    <p class="results" id="results" role="status" aria-live="polite">66 donut spots</p>
     <p class="noresults" id="noresults" hidden>No donut spots match those filters. Try clearing the search or unchecking some tags.</p>
 
     <div id="cats">
@@ -670,7 +675,7 @@
 
       <section class="cat" data-category="Novelty" id="cat-novelty">
         <h2 class="tape tilt-r">Novelty</h2>
-        <p class="cat__count">16 spots</p>
+        <p class="cat__count">17 spots</p>
         <ul class="shops">
         <li class="shop" data-id="peace-love-and-little-donuts-of-apex" data-tags="mini" data-search="peace, love and little donuts of apex 2826 teachey pl., apex, nc 27523 mini peace love &amp; little donuts of apex make small cake donuts in an assortment of flavors. they offer gluten-friendly donuts, but only on certain days and via preorder. we’ve only seen details for the gluten-friendly preorders posted to the gluten free gang of raleigh facebook group.">
           <h3 class="shop__name">Peace, Love and Little Donuts of Apex</h3>
@@ -866,12 +871,25 @@
           </div>
           <p class="shop__desc">Oh Mochi! offers a combination of Mochi Donuts, Korean Corndogs, Boba Tea, and Ice Cream.</p>
         </li>
+        <li class="shop" data-id="stuf-d-donuts" data-tags="yeast air-fried" data-search="stuf’d donuts 300 n main st, holly springs, nc 27540 yeast air-fried stuf’d is located inside holly springs gas &amp; grocery. they feature hand crafted, air-fried donuts and fresh drinks.">
+          <h3 class="shop__name">Stuf’d Donuts</h3>
+          <p class="shop__address"><span class="shop__label">Address:</span> 300 N Main St, Holly Springs, NC 27540</p>
+          <a class="shop__site" href="https://stufddonuts.com/" aria-label="Stuf’d Donuts website">Website</a>
+          <div class="shop__tagrow">
+            <p class="shop__label">Tags:</p>
+            <ul class="shop__tags">
+              <li class="chip">Yeast</li>
+              <li class="chip">Air-Fried</li>
+            </ul>
+          </div>
+          <p class="shop__desc">Stuf’d is located inside Holly Springs Gas &amp; Grocery. They feature hand crafted, air-fried donuts and fresh drinks.</p>
+        </li>
         </ul>
       </section>
 
       <section class="cat" data-category="Gourmet" id="cat-gourmet">
         <h2 class="tape tilt-l">Gourmet</h2>
-        <p class="cat__count">12 spots</p>
+        <p class="cat__count">13 spots</p>
         <ul class="shops">
         <li class="shop" data-id="bright-spot-donuts" data-tags="yeast filled cruller fritter" data-search="bright spot donuts 1501 sunrise ave ste 180, raleigh, nc 27608 yeast filled cruller fritter the teams behind boulted bread, jubala coffee, and benchwarmers bagels are at it again with bright spot donuts. this small shop has yeast raised donuts in an assortment of seasonal flavors.">
           <h3 class="shop__name">Bright Spot Donuts</h3>
@@ -1026,6 +1044,18 @@
             </ul>
           </div>
           <p class="shop__desc">This new addition is right next door to the Wooden Nickel Pub in the Historic James Pharmacy building in Hillsborough. They currently offer cakes, pies, cookies, yeast based cinnamon apple fritters, old fashioned sour cream donuts and more. The WNP Bake Shop is only open on Saturdays, Sundays, and Mondays.</p>
+        </li>
+        <li class="shop" data-id="triangle-coffee-shop" data-tags="sourdough" data-search="triangle coffee shop 102 e second st, clayton, nc 27520 sourdough triangle coffee shop offers a variety of coffee drinks, including colada cubano and seasonal lattes, they also offer a selection of sandwiches, empanadas, and stock their pastry case with donuts from tepuy donuts.">
+          <h3 class="shop__name">Triangle Coffee Shop</h3>
+          <p class="shop__address"><span class="shop__label">Address:</span> 102 E Second St, Clayton, NC 27520</p>
+          <a class="shop__site" href="https://trianglecoffeeshop.square.site/pagina-de-inicio" aria-label="Triangle Coffee Shop website">Website</a>
+          <div class="shop__tagrow">
+            <p class="shop__label">Tags:</p>
+            <ul class="shop__tags">
+              <li class="chip">Sourdough</li>
+            </ul>
+          </div>
+          <p class="shop__desc">Triangle Coffee Shop offers a variety of coffee drinks, including colada cubano and seasonal lattes, they also offer a selection of sandwiches, empanadas, and stock their pastry case with donuts from Tepuy Donuts.</p>
         </li>
         </ul>
       </section>

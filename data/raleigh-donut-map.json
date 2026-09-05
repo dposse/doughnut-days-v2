@@ -842,6 +842,31 @@
         "Vegan"
       ],
       "description": "JP's pastries can be found in many spots around the Triangle. They're known for their gluten-free bakery offering vegan options and baked breads, cookies and pastries. They've been known to have donuts on occassion and usually announce it on their social media."
+    },
+    {
+      "name": "Stuf’d Donuts",
+      "address": "300 N Main St, Holly Springs, NC 27540",
+      "website": "https://stufddonuts.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Yeast",
+        "Air-Fried"
+      ],
+      "description": "Stuf’d is located inside Holly Springs Gas & Grocery. They feature hand crafted, air-fried donuts and fresh drinks."
+    },
+    {
+      "name": "Triangle Coffee Shop",
+      "address": "102 E Second St, Clayton, NC 27520",
+      "website": "https://trianglecoffeeshop.square.site/pagina-de-inicio",
+      "categories": [
+        "Gourmet"
+      ],
+      "tags": [
+        "Sourdough"
+      ],
+      "description": "Triangle Coffee Shop offers a variety of coffee drinks, including colada cubano and seasonal lattes, they also offer a selection of sandwiches, empanadas, and stock their pastry case with donuts from Tepuy Donuts."
     }
   ]
 }
