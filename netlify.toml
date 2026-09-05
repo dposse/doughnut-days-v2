@@ -4,9 +4,17 @@
   publish = "site"
 
 # A post's URL comes from its title, so renaming one moves the page and the old
-# address 404s. This post went out as "How to avoid a line at Britt's Donuts"
-# before being retitled. Safe to drop once nothing is pointing at the old link.
+# address 404s. The Britt's post has been retitled twice; both earlier addresses
+# were live, so both are sent to the current one. They point at the destination
+# directly rather than at each other — a redirect that lands on another redirect
+# costs an extra round trip and breaks the moment the middle one is removed.
+# Safe to drop once nothing points at the old links.
 [[redirects]]
   from = "/blog/how-to-avoid-a-line-at-britts-donuts/"
-  to = "/blog/avoiding-the-line-at-britts-donuts/"
+  to = "/blog/avoiding-the-line-at-britts-donut-shop/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/avoiding-the-line-at-britts-donuts/"
+  to = "/blog/avoiding-the-line-at-britts-donut-shop/"
   status = 301
