@@ -47,8 +47,29 @@ function inline(text, where) {
   });
 }
 
+/* The EXIF Orientation tag, or null. Values 5-8 mean the browser turns the
+   photo a quarter turn, which swaps the dimensions it ends up displaying. */
+function exifOrientation(b) {
+  const app1 = b.indexOf(Buffer.from('Exif\0\0'));
+  if (app1 < 0) return null;
+  const tiff = app1 + 6;
+  const le = b.toString('ascii', tiff, tiff + 2) === 'II';
+  const u16 = o => (le ? b.readUInt16LE(o) : b.readUInt16BE(o));
+  const u32 = o => (le ? b.readUInt32LE(o) : b.readUInt32BE(o));
+  const ifd0 = tiff + u32(tiff + 4);
+  const count = u16(ifd0);
+  for (let i = 0; i < count; i++) {
+    const entry = ifd0 + 2 + i * 12;
+    if (u16(entry) === 0x0112) return u16(entry + 8);
+  }
+  return null;
+}
+
 /* Width and height are written onto the <img> so the page does not jump when
-   the photo loads. Read straight out of the JPEG's SOF marker. */
+   the photo loads. Read out of the JPEG's SOF marker — then swapped if EXIF
+   says the browser will rotate it, or the reserved box is the wrong way round
+   and the page jumps anyway, which is the whole thing these attributes exist
+   to prevent. */
 function jpegSize(file) {
   const b = readFileSync(file);
   let i = 2;
@@ -56,7 +77,10 @@ function jpegSize(file) {
     if (b[i] !== 0xff) { i++; continue; }
     const marker = b[i + 1];
     if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
-      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+      const h = b.readUInt16BE(i + 5);
+      const w = b.readUInt16BE(i + 7);
+      const turned = [5, 6, 7, 8].includes(exifOrientation(b));
+      return turned ? { w: h, h: w } : { w, h };
     }
     i += 2 + b.readUInt16BE(i + 2);
   }
@@ -71,6 +95,16 @@ const posts = db.posts.map((p, i) => {
   }
   if (!Array.isArray(p.body) || !p.body.length) {
     throw new Error(`post "${p.title}" has no body paragraphs`);
+  }
+  // A body entry is a paragraph (a string) or a bulleted list ({ list: [...] }).
+  for (const item of p.body) {
+    if (typeof item === 'string') continue;
+    if (item && Array.isArray(item.list) && item.list.length &&
+        item.list.every(li => typeof li === 'string')) continue;
+    throw new Error(`post "${p.title}": a body entry must be a string, or { "list": ["...", "..."] }`);
+  }
+  if (typeof p.body[0] !== 'string') {
+    throw new Error(`post "${p.title}": the first body entry must be a paragraph, not a list`);
   }
   let image = null;
   if (p.image) {
@@ -133,7 +167,12 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 
 /* ---------- one page per post ---------- */
 for (const p of posts) {
-  const paras = p.body.map(t => `      <p>${inline(t, p.title)}</p>`).join('\n');
+  const paras = p.body.map(item => {
+    if (typeof item === 'string') return `      <p>${inline(item, p.title)}</p>`;
+    return `      <ul class="postlist">\n` +
+      item.list.map(li => `        <li>${inline(li, p.title)}</li>`).join('\n') +
+      `\n      </ul>`;
+  }).join('\n');
   const figure = p.image ? `
     <figure class="postimage">
       <img src="/assets/blog/${esc(p.image.src)}" alt="${esc(p.image.alt)}"

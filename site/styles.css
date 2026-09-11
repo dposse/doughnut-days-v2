@@ -442,7 +442,18 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 /* Photo at the top of a blog post. Capped to the body's measure so it does not
    outrun the text it belongs to. */
 .postimage{margin:28px 0 0;max-width:680px}
+/* Capped by height as well as width, so a portrait photo does not run to ~900px
+   and swallow the screen. Nothing is cropped — the image scales down whole and
+   the figure shrinks with it. A landscape photo is unaffected; it hits the
+   width limit first. */
 .postimage img{
-  display:block;width:100%;height:auto;
+  display:block;width:auto;max-width:100%;height:auto;max-height:620px;
   border:var(--rule);box-shadow:var(--shadow);transform:rotate(-.6deg);
 }
+
+/* Bulleted list inside a post. Square markers — this system has no rounded
+   corners anywhere else either. */
+.postlist{margin:0 0 20px;padding-left:1.4em;max-width:680px;list-style:square}
+.postlist li{margin:0 0 10px;padding-left:.2em}
+.postlist li:last-child{margin-bottom:0}
+.postlist li::marker{color:var(--ink)}

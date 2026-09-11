@@ -2,6 +2,29 @@
   "intro": "Our thoughts and ramblings on doughnuts and other things.",
   "posts": [
     {
+      "title": "I can't believe it's Butter Bakery",
+      "date": "2026-09-11",
+      "image": {
+        "src": "butter-bakery-stand.jpg",
+        "alt": "The Butter Bakery stand in Clayton, a yellow fridge under an Open Daily sign, with a Sold Out notice taped to the door"
+      },
+      "body": [
+        "I don’t like getting up early, but my body knows when it’s time for pastries. At 5:50am I woke up ready for Butter Bakery.",
+        "Last weekend we went to Clayton to grab coffee and spotted a little butter fridge with a sold out sign on it. Butter Bakery is a self-serve bake stand near Clayton Town Square. It’s restocked a few times a week and draws plenty of interest.",
+        "I was baffled, nearing on offended, that we hadn’t seen it before and even more distressed that no one told me about it. It’s like when you “discover” a new band and it turns out all your friends already knew about them and now they all think you’re a giant, out-of-touch nerd.",
+        "We ran into the owner, Sara Grace, and her dad (who was sporting a lovely Butter Bakery shirt that us commoners will hopefully be able to purchase soon). The bakery has only been running for a few weeks, but this studio artist and baker has really churned out a winning model.",
+        "Here are some good things to know before you go:",
+        {
+          "list": [
+            "It’s very cute.",
+            "Stock is limited and they sell out quickly. They were out of chocolate chip cookies within 15 minutes and fully sold out after 1 hour.",
+            "They’ve added lattes to the rotation in case you forget the cold brew you made on your kitchen counter."
+          ]
+        },
+        "There’s a park and sculpture walk nearby where you can take a casual stroll and put off starting the workday, making the morning the butter half of your day."
+      ]
+    },
+    {
       "title": "Avoiding the line at Britt's Donut Shop",
       "date": "2026-09-05",
       "image": {

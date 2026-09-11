@@ -126,10 +126,26 @@ A post may carry one photo, shown between the date and the body:
 The file goes in `site/assets/blog/`. The build fails if it is not there, and
 fails if `alt` is missing — write `"alt": ""` only when the photo is decorative.
 Width and height are read from the JPEG and written onto the tag, so the page
-does not jump as it loads.
+does not jump as it loads. Phone photos usually carry an EXIF rotation, which
+the browser applies — the build swaps the two values to match, so the reserved
+box is the right way round. Portrait photos are capped at 620px tall rather
+than running the full width of the text.
+
+A body entry is either a paragraph or a bulleted list:
+
+```json
+"body": [
+  "A paragraph.",
+  { "list": ["First bullet.", "Second bullet."] },
+  "Another paragraph."
+]
+```
+
+The first entry must be a paragraph — it doubles as the page description.
 
 Body paragraphs are plain text, with one exception: `[label](href)` becomes a
-link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. The text is escaped
+link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. Links work inside list
+items too. The text is escaped
 before the syntax is expanded, so the only HTML a post can produce is an anchor.
 Hrefs must start with `/`, `https://` or `mailto:` — anything else fails the
 build rather than reaching the page.
