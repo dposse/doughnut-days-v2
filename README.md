@@ -134,10 +134,14 @@ A post may carry one photo, shown between the date and the body:
 The file goes in `site/assets/blog/`. The build fails if it is not there, and
 fails if `alt` is missing — write `"alt": ""` only when the photo is decorative.
 Width and height are read from the JPEG and written onto the tag, so the page
-does not jump as it loads. Phone photos usually carry an EXIF rotation, which
-the browser applies — the build swaps the two values to match, so the reserved
-box is the right way round. Portrait photos are capped at 620px tall rather
-than running the full width of the text.
+does not jump as it loads. Portrait photos are capped at 620px tall rather than
+running the full width of the text.
+
+Phone photos usually arrive sideways with an EXIF Orientation tag telling the
+reader to turn them. Browsers obey it; link-preview scrapers generally do not,
+so a post that looked right on the site arrived rotated 90 degrees when someone
+shared it in a message. The build now rejects any photo that leans on that tag:
+rotate the real pixels, save without the tag, and it passes.
 
 A body entry is a paragraph, a subheading or a bulleted list:
 

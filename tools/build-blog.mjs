@@ -66,21 +66,26 @@ function exifOrientation(b) {
 }
 
 /* Width and height are written onto the <img> so the page does not jump when
-   the photo loads. Read out of the JPEG's SOF marker — then swapped if EXIF
-   says the browser will rotate it, or the reserved box is the wrong way round
-   and the page jumps anyway, which is the whole thing these attributes exist
-   to prevent. */
-function jpegSize(file) {
+   the photo loads.
+ *
+ * A photo that leans on EXIF to sit the right way up is rejected. Browsers
+ * honour the tag, but link-preview scrapers generally do not — so the post
+ * looked fine on the site and arrived sideways when someone shared it in a
+ * message. Rotate the pixels for real and drop the tag. */
+function jpegSize(file, postTitle) {
   const b = readFileSync(file);
+  const turned = [5, 6, 7, 8].includes(exifOrientation(b));
+  if (turned) {
+    throw new Error(
+      `post "${postTitle}": ${file.split(/[\\/]/).pop()} relies on EXIF rotation to display upright. ` +
+      `Link previews ignore that and will show it sideways — rotate the actual pixels and re-save it.`);
+  }
   let i = 2;
   while (i < b.length) {
     if (b[i] !== 0xff) { i++; continue; }
     const marker = b[i + 1];
     if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
-      const h = b.readUInt16BE(i + 5);
-      const w = b.readUInt16BE(i + 7);
-      const turned = [5, 6, 7, 8].includes(exifOrientation(b));
-      return turned ? { w: h, h: w } : { w, h };
+      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
     }
     i += 2 + b.readUInt16BE(i + 2);
   }
@@ -117,7 +122,7 @@ const posts = db.posts.map((p, i) => {
     }
     const file = join(IMAGE_DIR, p.image.src);
     if (!existsSync(file)) throw new Error(`post "${p.title}": no such image, site/assets/blog/${p.image.src}`);
-    image = { ...p.image, ...jpegSize(file) };
+    image = { ...p.image, ...jpegSize(file, p.title) };
   }
   // A post may pin its own URL. Without one the title supplies it, which means
   // a long title makes a long URL and editing a title moves the page.
