@@ -131,17 +131,20 @@ the browser applies — the build swaps the two values to match, so the reserved
 box is the right way round. Portrait photos are capped at 620px tall rather
 than running the full width of the text.
 
-A body entry is either a paragraph or a bulleted list:
+A body entry is a paragraph, a subheading or a bulleted list:
 
 ```json
 "body": [
   "A paragraph.",
+  { "heading": "A subheading" },
   { "list": ["First bullet.", "Second bullet."] },
   "Another paragraph."
 ]
 ```
 
-The first entry must be a paragraph — it doubles as the page description.
+Subheadings render as `h2` — the post title is the page's only `h1`, so the
+levels never skip. The first entry must be a paragraph; it doubles as the page
+description.
 
 Body paragraphs are plain text, with one exception: `[label](href)` becomes a
 link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. Links work inside list

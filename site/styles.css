@@ -457,3 +457,9 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
 .postlist li{margin:0 0 10px;padding-left:.2em}
 .postlist li:last-child{margin-bottom:0}
 .postlist li::marker{color:var(--ink)}
+
+/* Subheading inside a post. Needs air above it — the taped heading default
+   carries a bottom margin only, which is fine at the top of a section but too
+   tight when paragraphs run into it. Sized down from the 34px section
+   headings, which overpower a 680px column of body copy. */
+.postheading{margin:44px 0 20px;font-size:25px;max-width:680px}

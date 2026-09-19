@@ -96,12 +96,14 @@ const posts = db.posts.map((p, i) => {
   if (!Array.isArray(p.body) || !p.body.length) {
     throw new Error(`post "${p.title}" has no body paragraphs`);
   }
-  // A body entry is a paragraph (a string) or a bulleted list ({ list: [...] }).
+  // A body entry is a paragraph (a string), a subheading ({ heading: "..." })
+  // or a bulleted list ({ list: [...] }).
   for (const item of p.body) {
     if (typeof item === 'string') continue;
+    if (item && typeof item.heading === 'string' && item.heading.trim()) continue;
     if (item && Array.isArray(item.list) && item.list.length &&
         item.list.every(li => typeof li === 'string')) continue;
-    throw new Error(`post "${p.title}": a body entry must be a string, or { "list": ["...", "..."] }`);
+    throw new Error(`post "${p.title}": a body entry must be a string, { "heading": "..." } or { "list": ["...", "..."] }`);
   }
   if (typeof p.body[0] !== 'string') {
     throw new Error(`post "${p.title}": the first body entry must be a paragraph, not a list`);
@@ -167,8 +169,15 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 
 /* ---------- one page per post ---------- */
 for (const p of posts) {
+  // Subheadings are h2 — the post title is the page's only h1, so no level is
+  // skipped. Tilt alternates the way the section headings elsewhere do.
+  let headings = 0;
   const paras = p.body.map(item => {
     if (typeof item === 'string') return `      <p>${inline(item, p.title)}</p>`;
+    if (item.heading) {
+      const tilt = headings++ % 2 ? 'tilt-r' : 'tilt-l';
+      return `      <h2 class="tape ${tilt} postheading">${inline(item.heading, p.title)}</h2>`;
+    }
     return `      <ul class="postlist">\n` +
       item.list.map(li => `        <li>${inline(li, p.title)}</li>`).join('\n') +
       `\n      </ul>`;
