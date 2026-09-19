@@ -18,3 +18,11 @@
   from = "/blog/avoiding-the-line-at-britts-donuts/"
   to = "/blog/avoiding-the-line-at-britts-donut-shop/"
   status = 301
+
+# The baked donuts post first went out under its full title, which made a
+# 98-character URL. It now pins a short slug instead. Safe to drop once nothing
+# points at the old link.
+[[redirects]]
+  from = "/blog/baked-donuts-are-the-wet-socks-of-the-pastry-world-and-the-only-exception-is-at-big-doms-bagel-shop/"
+  to = "/blog/baked-donuts-are-wet-socks/"
+  status = 301

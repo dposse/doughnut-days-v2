@@ -119,7 +119,12 @@ const posts = db.posts.map((p, i) => {
     if (!existsSync(file)) throw new Error(`post "${p.title}": no such image, site/assets/blog/${p.image.src}`);
     image = { ...p.image, ...jpegSize(file) };
   }
-  return { ...p, image, slug: slug(p.title), display: longDate(p.date) };
+  // A post may pin its own URL. Without one the title supplies it, which means
+  // a long title makes a long URL and editing a title moves the page.
+  if ('slug' in p && (typeof p.slug !== 'string' || !slug(p.slug))) {
+    throw new Error(`post "${p.title}": slug must be a non-empty string`);
+  }
+  return { ...p, image, slug: slug(p.slug || p.title), display: longDate(p.date) };
 }).sort((a, b) => b.date.localeCompare(a.date));
 
 const dupes = posts.map(p => p.slug).filter((s, i, a) => a.indexOf(s) !== i);

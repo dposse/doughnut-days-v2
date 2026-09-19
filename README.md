@@ -112,10 +112,18 @@ Posts live in `data/blog.json`. Add one to the `posts` array:
 }
 ```
 
-The URL comes from the title, so `/Blog/what-makes-a-good-apple-fritter/`.
-Renaming a title changes the URL — the build deletes the old directory, so the
-previous link will 404. Posts are ordered newest first by `date`, which must be
-`YYYY-MM-DD`; it is displayed as "August 31st, 2026".
+The URL comes from the title, so `/Blog/what-makes-a-good-apple-fritter/`. Add a
+`"slug"` to pin it instead — worth doing for a long title, and it means editing
+the title later will not move the page:
+
+```json
+"slug": "baked-donuts-are-wet-socks"
+```
+
+Renaming a title with no pinned slug changes the URL, and the build deletes the
+old directory, so the previous link 404s. If it was ever deployed, add a
+redirect in `netlify.toml`. Posts are ordered newest first by `date`, which must
+be `YYYY-MM-DD`; it is displayed as "August 31st, 2026".
 
 A post may carry one photo, shown between the date and the body:
 
