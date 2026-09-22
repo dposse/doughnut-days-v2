@@ -463,3 +463,8 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
    tight when paragraphs run into it. Sized down from the 34px section
    headings, which overpower a 680px column of body copy. */
 .postheading{margin:44px 0 20px;font-size:25px;max-width:680px}
+
+/* Sits under a postheading to group a few paragraphs — e.g. one entry in a
+   list of shops. Sized and padded by h3.tape's own default; only the top
+   margin is widened here, to separate it from the paragraph above. */
+.postsubheading{margin:36px 0 14px;max-width:680px}

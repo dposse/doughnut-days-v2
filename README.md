@@ -143,27 +143,30 @@ so a post that looked right on the site arrived rotated 90 degrees when someone
 shared it in a message. The build now rejects any photo that leans on that tag:
 rotate the real pixels, save without the tag, and it passes.
 
-A body entry is a paragraph, a subheading or a bulleted list:
+A body entry is a paragraph, a heading, a subheading or a bulleted list:
 
 ```json
 "body": [
   "A paragraph.",
-  { "heading": "A subheading" },
+  { "heading": "A section heading" },
+  { "subheading": "A subheading, for one item under that section" },
   { "list": ["First bullet.", "Second bullet."] },
   "Another paragraph."
 ]
 ```
 
-Subheadings render as `h2` — the post title is the page's only `h1`, so the
-levels never skip. The first entry must be a paragraph; it doubles as the page
-description.
+Headings render as `h2` and subheadings as `h3` — the post title is the
+page's only `h1`, so the levels never skip. Use a subheading to break one
+section into a few grouped write-ups, the way a "places to try" post lists
+one shop after another under a single heading. The first entry must be a
+paragraph; it doubles as the page description.
 
-Body paragraphs are plain text, with one exception: `[label](href)` becomes a
-link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`. Links work inside list
-items too. The text is escaped
-before the syntax is expanded, so the only HTML a post can produce is an anchor.
-Hrefs must start with `/`, `https://` or `mailto:` — anything else fails the
-build rather than reaching the page.
+Body paragraphs are plain text, with two exceptions: `[label](href)` becomes
+a link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`, and `*text*`
+becomes italic. Both work inside list items too. The text is escaped before
+the syntax is expanded, so the only HTML a post can produce is an anchor or
+an `em`. Hrefs must start with `/`, `https://` or `mailto:` — anything else
+fails the build rather than reaching the page.
 
 The one post in there is real copy, written by the owner.
 

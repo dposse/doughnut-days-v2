@@ -31,20 +31,22 @@ function longDate(iso) {
   return `${MONTHS[+mo - 1]} ${ordinal(+d)}, ${y}`;
 }
 
-/* Body paragraphs are plain text, with one exception: [label](href) becomes a
-   link. The text is escaped FIRST and the syntax expanded after, so the only
-   HTML a post can produce is an anchor — pasting copy with a stray < into
-   blog.json still cannot inject markup.
+/* Body paragraphs are plain text, with two exceptions: [label](href) becomes
+   a link and *text* becomes <em>text</em>. The text is escaped FIRST and the
+   syntax expanded after, so the only HTML a post can produce is an anchor or
+   an em — pasting copy with a stray < into blog.json still cannot inject
+   markup.
    Hrefs are restricted to internal paths, https and mailto. */
 const LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
-const plain = t => t.replace(LINK, '$1');
+const ITALIC = /\*([^*]+)\*/g;
+const plain = t => t.replace(LINK, '$1').replace(ITALIC, '$1');
 function inline(text, where) {
   return esc(text).replace(LINK, (m, label, href) => {
     if (!/^(\/|https:\/\/|mailto:)/.test(href)) {
       throw new Error(`${where}: link "${href}" must start with /, https:// or mailto:`);
     }
     return `<a href="${href}">${label}</a>`;
-  });
+  }).replace(ITALIC, '<em>$1</em>');
 }
 
 /* The EXIF Orientation tag, or null. Values 5-8 mean the browser turns the
@@ -101,14 +103,17 @@ const posts = db.posts.map((p, i) => {
   if (!Array.isArray(p.body) || !p.body.length) {
     throw new Error(`post "${p.title}" has no body paragraphs`);
   }
-  // A body entry is a paragraph (a string), a subheading ({ heading: "..." })
-  // or a bulleted list ({ list: [...] }).
+  // A body entry is a paragraph (a string), a section heading
+  // ({ heading: "..." }, rendered h2), a subheading ({ subheading: "..." },
+  // rendered h3, for grouping under a heading) or a bulleted list
+  // ({ list: [...] }).
   for (const item of p.body) {
     if (typeof item === 'string') continue;
     if (item && typeof item.heading === 'string' && item.heading.trim()) continue;
+    if (item && typeof item.subheading === 'string' && item.subheading.trim()) continue;
     if (item && Array.isArray(item.list) && item.list.length &&
         item.list.every(li => typeof li === 'string')) continue;
-    throw new Error(`post "${p.title}": a body entry must be a string, { "heading": "..." } or { "list": ["...", "..."] }`);
+    throw new Error(`post "${p.title}": a body entry must be a string, { "heading": "..." }, { "subheading": "..." } or { "list": ["...", "..."] }`);
   }
   if (typeof p.body[0] !== 'string') {
     throw new Error(`post "${p.title}": the first body entry must be a paragraph, not a list`);
@@ -179,14 +184,19 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 
 /* ---------- one page per post ---------- */
 for (const p of posts) {
-  // Subheadings are h2 — the post title is the page's only h1, so no level is
-  // skipped. Tilt alternates the way the section headings elsewhere do.
+  // Section headings are h2, subheadings under them are h3 — the post title
+  // is the page's only h1, so no level is skipped. Tilt alternates across
+  // both levels together, the way the section headings elsewhere do.
   let headings = 0;
   const paras = p.body.map(item => {
     if (typeof item === 'string') return `      <p>${inline(item, p.title)}</p>`;
     if (item.heading) {
       const tilt = headings++ % 2 ? 'tilt-r' : 'tilt-l';
       return `      <h2 class="tape ${tilt} postheading">${inline(item.heading, p.title)}</h2>`;
+    }
+    if (item.subheading) {
+      const tilt = headings++ % 2 ? 'tilt-r' : 'tilt-l';
+      return `      <h3 class="tape ${tilt} postsubheading">${inline(item.subheading, p.title)}</h3>`;
     }
     return `      <ul class="postlist">\n` +
       item.list.map(li => `        <li>${inline(li, p.title)}</li>`).join('\n') +
