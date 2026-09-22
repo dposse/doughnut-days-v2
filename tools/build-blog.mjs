@@ -149,7 +149,7 @@ const entries = posts.map(p => `        <li class="post">
 
 const index = head({
   title: 'Blog',
-  description: 'Our thoughts and ramblings on doughnuts and other things.',
+  description: 'Our ramblings on doughnuts and other things.',
   depth: 1,
 }) + header('/Blog/') + `
   <section class="band band--pagehead">
