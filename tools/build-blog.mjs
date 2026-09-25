@@ -31,22 +31,25 @@ function longDate(iso) {
   return `${MONTHS[+mo - 1]} ${ordinal(+d)}, ${y}`;
 }
 
-/* Body paragraphs are plain text, with two exceptions: [label](href) becomes
-   a link and *text* becomes <em>text</em>. The text is escaped FIRST and the
-   syntax expanded after, so the only HTML a post can produce is an anchor or
-   an em — pasting copy with a stray < into blog.json still cannot inject
-   markup.
+/* Body paragraphs are plain text, with three exceptions: [label](href)
+   becomes a link, **text** becomes <strong>text</strong>, and *text* becomes
+   <em>text</em>. The text is escaped FIRST and the syntax expanded after, so
+   the only HTML a post can produce is an anchor, a strong or an em —
+   pasting copy with a stray < into blog.json still cannot inject markup.
+   Bold is expanded before italic so **text** isn't read as an italic run
+   wrapped in two empty ones.
    Hrefs are restricted to internal paths, https and mailto. */
 const LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+const BOLD = /\*\*([^*]+)\*\*/g;
 const ITALIC = /\*([^*]+)\*/g;
-const plain = t => t.replace(LINK, '$1').replace(ITALIC, '$1');
+const plain = t => t.replace(LINK, '$1').replace(BOLD, '$1').replace(ITALIC, '$1');
 function inline(text, where) {
   return esc(text).replace(LINK, (m, label, href) => {
     if (!/^(\/|https:\/\/|mailto:)/.test(href)) {
       throw new Error(`${where}: link "${href}" must start with /, https:// or mailto:`);
     }
     return `<a href="${href}">${label}</a>`;
-  }).replace(ITALIC, '<em>$1</em>');
+  }).replace(BOLD, '<strong>$1</strong>').replace(ITALIC, '<em>$1</em>');
 }
 
 /* The EXIF Orientation tag, or null. Values 5-8 mean the browser turns the

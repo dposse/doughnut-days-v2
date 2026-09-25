@@ -165,12 +165,13 @@ and a subsubheading to add a note under just one of those without breaking
 the run of subheadings. The first entry must be a paragraph; it doubles as
 the page description.
 
-Body paragraphs are plain text, with two exceptions: `[label](href)` becomes
-a link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`, and `*text*`
-becomes italic. Both work inside list items too. The text is escaped before
-the syntax is expanded, so the only HTML a post can produce is an anchor or
-an `em`. Hrefs must start with `/`, `https://` or `mailto:` — anything else
-fails the build rather than reaching the page.
+Body paragraphs are plain text, with three exceptions: `[label](href)`
+becomes a link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`, `**text**`
+becomes bold, and `*text*` becomes italic. All three work inside list items
+too. The text is escaped before the syntax is expanded, so the only HTML a
+post can produce is an anchor, a `strong` or an `em`. Hrefs must start with
+`/`, `https://` or `mailto:` — anything else fails the build rather than
+reaching the page.
 
 The one post in there is real copy, written by the owner.
 
