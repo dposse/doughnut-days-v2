@@ -867,6 +867,18 @@
         "Sourdough"
       ],
       "description": "Triangle Coffee Shop offers a variety of coffee drinks, including colada cubano and seasonal lattes, they also offer a selection of sandwiches, empanadas, and stock their pastry case with donuts from Tepuy Donuts."
+    },
+    {
+      "name": "The Kupkake Fairy",
+      "address": "411 W Morgan St, Raleigh, NC 27603",
+      "website": "https://www.kupkakefairy.com/",
+      "categories": [
+        "Novelty"
+      ],
+      "tags": [
+        "Mini"
+      ],
+      "description": "The Kupkake Fairy is location inside the Morgan Street Food Hall in Raleigh. They make fresh mini donuts and serve them with a variety of toppings."
     }
   ]
 }
