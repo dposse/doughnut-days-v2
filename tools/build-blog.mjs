@@ -105,15 +105,17 @@ const posts = db.posts.map((p, i) => {
   }
   // A body entry is a paragraph (a string), a section heading
   // ({ heading: "..." }, rendered h2), a subheading ({ subheading: "..." },
-  // rendered h3, for grouping under a heading) or a bulleted list
+  // rendered h3, for grouping under a heading), a note under a subheading
+  // ({ subsubheading: "..." }, rendered h4) or a bulleted list
   // ({ list: [...] }).
   for (const item of p.body) {
     if (typeof item === 'string') continue;
     if (item && typeof item.heading === 'string' && item.heading.trim()) continue;
     if (item && typeof item.subheading === 'string' && item.subheading.trim()) continue;
+    if (item && typeof item.subsubheading === 'string' && item.subsubheading.trim()) continue;
     if (item && Array.isArray(item.list) && item.list.length &&
         item.list.every(li => typeof li === 'string')) continue;
-    throw new Error(`post "${p.title}": a body entry must be a string, { "heading": "..." }, { "subheading": "..." } or { "list": ["...", "..."] }`);
+    throw new Error(`post "${p.title}": a body entry must be a string, { "heading": "..." }, { "subheading": "..." }, { "subsubheading": "..." } or { "list": ["...", "..."] }`);
   }
   if (typeof p.body[0] !== 'string') {
     throw new Error(`post "${p.title}": the first body entry must be a paragraph, not a list`);
@@ -184,9 +186,10 @@ writeFileSync(join(OUTDIR, 'index.html'), index, 'utf8');
 
 /* ---------- one page per post ---------- */
 for (const p of posts) {
-  // Section headings are h2, subheadings under them are h3 — the post title
-  // is the page's only h1, so no level is skipped. Tilt alternates across
-  // both levels together, the way the section headings elsewhere do.
+  // Section headings are h2, subheadings under them are h3, and a note under
+  // a subheading is h4 — the post title is the page's only h1, so no level is
+  // skipped. Tilt alternates across all three levels together, the way the
+  // section headings elsewhere do.
   let headings = 0;
   const paras = p.body.map(item => {
     if (typeof item === 'string') return `      <p>${inline(item, p.title)}</p>`;
@@ -197,6 +200,10 @@ for (const p of posts) {
     if (item.subheading) {
       const tilt = headings++ % 2 ? 'tilt-r' : 'tilt-l';
       return `      <h3 class="tape ${tilt} postsubheading">${inline(item.subheading, p.title)}</h3>`;
+    }
+    if (item.subsubheading) {
+      const tilt = headings++ % 2 ? 'tilt-r' : 'tilt-l';
+      return `      <h4 class="tape ${tilt} postsubsubheading">${inline(item.subsubheading, p.title)}</h4>`;
     }
     return `      <ul class="postlist">\n` +
       item.list.map(li => `        <li>${inline(li, p.title)}</li>`).join('\n') +

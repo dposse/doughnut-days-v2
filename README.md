@@ -143,23 +143,27 @@ so a post that looked right on the site arrived rotated 90 degrees when someone
 shared it in a message. The build now rejects any photo that leans on that tag:
 rotate the real pixels, save without the tag, and it passes.
 
-A body entry is a paragraph, a heading, a subheading or a bulleted list:
+A body entry is a paragraph, a heading, a subheading, a note under a
+subheading, or a bulleted list:
 
 ```json
 "body": [
   "A paragraph.",
   { "heading": "A section heading" },
   { "subheading": "A subheading, for one item under that section" },
+  { "subsubheading": "A note under that one item, e.g. a later edit" },
   { "list": ["First bullet.", "Second bullet."] },
   "Another paragraph."
 ]
 ```
 
-Headings render as `h2` and subheadings as `h3` — the post title is the
-page's only `h1`, so the levels never skip. Use a subheading to break one
-section into a few grouped write-ups, the way a "places to try" post lists
-one shop after another under a single heading. The first entry must be a
-paragraph; it doubles as the page description.
+Headings render as `h2`, subheadings as `h3`, and subsubheadings as `h4` —
+the post title is the page's only `h1`, so the levels never skip. Use a
+subheading to break one section into a few grouped write-ups, the way a
+"places to try" post lists one shop after another under a single heading,
+and a subsubheading to add a note under just one of those without breaking
+the run of subheadings. The first entry must be a paragraph; it doubles as
+the page description.
 
 Body paragraphs are plain text, with two exceptions: `[label](href)` becomes
 a link, as in `[Raleigh Donut Maps](/Raleigh-Donut-Map/)`, and `*text*`

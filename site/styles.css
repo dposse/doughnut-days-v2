@@ -132,6 +132,7 @@
   .band p{font-size:17px;line-height:1.65;text-wrap:pretty}
   h2.tape{margin:0 0 26px;font-size:34px;line-height:1.1;padding:11px 18px}
   h3.tape{margin:0 0 16px;font-size:19px;line-height:1.2;padding:8px 14px}
+  h4.tape{margin:0 0 14px;font-size:16px;line-height:1.2;padding:6px 12px}
 }
 .band--intro p{margin:0}
 .tilt-l{transform:rotate(-1deg)}
@@ -468,3 +469,9 @@ a.shop__site:hover{border-bottom-color:var(--ink)}
    list of shops. Sized and padded by h3.tape's own default; only the top
    margin is widened here, to separate it from the paragraph above. */
 .postsubheading{margin:36px 0 14px;max-width:680px}
+
+/* A note nested inside one postsubheading's own paragraphs — e.g. a later
+   addition to one shop's write-up. Sized and padded by h4.tape's own
+   default; only the top margin is widened, and less than postsubheading's,
+   since it separates a smaller step down. */
+.postsubsubheading{margin:26px 0 12px;max-width:680px}
